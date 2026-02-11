@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://entropia.civilization'; // Placeholder URL
+    const baseUrl = 'https://www.entropiacity.com';
 
     return [
         {

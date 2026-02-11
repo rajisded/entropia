@@ -10,7 +10,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://entropia.civilization"), // Placeholder, adjust as needed
+  metadataBase: new URL("https://www.entropiacity.com"),
   title: {
     default: "ENTROPIA | Sovereign Intellectual Civilization",
     template: "%s | ENTROPIA",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://entropia.civilization",
+    url: "https://www.entropiacity.com",
     title: "ENTROPIA | Sovereign Intellectual Civilization",
     description: "Building a cohesive, high-trust, high-competence meta-society. Advancing humanity through structured collaboration of elite minds.",
     siteName: "Entropia",
@@ -95,8 +95,8 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Entropia",
-    "url": "https://entropia.civilization",
-    "logo": "https://entropia.civilization/icon.png",
+    "url": "https://www.entropiacity.com",
+    "logo": "https://www.entropiacity.com/icon.png",
     "description": "A sovereign intellectual civilization organized around elite cognition and technological acceleration.",
     "foundingDate": "2026",
     "founders": [
@@ -108,7 +108,7 @@ export default function RootLayout({
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "civilizational inquiries",
-      "email": "council@entropia.civilization"
+      "email": "council@entropiacity.com"
     },
     "sameAs": [
       "https://twitter.com/entropia_state",
