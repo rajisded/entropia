@@ -1,11 +1,12 @@
 'use client';
 import { motion } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
+import MapBackground from '@/components/MapBackground';
 
 export default function Hero() {
     return (
         <section className="h-screen w-full flex flex-col items-center justify-center relative overflow-hidden bg-white text-black">
-
+            <MapBackground />
             <div className="container relative z-10 text-center flex flex-col items-center px-4">
                 <motion.div
                     initial={{ opacity: 0, y: 10 }}
