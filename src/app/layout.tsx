@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     siteName: "Entropia",
     images: [
       {
-        url: "/opengraph-image.png", // Next.js automatically generates this if file exists, or we can point to one
+        url: "/opengraph-image.png",
         width: 1200,
         height: 630,
         alt: "Entropia Civilization",
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "ENTROPIA | Sovereign Intellectual Civilization",
     description: "Not a country. A civilizational engine for elite cognition and acceleration.",
-    creator: "@entropia_state", // Placeholder
+    creator: "@entropia_state",
     images: ["/twitter-image.png"],
   },
   icons: {
@@ -80,7 +80,7 @@ export const metadata: Metadata = {
   other: {
     "geo.region": "Global",
     "geo.placename": "Entropia Sovereign Cloud",
-    "geo.position": "0;0", // Null island as symbolic center or placeholder
+    "geo.position": "0;0",
     "ICBM": "0, 0",
   },
 };
