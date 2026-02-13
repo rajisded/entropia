@@ -5,29 +5,29 @@ import { Resend } from 'resend';
 const resend = new Resend('re_PN67dV8w_5EAbWE3c3NB3xfcBS1U2r7GY');
 
 export async function POST(request: Request) {
+  try {
+    const { name, email } = await request.json();
+
     const subjectLines = [
-        "Welcome to the inner circle",
-        "You're officially in",
-        "Welcome to the few, not the many",
-        "You're early. That matters.",
-        "Reserved: Your spot in Entropia",
-        "Access granted. Welcome aboard.",
-        "You're one of the first",
-        "Welcome to the community",
-        "You just joined something rare",
-        "Your invitation has been accepted"
+      "Welcome to the inner circle",
+      "You're officially in",
+      "Welcome to the few, not the many",
+      "You're early. That matters.",
+      "Reserved: Your spot in Entropia",
+      "Access granted. Welcome aboard.",
+      "You're one of the first",
+      "Welcome to the community",
+      "You just joined something rare",
+      "Your invitation has been accepted"
     ];
 
     const randomSubject = subjectLines[Math.floor(Math.random() * subjectLines.length)];
 
-    try {
-        const { name, email } = await request.json();
-
-        const { data, error } = await resend.emails.send({
-            from: 'Entropia <contact@entropiacity.com>',
-            to: email,
-            subject: randomSubject,
-            html: `
+    const { data, error } = await resend.emails.send({
+      from: 'Entropia <contact@entropiacity.com>',
+      to: email,
+      subject: randomSubject,
+      html: `
         <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #000; padding: 20px;">
           
           <h1 style="font-size: 24px; font-weight: bold; margin-bottom: 24px;">Hi ${name},</h1>
@@ -56,16 +56,16 @@ export async function POST(request: Request) {
           </p>
         </div>
       `,
-        });
+    });
 
-        if (error) {
-            console.error('Error sending welcome email:', error);
-            return NextResponse.json({ error }, { status: 500 });
-        }
-
-        return NextResponse.json({ success: true, data });
-    } catch (error) {
-        console.error('Failed to send welcome email:', error);
-        return NextResponse.json({ error: 'Failed to send email' }, { status: 500 });
+    if (error) {
+      console.error('Error sending welcome email:', error);
+      return NextResponse.json({ error }, { status: 500 });
     }
+
+    return NextResponse.json({ success: true, data });
+  } catch (error) {
+    console.error('Failed to send welcome email:', error);
+    return NextResponse.json({ error: 'Failed to send email' }, { status: 500 });
+  }
 }
