@@ -11,7 +11,7 @@ export default function Footer() {
                 <div className="flex justify-center gap-8 text-xs uppercase tracking-widest text-gray-500 font-medium">
                     <Link href="/prospectus" className="hover:text-black transition-colors">Manifesto</Link>
                     <a href="mailto:contact@entropiacity.com" className="hover:text-black transition-colors">Contact</a>
-                    <Link href="/login" className="hover:text-black transition-colors">Login</Link>
+                    <Link href="/access" className="hover:text-black transition-colors">Login</Link>
                 </div>
                 <a href="mailto:hello@entropiacity.com" className="block mt-8 text-xs text-gray-400 hover:text-black transition-colors">
                     hello@entropiacity.com
