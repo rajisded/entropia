@@ -1,12 +1,11 @@
 'use client';
 import { motion } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
-import MapBackground from '@/components/MapBackground';
+import Link from 'next/link';
 
 export default function Hero() {
     return (
         <section className="h-screen w-full flex flex-col items-center justify-center relative overflow-hidden bg-white text-black">
-            <MapBackground />
             <div className="container relative z-10 text-center flex flex-col items-center px-4">
                 <motion.div
                     initial={{ opacity: 0, y: 10 }}
@@ -32,7 +31,7 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-                    className="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto leading-relaxed font-light"
+                    className="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto leading-relaxed font-light mb-12"
                 >
                     Advancing humanity through structured collaboration.
                     <br />
@@ -40,6 +39,19 @@ export default function Hero() {
                         A civilizational engine. Not a country.
                     </span>
                 </motion.p>
+
+                <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+                >
+                    <Link
+                        href="/access"
+                        className="px-8 py-4 rounded-full bg-black text-white text-sm font-semibold uppercase tracking-widest hover:bg-gray-800 transition-colors inline-block"
+                    >
+                        Get Access
+                    </Link>
+                </motion.div>
             </div>
 
             <motion.div

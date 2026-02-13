@@ -2,10 +2,10 @@
 import { motion } from 'framer-motion';
 
 const steps = [
-    "Jurisdictional Anchoring",
-    "Capital Formation",
-    "Eligibility Metrics",
-    "Intellectual Product"
+    "Digital Formation",
+    "Institutional Design",
+    "Think Tank Establishment",
+    "Constitutional Framework"
 ];
 
 export default function Strategic() {
@@ -16,23 +16,23 @@ export default function Strategic() {
                     <div className="flex flex-col md:flex-row justify-between items-start mb-20 gap-12">
                         <div>
                             <span className="text-xs uppercase tracking-[0.2em] font-semibold text-gray-500 mb-6 block">
-                                Positioning
+                                Context
                             </span>
                             <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter text-black mb-8 leading-tight">
                                 Not a startup. <br />
-                                <span className="text-gray-400">Institutional depth.</span>
+                                <span className="text-gray-400">Civilizational depth.</span>
                             </h2>
                         </div>
                         <div className="md:w-1/2">
                             <p className="text-xl text-gray-600 font-light leading-relaxed">
-                                A long-horizon elite civilization project. We are currently in the <span className="text-black font-medium">Conceptual Architecture</span> phase.
+                                A long-horizon elite civilization project. We are currently in <span className="text-black font-medium">Phase I: Foundation</span>.
                             </p>
                         </div>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-8">
                         <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                            <h3 className="text-lg font-semibold text-black mb-6">Immediate Roadmap</h3>
+                            <h3 className="text-lg font-semibold text-black mb-6">Phase I Objectives</h3>
                             <ul className="space-y-4">
                                 {steps.map((step, i) => (
                                     <motion.li
@@ -51,12 +51,12 @@ export default function Strategic() {
                         </div>
 
                         <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                            <h3 className="text-lg font-semibold text-black mb-6">Prospectus</h3>
+                            <h3 className="text-lg font-semibold text-black mb-6">Prospectus Overview</h3>
                             <ul className="space-y-4 text-gray-400 font-light">
-                                <li>Executive Vision</li>
-                                <li>Civilizational Thesis</li>
+                                <li>Vision & Citizenship</li>
                                 <li>Governance Model</li>
-                                <li>Financial Infrastructure</li>
+                                <li>Economic Framework</li>
+                                <li>Knowledge & Tech Goals</li>
                             </ul>
                         </div>
                     </div>

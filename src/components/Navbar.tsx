@@ -37,9 +37,9 @@ export default function Navbar() {
                     <Link href="/prospectus" className={`hover:text-black transition-colors ${pathname === '/prospectus' ? 'text-black font-semibold' : ''}`}>Prospectus</Link>
                 </div>
 
-                <button className="px-5 py-2 rounded-full bg-black text-white text-xs font-semibold uppercase tracking-wider hover:bg-gray-800 transition-colors">
+                <Link href="/access" className="px-5 py-2 rounded-full bg-black text-white text-xs font-semibold uppercase tracking-wider hover:bg-gray-800 transition-colors">
                     Access
-                </button>
+                </Link>
             </div>
         </motion.nav>
     );

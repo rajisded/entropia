@@ -15,15 +15,14 @@ export default function Philosophy() {
                         Philosophy
                     </span>
 
-                    <h2 className="text-6xl md:text-9xl font-bold tracking-tighter text-black mb-12 leading-[0.9]">
-                        Anti-mediocrity.
+                    <h2 className="text-6xl md:text-8xl font-bold tracking-tighter text-black mb-12 leading-[0.9]">
+                        Excellence must be
                         <br />
-                        <span className="text-gray-400">Pro-advancement.</span>
+                        <span className="text-gray-400">organized.</span>
                     </h2>
 
                     <p className="text-2xl text-gray-700 font-light leading-relaxed mb-24 max-w-2xl mx-auto">
-                        We reject bureaucratic stagnation. We prioritize high cognition,
-                        long-term thinking, and systems design.
+                        We are building a structured environment where high-performing individuals can collaborate with long-term responsibility.
                     </p>
 
                     <div className="grid md:grid-cols-2 gap-24 text-left border-t border-gray-100 pt-16">
@@ -32,33 +31,33 @@ export default function Philosophy() {
                             <ul className="space-y-4 text-gray-500 font-light text-lg">
                                 <li className="flex items-center space-x-3">
                                     <span className="w-1.5 h-1.5 bg-black rounded-full" />
-                                    <span>Competence-weighted</span>
+                                    <span>Performance-driven</span>
                                 </li>
                                 <li className="flex items-center space-x-3">
                                     <span className="w-1.5 h-1.5 bg-black rounded-full" />
-                                    <span>Reputation-indexed</span>
+                                    <span>Contribution-weighted</span>
                                 </li>
                                 <li className="flex items-center space-x-3">
                                     <span className="w-1.5 h-1.5 bg-black rounded-full" />
-                                    <span>Data-driven</span>
+                                    <span>Service-oriented</span>
                                 </li>
                             </ul>
                         </div>
 
                         <div>
-                            <h3 className="text-xl font-medium text-black mb-6">Membership</h3>
+                            <h3 className="text-xl font-medium text-black mb-6">Citizenship</h3>
                             <ul className="space-y-4 text-gray-500 font-light text-lg">
                                 <li className="flex items-center space-x-3">
                                     <span className="w-1.5 h-1.5 bg-gray-400 rounded-full" />
-                                    <span>Merit-based</span>
+                                    <span>Earned, not automatic</span>
                                 </li>
                                 <li className="flex items-center space-x-3">
                                     <span className="w-1.5 h-1.5 bg-gray-400 rounded-full" />
-                                    <span>Multi-tiered</span>
+                                    <span>Measured by impact</span>
                                 </li>
                                 <li className="flex items-center space-x-3">
                                     <span className="w-1.5 h-1.5 bg-gray-400 rounded-full" />
-                                    <span>High signal-to-noise</span>
+                                    <span>Capped at 1 million</span>
                                 </li>
                             </ul>
                         </div>

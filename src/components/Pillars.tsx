@@ -1,37 +1,37 @@
 'use client';
 import { motion } from 'framer-motion';
-import { Brain, Users, LineChart, Building2, Globe2, Network } from 'lucide-react';
+import { Brain, Users, LineChart, Building2, Globe2, HeartHandshake } from 'lucide-react';
 
 const pillars = [
     {
-        icon: Brain,
-        title: "Think Tank Core",
-        description: "Invite-only logic core. High signal-to-noise ratio intellectual culture.",
+        icon: Building2,
+        title: "Purpose-Built City",
+        description: "Designed from first principles. A neutral ground where excellence operates without artificial barriers.",
     },
     {
         icon: Users,
-        title: "Sovereign Membership",
-        description: "Multi-tiered citizenship based on merit (elite, contributors, associates).",
+        title: "Merit-Based Citizenship",
+        description: "Capped at 1 million. Citizenship is earned, measured, and continuously upheld based on contribution.",
+    },
+    {
+        icon: Brain,
+        title: "Knowledge Engine",
+        description: "An exclusive legislative Think Tank producing proprietary research and strategic foresight.",
     },
     {
         icon: LineChart,
-        title: "Economic Architecture",
-        description: "Internal ecosystem built on intellectual services and knowledge capital.",
-    },
-    {
-        icon: Building2,
-        title: "Financial Sovereignty",
-        description: "Private treasury and asset-backed digital infrastructure.",
+        title: "Performance Governance",
+        description: "Authority flows from competence. Voting power is dynamically calibrated by contribution.",
     },
     {
         icon: Globe2,
-        title: "Networked Passport",
-        description: "Tiered digital identity & reputation-linked travel endorsements.",
+        title: "ENT Economy",
+        description: "A utility-backed internal economy where value is tied to participation and productivity.",
     },
     {
-        icon: Network,
-        title: "Civilizational Pillars",
-        description: "Strategic intelligence, R&D accelerator, and arbitration courts.",
+        icon: HeartHandshake,
+        title: "Humanitarian Impact",
+        description: "Ensuring technological acceleration strengthens humanity through universal basic security and uplift.",
     },
 ];
 
@@ -61,7 +61,7 @@ export default function Pillars() {
                     className="mb-20 text-center"
                 >
                     <span className="text-xs uppercase tracking-[0.2em] font-semibold text-gray-500 mb-6 block">
-                        Architecture
+                        Core Architecture
                     </span>
                     <h2 className="text-5xl md:text-7xl font-semibold tracking-tighter text-black mb-6">
                         Structural Pillars
