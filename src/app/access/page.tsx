@@ -49,6 +49,20 @@ export default function AccessPage() {
 
             setStatus('success');
             setFormData({ name: '', email: '' });
+
+            // Send welcome email (fire and forget)
+            fetch('/api/send-welcome', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: formData.name,
+                    email: formData.email,
+                }),
+            }).catch((emailErr) => {
+                console.error('Failed to trigger welcome email:', emailErr);
+            });
         } catch (err: any) {
             console.error('Error submitting form:', err);
             setStatus('error');
