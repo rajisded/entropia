@@ -13,7 +13,10 @@ export default function Footer() {
                     <a href="mailto:contact@entropiacity.com" className="hover:text-black transition-colors">Contact</a>
                     <Link href="/login" className="hover:text-black transition-colors">Login</Link>
                 </div>
-                <p className="mt-16 text-xs text-gray-300">
+                <a href="mailto:hello@entropiacity.com" className="block mt-8 text-xs text-gray-400 hover:text-black transition-colors">
+                    hello@entropiacity.com
+                </a>
+                <p className="mt-8 text-xs text-gray-300">
                     &copy; {new Date().getFullYear()} Private Intellectual State.
                 </p>
             </div>
