@@ -9,7 +9,7 @@ export async function POST(request: Request) {
         const { name, email } = await request.json();
 
         const { data, error } = await resend.emails.send({
-            from: 'Entropia <onboarding@resend.dev>', // Using Resend's testing domain initially to ensure delivery without domain verification
+            from: 'Entropia <contact@entropiacity.com>',
             to: email,
             subject: 'Welcome to something different 🚀',
             html: `
