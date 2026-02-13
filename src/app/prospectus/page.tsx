@@ -146,7 +146,10 @@ const contentMap: Record<string, React.ReactNode> = {
             <div className="bg-black text-white p-8 rounded-xl my-8">
                 <div className="flex items-center mb-4">
                     <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center mr-4">
-                        <span className="font-bold text-lg">ENT</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+                            <path d="M12 2l9 4.9V17L12 22l-9-4.9V6.9L12 2z" />
+                            <circle cx="12" cy="12" r="3" />
+                        </svg>
                     </div>
                     <h3 className="text-2xl font-bold">The Entropia Currency (ENT)</h3>
                 </div>
