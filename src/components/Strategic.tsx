@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 const steps = [
@@ -50,7 +51,10 @@ export default function Strategic() {
                             </ul>
                         </div>
 
-                        <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-black/20 transition-all cursor-pointer group">
+                        <Link
+                            href="/prospectus?section=Implementation Roadmap"
+                            className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-black/20 transition-all cursor-pointer group block"
+                        >
                             <h3 className="text-lg font-semibold text-black mb-6 group-hover:text-accent transition-colors">Phase II</h3>
                             <p className="text-gray-600 font-light mb-6 text-sm leading-relaxed">
                                 Institutional Scaling & Economic Maturity. Expanding to 100k members and launching the ENT economy.
@@ -58,7 +62,7 @@ export default function Strategic() {
                             <div className="flex items-center text-xs font-bold uppercase tracking-widest text-black">
                                 <span className="border-b border-black pb-0.5 group-hover:border-accent group-hover:text-accent transition-colors">View Details</span>
                             </div>
-                        </div>
+                        </Link>
                     </div>
                 </div>
             </div>

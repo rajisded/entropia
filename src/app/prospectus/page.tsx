@@ -2,7 +2,8 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { useState } from 'react';
+import { useState, Suspense, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 
 const sections = [
     "Vision",
@@ -359,8 +360,16 @@ const contentMap: Record<string, React.ReactNode> = {
     )
 };
 
-export default function Prospectus() {
+function ProspectusContent() {
+    const searchParams = useSearchParams();
+    const sectionFromUrl = searchParams.get('section');
     const [activeSection, setActiveSection] = useState("Vision");
+
+    useEffect(() => {
+        if (sectionFromUrl && sections.includes(sectionFromUrl)) {
+            setActiveSection(sectionFromUrl);
+        }
+    }, [sectionFromUrl]);
 
     return (
         <main className="min-h-screen bg-gray-50 text-black font-sans selection:bg-black selection:text-white">
@@ -375,7 +384,6 @@ export default function Prospectus() {
                 >
                     <div className="flex flex-col md:flex-row justify-between items-start mb-16 pb-8 border-b border-gray-100">
                         <div>
-
                             <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-black mb-2">Entropia Prospectus</h1>
                             <p className="text-gray-500 font-light text-lg">Sovereign Intellectual Civilization</p>
                         </div>
@@ -442,5 +450,13 @@ export default function Prospectus() {
 
             <Footer />
         </main>
+    );
+}
+
+export default function Prospectus() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <ProspectusContent />
+        </Suspense>
     );
 }

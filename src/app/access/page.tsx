@@ -99,19 +99,21 @@ export default function AccessPage() {
                 more_about_you: ''
             });
 
-            // Send welcome email (fire and forget)
-            fetch('/api/send-welcome', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    name: formData.name,
-                    email: formData.email,
-                }),
-            }).catch((emailErr) => {
+            // Send welcome email
+            try {
+                await fetch('/api/send-welcome', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        name: formData.name,
+                        email: formData.email,
+                    }),
+                });
+            } catch (emailErr) {
                 console.error('Failed to trigger welcome email:', emailErr);
-            });
+            }
 
         } catch (err: any) {
             console.error('Error submitting form:', err);
