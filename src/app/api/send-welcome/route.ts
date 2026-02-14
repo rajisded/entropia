@@ -87,6 +87,15 @@ export async function POST(request: Request) {
     });
 
     if (error) {
+      // Check for Sandbox restriction error
+      if (error.name === 'validation_error' && error.statusCode === 403) {
+        console.warn('[API] Email skipped due to Resend Sandbox limitation:', error.message);
+        return NextResponse.json({
+          success: true,
+          warning: 'Email not sent: Sandbox mode only allows sending to verified email.'
+        });
+      }
+
       // Manually construct a serializable error object to ensure it survives JSON response
       const serverError = {
         message: error.message || 'Unknown Resend API Error',

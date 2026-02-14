@@ -116,7 +116,11 @@ export default function AccessPage() {
                     const errorData = await emailRes.json();
                     console.error('Email API Error:', errorData);
                     // We don't block success state for email failure, but we log it.
-                    // Ideally, you might want to inform the user, but for "waitlist" it's often better to just log.
+                } else {
+                    const data = await emailRes.json();
+                    if (data.warning) {
+                        console.warn('Email API Warning:', data.warning);
+                    }
                 }
             } catch (emailErr) {
                 console.error('Failed to trigger welcome email:', emailErr);
