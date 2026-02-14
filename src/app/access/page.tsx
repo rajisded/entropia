@@ -101,7 +101,7 @@ export default function AccessPage() {
 
             // Send welcome email
             try {
-                await fetch('/api/send-welcome', {
+                const emailRes = await fetch('/api/send-welcome', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -111,6 +111,13 @@ export default function AccessPage() {
                         email: formData.email,
                     }),
                 });
+
+                if (!emailRes.ok) {
+                    const errorData = await emailRes.json();
+                    console.error('Email API Error:', errorData);
+                    // We don't block success state for email failure, but we log it.
+                    // Ideally, you might want to inform the user, but for "waitlist" it's often better to just log.
+                }
             } catch (emailErr) {
                 console.error('Failed to trigger welcome email:', emailErr);
             }

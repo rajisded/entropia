@@ -1,17 +1,30 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-const resendApiKey = process.env.RESEND_API_KEY;
+// API Key and Resend initialization moved to inside handler for safety
 
-if (!resendApiKey) {
-  throw new Error('Missing RESEND_API_KEY environment variable');
-}
-
-const resend = new Resend(resendApiKey);
 
 export async function POST(request: Request) {
   try {
+    const resendApiKey = process.env.RESEND_API_KEY;
+
+    if (!resendApiKey) {
+      console.error('RESEND_API_KEY is not defined');
+      return NextResponse.json(
+        { error: 'Server configuration error: Missing API Key' },
+        { status: 500 }
+      );
+    }
+
+    const resend = new Resend(resendApiKey);
     const { name, email } = await request.json();
+
+    if (!email || !name) {
+      return NextResponse.json(
+        { error: 'Missing required fields: name or email' },
+        { status: 400 }
+      );
+    }
 
     const subjectLines = [
       "Welcome to the inner circle",
@@ -64,13 +77,13 @@ export async function POST(request: Request) {
     });
 
     if (error) {
-      console.error('Error sending welcome email:', error);
-      return NextResponse.json({ error }, { status: 500 });
+      console.error('Resend API Error:', error);
+      return NextResponse.json({ error: error.message || 'Failed to send email' }, { status: 500 });
     }
 
     return NextResponse.json({ success: true, data });
-  } catch (error) {
-    console.error('Failed to send welcome email:', error);
-    return NextResponse.json({ error: 'Failed to send email' }, { status: 500 });
+  } catch (error: any) {
+    console.error('Failed to send welcome email (Route Handler):', error);
+    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
   }
 }
