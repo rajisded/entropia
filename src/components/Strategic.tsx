@@ -50,14 +50,14 @@ export default function Strategic() {
                             </ul>
                         </div>
 
-                        <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                            <h3 className="text-lg font-semibold text-black mb-6">Prospectus Overview</h3>
-                            <ul className="space-y-4 text-gray-400 font-light">
-                                <li>Vision & Citizenship</li>
-                                <li>Governance Model</li>
-                                <li>Economic Framework</li>
-                                <li>Knowledge & Tech Goals</li>
-                            </ul>
+                        <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-black/20 transition-all cursor-pointer group">
+                            <h3 className="text-lg font-semibold text-black mb-6 group-hover:text-accent transition-colors">Phase II</h3>
+                            <p className="text-gray-600 font-light mb-6 text-sm leading-relaxed">
+                                Institutional Scaling & Economic Maturity. Expanding to 100k members and launching the ENT economy.
+                            </p>
+                            <div className="flex items-center text-xs font-bold uppercase tracking-widest text-black">
+                                <span className="border-b border-black pb-0.5 group-hover:border-accent group-hover:text-accent transition-colors">View Details</span>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -17,14 +17,14 @@ export default function Vision() {
                     </span>
 
                     <h2 className="text-4xl md:text-6xl font-semibold tracking-tight text-black leading-[1.05] mb-12">
-                        Human progress accelerates when capable people are free to work together <span className="text-accent underline decoration-2 decoration-accent/20">without artificial barriers</span>.
+                        Human progress accelerates when capable people are free to work together <span className="text-accent underline decoration-2 decoration-accent/20">without barriers</span>.
                     </h2>
 
                     <div className="grid md:grid-cols-2 gap-12">
                         <div>
                             <h3 className="text-2xl font-semibold text-black mb-4 tracking-tight">The Thesis</h3>
                             <p className="text-gray-600 text-lg leading-relaxed font-light">
-                                Entropia City is not a nation, but a purpose-built city designed from first principles. A neutral ground for collaboration where excellence can operate at full capacity.
+                                Entropia City is a purpose-built city designed from first principles. A neutral ground for collaboration where excellence can operate at full capacity.
                             </p>
                         </div>
                         <div>

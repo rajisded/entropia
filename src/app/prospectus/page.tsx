@@ -22,10 +22,10 @@ const contentMap: Record<string, React.ReactNode> = {
             <h2 className="text-3xl font-bold tracking-tight mb-8">Vision</h2>
             <p className="text-gray-700 leading-relaxed font-light text-lg">
                 Entropia City is envisioned as a purpose-built city for the advancement of humanity.
-                It is not a nation, not a political movement, and not a reaction to the world’s current systems. It is a city designed from first principles, a place where exceptional individuals from across the globe can live, build, research, and collaborate without the usual divisions of nationality, race, religion, or ideology.
+                It is not a political movement, and not a reaction to the world’s current systems. It is a city designed from first principles, a place where exceptional individuals from across the globe can live, build, research, and collaborate without the usual divisions of nationality, race, religion, or ideology.
             </p>
             <p className="text-gray-700 leading-relaxed font-light text-lg">
-                Entropia City will be grounded in one simple idea: <span className="font-medium text-black">human progress accelerates when capable people are free to work together without artificial barriers.</span>
+                Entropia City will be grounded in one simple idea: <span className="font-medium text-black">human progress accelerates when capable people are free to work together without barriers.</span>
             </p>
             <div className="bg-gray-50 p-6 rounded-lg my-8 border-l-2 border-black">
                 <h3 className="font-bold text-black mb-4 uppercase tracking-wider text-sm">Core Focus Areas</h3>
@@ -375,9 +375,7 @@ export default function Prospectus() {
                 >
                     <div className="flex flex-col md:flex-row justify-between items-start mb-16 pb-8 border-b border-gray-100">
                         <div>
-                            <span className="bg-black text-white text-[10px] font-bold uppercase tracking-[0.2em] px-2 py-1 rounded-sm mb-4 inline-block">
-                                Confidential
-                            </span>
+
                             <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-black mb-2">Entropia Prospectus</h1>
                             <p className="text-gray-500 font-light text-lg">Sovereign Intellectual Civilization</p>
                         </div>
@@ -390,12 +388,7 @@ export default function Prospectus() {
 
                     <div className="grid md:grid-cols-3 gap-16">
                         <div className="md:col-span-2 space-y-12">
-                            <div className="bg-gray-50 p-6 rounded-lg text-sm leading-relaxed text-gray-600 border-l-2 border-black mb-8">
-                                <p>
-                                    <span className="text-black font-bold">WARNING:</span> This document outlines the conceptual architecture for a sovereign intellectual civilization.
-                                    Unauthorized distribution is strictly prohibited.
-                                </p>
-                            </div>
+
 
                             <div className="min-h-[400px]">
                                 <AnimatePresence mode="wait">

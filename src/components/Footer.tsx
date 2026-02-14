@@ -6,7 +6,7 @@ export default function Footer() {
             <div className="container px-6 md:px-12 mx-auto">
                 <p className="mb-8 text-black font-semibold tracking-tight">ENTROPIA</p>
                 <p className="mb-12 max-w-sm mx-auto leading-relaxed">
-                    Advancing humanity through structured collaboration of elite minds. Not a country. A civilizational engine.
+                    Advancing humanity through structured collaboration of elite minds. A civilizational engine.
                 </p>
                 <div className="flex justify-center gap-8 text-xs uppercase tracking-widest text-gray-500 font-medium">
                     <Link href="/prospectus" className="hover:text-black transition-colors">Manifesto</Link>

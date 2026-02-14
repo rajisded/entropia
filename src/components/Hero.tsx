@@ -36,7 +36,7 @@ export default function Hero() {
                     Advancing humanity through structured collaboration.
                     <br />
                     <span className="text-black font-medium mt-2 block">
-                        A civilizational engine. Not a country.
+                        A civilizational engine.
                     </span>
                 </motion.p>
 
