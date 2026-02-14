@@ -87,20 +87,33 @@ export async function POST(request: Request) {
     });
 
     if (error) {
-      console.error('[API] Resend API Error Details:', JSON.stringify(error, null, 2));
+      // Manually construct a serializable error object to ensure it survives JSON response
+      const serverError = {
+        message: error.message || 'Unknown Resend API Error',
+        name: error.name || 'UnknownError',
+        data: error
+      };
+      console.error('[API] Resend API Error:', JSON.stringify(serverError, null, 2));
+
       return NextResponse.json({
-        error: error.message || 'Failed to send email',
-        details: error
+        error: serverError.message,
+        details: serverError
       }, { status: 500 });
     }
 
     console.log('[API] Email sent successfully:', data);
     return NextResponse.json({ success: true, data });
   } catch (error: any) {
-    console.error('[API] Failed to send welcome email (Route Handler Exception):', error);
+    // Manually construct catch error
+    const catchError = {
+      message: error?.message || 'Unknown Internal Error',
+      stack: error?.stack,
+      original: error
+    };
+    console.error('[API] Failed to send welcome email (Exception):', catchError);
     return NextResponse.json({
       error: 'Internal Server Error',
-      details: error.message
+      details: catchError.message
     }, { status: 500 });
   }
 }
