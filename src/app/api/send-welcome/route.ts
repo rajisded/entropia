@@ -8,8 +8,11 @@ export async function POST(request: Request) {
   try {
     const resendApiKey = process.env.RESEND_API_KEY;
 
+    // Log key status (safe version)
+    console.log(`[API] Attempting to send email. Key present: ${!!resendApiKey}, Prefix: ${resendApiKey ? resendApiKey.substring(0, 4) + '...' : 'NONE'}`);
+
     if (!resendApiKey) {
-      console.error('RESEND_API_KEY is not defined');
+      console.error('[API] RESEND_API_KEY is not defined');
       return NextResponse.json(
         { error: 'Server configuration error: Missing API Key' },
         { status: 500 }
@@ -26,6 +29,11 @@ export async function POST(request: Request) {
       );
     }
 
+    // NOTE: Using onboarding@resend.dev is the safest way to test without a verified domain.
+    // Once you have verified 'entropiacity.com' in Resend, change this back to 'contact@entropiacity.com'.
+    // IMPORTANT: In sandbox mode (onboarding@resend.dev), you can ONLY send emails to the address you registered with Resend.
+    const fromAddress = 'Entropia <onboarding@resend.dev>';
+
     const subjectLines = [
       "Welcome to the inner circle",
       "You're officially in",
@@ -41,8 +49,10 @@ export async function POST(request: Request) {
 
     const randomSubject = subjectLines[Math.floor(Math.random() * subjectLines.length)];
 
+    console.log(`[API] Sending email to: ${email} from: ${fromAddress}`);
+
     const { data, error } = await resend.emails.send({
-      from: 'Entropia <contact@entropiacity.com>',
+      from: fromAddress,
       to: email,
       subject: randomSubject,
       html: `
@@ -77,13 +87,20 @@ export async function POST(request: Request) {
     });
 
     if (error) {
-      console.error('Resend API Error:', error);
-      return NextResponse.json({ error: error.message || 'Failed to send email' }, { status: 500 });
+      console.error('[API] Resend API Error Details:', JSON.stringify(error, null, 2));
+      return NextResponse.json({
+        error: error.message || 'Failed to send email',
+        details: error
+      }, { status: 500 });
     }
 
+    console.log('[API] Email sent successfully:', data);
     return NextResponse.json({ success: true, data });
   } catch (error: any) {
-    console.error('Failed to send welcome email (Route Handler):', error);
-    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+    console.error('[API] Failed to send welcome email (Route Handler Exception):', error);
+    return NextResponse.json({
+      error: 'Internal Server Error',
+      details: error.message
+    }, { status: 500 });
   }
 }
