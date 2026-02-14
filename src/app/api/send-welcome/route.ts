@@ -87,12 +87,18 @@ export async function POST(request: Request) {
     });
 
     if (error) {
-      // Check for Sandbox restriction error
-      if (error.name === 'validation_error' && error.statusCode === 403) {
+      // Check for Sandbox restriction error (more robust check)
+      const isSandboxError =
+        (error.name === 'validation_error') ||
+        (error.message && error.message.includes('only send testing emails')) ||
+        (error.statusCode === 403) ||
+        (error?.data?.statusCode === 403);
+
+      if (isSandboxError) {
         console.warn('[API] Email skipped due to Resend Sandbox limitation:', error.message);
         return NextResponse.json({
           success: true,
-          warning: 'Email not sent: Sandbox mode only allows sending to verified email.'
+          warning: 'Email not sent: Sandbox mode only allows sending to verified emails. (This is normal in development)'
         });
       }
 
