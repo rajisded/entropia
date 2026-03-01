@@ -10,6 +10,7 @@ export default function Footer() {
                 </p>
                 <div className="flex justify-center gap-8 text-xs uppercase tracking-widest text-gray-500 font-medium">
                     <Link href="/prospectus" className="hover:text-black transition-colors">Manifesto</Link>
+                    <Link href="/community" className="hover:text-black transition-colors">Community</Link>
                     <a href="mailto:hello@entropiacity.com" className="hover:text-black transition-colors">Contact</a>
                     <Link href="/access" className="hover:text-black transition-colors">Login</Link>
                 </div>
