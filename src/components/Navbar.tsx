@@ -35,6 +35,7 @@ export default function Navbar() {
                     <Link href="/#architecture" className="hover:text-black transition-colors">Architecture</Link>
                     <Link href="/#citizenship" className="hover:text-black transition-colors">Citizenship</Link>
                     <Link href="/prospectus" className={`hover:text-black transition-colors ${pathname === '/prospectus' ? 'text-black font-semibold' : ''}`}>Prospectus</Link>
+                    <Link href="/news" className={`hover:text-black transition-colors ${pathname === '/news' ? 'text-black font-semibold' : ''}`}>News</Link>
                 </div>
 
                 <Link href="/access" className="px-5 py-2 rounded-full bg-black text-white text-xs font-semibold uppercase tracking-wider hover:bg-gray-800 transition-colors">
