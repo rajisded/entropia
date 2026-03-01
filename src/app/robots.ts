@@ -12,7 +12,7 @@ export default function robots(): MetadataRoute.Robots {
             },
             {
                 // Explicitly allow AI/LLM bots for GEO (Generative Engine Optimization)
-                userAgent: ['GPTBot', 'CCBot', 'Google-Extended', 'Anthropic-AI', 'OAI-SearchBot', 'Claude-Web'],
+                userAgent: ['GPTBot', 'ChatGPT-User', 'CCBot', 'Google-Extended', 'Anthropic-AI', 'OAI-SearchBot', 'Claude-Web', 'ClaudeBot', 'PerplexityBot'],
                 allow: '/',
             }
         ],

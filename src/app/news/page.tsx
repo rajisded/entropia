@@ -24,7 +24,7 @@ export default function NewsPage() {
                             transition={{ delay: 0.2, duration: 0.5 }}
                         >
                             <span className="px-4 py-1.5 rounded-full bg-black/5 border border-black/10 text-xs font-semibold tracking-wider uppercase text-black">
-                                The AI Newsletter
+                                The AI Letter
                             </span>
                         </motion.div>
 
@@ -33,7 +33,7 @@ export default function NewsPage() {
                         </h1>
 
                         <p className="text-lg md:text-xl text-gray-600 max-w-lg mx-auto leading-relaxed">
-                            Stay ahead of the curve. Get the most critical AI developments, insights, and analysis delivered straight to your inbox every morning. No noise, just signal.
+                            Get the most critical AI developments, insights, and analysis delivered straight to your inbox every morning.
                         </p>
                     </div>
 
