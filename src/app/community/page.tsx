@@ -72,22 +72,20 @@ const socialChannels = [
     }
 ];
 
-const telegramTabs = ["Community", "Research", "Development", "Announcements"];
+const telegramTabs = ["Community"];
 
 const telegramRooms = [
     { name: "English", icon: "message" },
-    { name: "Chinese", icon: "message" },
-    { name: "Announcements", icon: "announcement" },
 ];
 
 export default function CommunityPage() {
     const [activeTab, setActiveTab] = useState("Community");
 
     return (
-        <main className="min-h-screen bg-[#0B0C10] text-[#E0E2E7] flex flex-col selection:bg-white selection:text-black">
+        <main className="min-h-screen bg-white text-black flex flex-col selection:bg-black selection:text-white">
             <Navbar />
 
-            {/* Set a dark theme constraint specifically for this page inner while keeping navbar functional */}
+            {/* Set a light theme constraint specifically for this page inner while keeping navbar functional */}
             <div className="flex-1 flex flex-col pt-32 pb-24 items-center">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -97,34 +95,34 @@ export default function CommunityPage() {
                 >
                     {/* Section 1: Social Channels */}
                     <section className="space-y-8">
-                        <h2 className="text-2xl font-semibold text-white">Entropia Social Media Channels</h2>
+                        <h2 className="text-2xl font-semibold text-black">Entropia Social Media Channels</h2>
                         <div className="flex flex-wrap gap-x-8 gap-y-10 md:gap-x-12">
                             {socialChannels.map((channel, i) => (
                                 <div key={i} className="flex flex-col items-center gap-3 w-[80px] group cursor-pointer hover:scale-105 transition-transform">
-                                    <div className="w-14 h-14 rounded-full bg-[#181A20] hover:bg-[#20222A] border border-[#2B2F36] flex items-center justify-center text-[#848E9C] group-hover:text-white transition-colors shadow-sm">
+                                    <div className="w-14 h-14 rounded-full bg-white hover:bg-gray-50 border border-gray-200 flex items-center justify-center text-gray-500 group-hover:text-black transition-colors shadow-sm">
                                         {channel.icon}
                                     </div>
-                                    <span className="text-sm font-medium text-[#848E9C] group-hover:text-[#EAECEF] transition-colors">{channel.name}</span>
+                                    <span className="text-sm font-medium text-gray-500 group-hover:text-black transition-colors">{channel.name}</span>
                                 </div>
                             ))}
                         </div>
                     </section>
 
                     {/* Section 2: Telegram Channels */}
-                    <section className="space-y-8 border-t border-[#1C1F25] pt-12">
+                    <section className="space-y-8 border-t border-gray-200 pt-12">
                         <div className="space-y-2">
-                            <h2 className="text-2xl font-semibold text-white">Official Entropia Telegram Channels</h2>
-                            <p className="text-[15px] text-[#848E9C]">Join the discussion and stay up to date with announcements!</p>
+                            <h2 className="text-2xl font-semibold text-black">Official Entropia Telegram Channels</h2>
+                            <p className="text-[15px] text-gray-500">Join the discussion and stay up to date with announcements!</p>
                         </div>
 
-                        <div className="flex gap-1 border-b border-[#2B2F36] pb-4">
+                        <div className="flex gap-1 border-b border-gray-200 pb-4">
                             {telegramTabs.map((tab) => (
                                 <button
                                     key={tab}
                                     onClick={() => setActiveTab(tab)}
                                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === tab
-                                            ? "bg-[#2B3139] text-[#EAECEF]"
-                                            : "text-[#848E9C] hover:text-[#EAECEF]"
+                                        ? "bg-gray-100 text-black"
+                                        : "text-gray-500 hover:text-black"
                                         }`}
                                 >
                                     {tab}
@@ -134,26 +132,26 @@ export default function CommunityPage() {
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
                             {telegramRooms.map((room, i) => (
-                                <div key={i} className="bg-[#181A20] border border-[#2B2F36] p-5 rounded-xl hover:border-[#474D57] transition-colors group cursor-pointer flex flex-col justify-between h-[120px]">
+                                <div key={i} className="bg-white border border-gray-200 p-5 rounded-xl hover:border-black transition-colors group cursor-pointer flex flex-col justify-between h-[120px] shadow-sm">
                                     <div>
                                         {room.icon === "message" ? (
-                                            <svg className="w-5 h-5 text-[#848E9C]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                                             </svg>
                                         ) : (
-                                            <svg className="w-5 h-5 text-[#848E9C]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
                                             </svg>
                                         )}
-                                        <h3 className="text-[#EAECEF] font-semibold mt-2 text-sm">{room.name}</h3>
+                                        <h3 className="text-black font-semibold mt-2 text-sm">{room.name}</h3>
                                     </div>
                                     <div className="flex items-center justify-between mt-4">
-                                        <span className="text-xs font-semibold text-[#848E9C] group-hover:text-white transition-colors">Open Telegram Channel ›</span>
-                                        <div className="flex gap-2 text-[#848E9C]">
-                                            <button className="hover:text-white transition-colors">
+                                        <span className="text-xs font-semibold text-gray-500 group-hover:text-black transition-colors">Open Telegram Channel ›</span>
+                                        <div className="flex gap-2 text-gray-400">
+                                            <button className="hover:text-black transition-colors">
                                                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
                                             </button>
-                                            <button className="hover:text-white transition-colors">
+                                            <button className="hover:text-black transition-colors">
                                                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" /></svg>
                                             </button>
                                         </div>
@@ -164,21 +162,21 @@ export default function CommunityPage() {
                     </section>
 
                     {/* Section 3: Quote */}
-                    <section className="bg-[#181A20] border border-[#2B2F36] rounded-2xl p-8 md:p-12 mb-8 relative">
-                        <svg className="w-10 h-10 text-[#2B3139] absolute top-8 left-8" fill="currentColor" viewBox="0 0 24 24">
+                    <section className="bg-white border border-gray-200 rounded-2xl p-8 md:p-12 mb-8 relative shadow-sm">
+                        <svg className="w-10 h-10 text-gray-100 absolute top-8 left-8" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                         </svg>
                         <div className="pl-0 md:pl-16 relative z-10">
                             <div className="hidden md:block h-6" /> {/* Spacer for icon absolute */}
-                            <p className="text-[17px] leading-[1.7] text-[#EAECEF] font-medium tracking-wide">
+                            <p className="text-[17px] leading-[1.7] text-black font-medium tracking-wide">
                                 The Entropia community inspires us every day. It is the innovation engine of Entropia that helps, and motivates us to achieve even higher goals. The Entropia community is the most knowledgeable AI community in the world. Nothing gives me greater pleasure than meeting and speaking to our community members, both online and in-person.
                             </p>
                             <br />
-                            <p className="text-[17px] leading-[1.7] text-[#EAECEF] font-medium tracking-wide">
+                            <p className="text-[17px] leading-[1.7] text-black font-medium tracking-wide">
                                 Thank you for your ongoing help and support.
                             </p>
                             <br />
-                            <p className="text-[#848E9C] text-sm font-semibold tracking-wider">
+                            <p className="text-gray-500 text-sm font-semibold tracking-wider">
                                 - Aryan Pandey
                             </p>
                         </div>

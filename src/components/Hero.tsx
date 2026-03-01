@@ -7,17 +7,6 @@ export default function Hero() {
     return (
         <section className="h-screen w-full flex flex-col items-center justify-center relative overflow-hidden bg-white text-black">
             <div className="container relative z-10 text-center flex flex-col items-center px-4">
-                <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                    className="mb-8"
-                >
-                    <span className="text-xs uppercase tracking-[0.2em] font-semibold text-gray-500">
-                        Sovereign Intellectual Civilization
-                    </span>
-                </motion.div>
-
                 <motion.h1
                     initial={{ opacity: 0, letterSpacing: "-0.05em" }}
                     animate={{ opacity: 1, letterSpacing: "-0.06em" }}
