@@ -91,8 +91,8 @@ export async function POST(request: Request) {
       const isSandboxError =
         (error.name === 'validation_error') ||
         (error.message && error.message.includes('only send testing emails')) ||
-        (error.statusCode === 403) ||
-        (error?.data?.statusCode === 403);
+        ((error as any).statusCode === 403) ||
+        ((error as any)?.data?.statusCode === 403);
 
       if (isSandboxError) {
         console.warn('[API] Email skipped due to Resend Sandbox limitation:', error.message);
