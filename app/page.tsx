@@ -10,7 +10,7 @@ import { FaqSection } from "./components/faq-section";
 import { Footer } from "./components/footer";
 import { ProductsSection } from "./components/products-section";
 import { PageGrid } from "./components/page-grid";
-import { GRID_HALF, GRID_INNER_PAD, GRID_LINE, GRID_OUTER_MARGIN } from "./lib/grid";
+import { GRID_HALF, GRID_INNER_PAD, GRID_OUTER_MARGIN } from "./lib/grid";
 import { useIsMobile } from "./lib/use-media-query";
 
 // ─── Customer logo data ────────────────────────────────────────

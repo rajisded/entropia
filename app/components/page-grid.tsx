@@ -1,7 +1,5 @@
 "use client";
 
-import { GRID_LINE } from "../lib/grid";
-
 export function PageGrid({ children }: { children: React.ReactNode }) {
   return (
     <div style={{ position: "relative" }}>

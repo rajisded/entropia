@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { GRID_LINE } from "../lib/grid";
 
 const TESTIMONIALS = [
   {
@@ -63,10 +62,9 @@ const TESTIMONIALS = [
 export function TestimonialsSection() {
   return (
     <section
+      className="section-grid-lines"
       style={{
         background: "#ffffff",
-        borderTop: GRID_LINE,
-        borderBottom: GRID_LINE,
       }}
     >
       <div className="section-shell">

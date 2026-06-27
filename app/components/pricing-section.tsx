@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { GRID_LINE } from "../lib/grid";
 
 type Product = "hrms" | "kiosk";
 
@@ -157,11 +156,10 @@ export function PricingSection() {
 
   return (
     <section
+      className="section-grid-lines"
       style={{
         position: "relative",
         background: "#ffffff",
-        borderTop: GRID_LINE,
-        borderBottom: GRID_LINE,
       }}
     >
       <div className="section-shell" style={{ paddingBottom: 120 }}>

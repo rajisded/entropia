@@ -1,7 +1,5 @@
 "use client";
 
-import { GRID_LINE } from "../lib/grid";
-
 const CLIENTS = [
   { name: "Biryani Blues", icon: <BiryaniIcon /> },
   { name: "Wow Momo", icon: <WowIcon /> },
@@ -72,10 +70,9 @@ function CloudIcon() {
 export function ClientsSection() {
   return (
     <section
+      className="section-grid-lines"
       style={{
         background: "#ffffff",
-        borderTop: GRID_LINE,
-        borderBottom: GRID_LINE,
       }}
     >
       <style>{`

@@ -455,6 +455,11 @@ body {
   z-index: 20;
 }
 
+.section-grid-lines {
+  border-top: 1px solid rgba(0, 0, 0, 0.09);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+}
+
 /* ─── Hero (mobile) ──────────────────────────────────────── */
 .hero-copy {
   position: absolute;
@@ -679,7 +684,12 @@ body {
   }
 
   .page-grid-rails {
-    width: calc(100% - 32px);
+    display: none;
+  }
+
+  .section-grid-lines {
+    border-top: none;
+    border-bottom: none;
   }
 
   .products-inner {

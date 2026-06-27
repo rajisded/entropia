@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { GRID_LINE } from "../lib/grid";
 
 const INTERVAL_MS = 4000;
 const FADE_MS = 320;
@@ -18,7 +17,7 @@ const PRODUCT_SLIDES = [
     integrations: ["Biometric", "GST Ready", "Slack", "Razorpay"],
     features: [
       { name: "Automated Payroll & TDS", icon: <PayrollIcon /> },
-      { name: "Biometric Attendance Sync", icon: <BiometricIcon /> },
+      { name: "Face Attendance Sync", icon: <BiometricIcon /> },
       { name: "Leave & Shift Management", icon: <LeaveIcon /> },
       { name: "Employee Self-Service App", icon: <ESIcon /> },
       { name: "Multi-branch Dashboard", icon: <MultiIcon /> },
@@ -214,11 +213,9 @@ export function ProductsSection() {
   }, [autoPlay, active, changeProduct]);
 
   return (
-    <section style={{
+    <section className="section-grid-lines" style={{
       position: "relative",
       background: "#ffffff",
-      borderTop: GRID_LINE,
-      borderBottom: GRID_LINE,
     }}>
       <style>{`
         .products-layout-grid {

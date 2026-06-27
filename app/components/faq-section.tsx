@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { GRID_LINE } from "../lib/grid";
 
 const FAQS = [
   {
@@ -61,10 +60,9 @@ export function FaqSection() {
 
   return (
     <section
+      className="section-grid-lines"
       style={{
         background: "#ffffff",
-        borderTop: GRID_LINE,
-        borderBottom: GRID_LINE,
       }}
     >
       <div className="section-shell">
