@@ -6,6 +6,8 @@ import { useLenis } from "lenis/react";
 import { PricingSection } from "./components/pricing-section";
 import { ClientsSection } from "./components/clients-section";
 import { TestimonialsSection } from "./components/testimonials-section";
+import { FaqSection } from "./components/faq-section";
+import { Footer } from "./components/footer";
 import { PageGrid } from "./components/page-grid";
 import { GRID_HALF, GRID_INNER_PAD, GRID_LINE, GRID_MAX_W, GRID_OUTER_MARGIN } from "./lib/grid";
 
@@ -620,6 +622,10 @@ export default function Home() {
       <ClientsSection />
 
       <TestimonialsSection />
+
+      <FaqSection />
+
+      <Footer />
 
       {/* ══════════════════════════════════════════════════════
           FLOATING "SPEAK TO ME" BAR
