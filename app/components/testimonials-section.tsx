@@ -7,7 +7,7 @@ const TESTIMONIALS = [
   {
     quote: (
       <>
-        Switching from UEngage to Spartan Kiosk <strong>cut our per-order cost by 65%.</strong> The PetPooja sync is flawless — works even when the internet drops.
+        Switching from UEngage to Spartan Kiosk <strong>cut our per-order cost by 65%.</strong> The PetPooja sync is flawless and works even when the internet drops.
       </>
     ),
     name: "Rohit Sharma",
@@ -34,7 +34,7 @@ const TESTIMONIALS = [
   {
     quote: (
       <>
-        Payroll used to take our team 2 full days every month. With Spartan HRMS, <strong>it&apos;s done in 20 minutes</strong> — including TDS and compliance reports.
+        Payroll used to take our team 2 full days every month. With Spartan HRMS, <strong>it&apos;s done in 20 minutes</strong>, including TDS and compliance reports.
       </>
     ),
     name: "Meera Gupta",

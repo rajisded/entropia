@@ -8,7 +8,7 @@ type Product = "hrms" | "kiosk";
 const PROCESS_STEPS = [
   {
     title: "Book a Demo",
-    desc: "See Spartan live in 15 minutes. No sales pitch — just a real walkthrough of the product.",
+    desc: "See Spartan live in 15 minutes. No sales pitch, just a real walkthrough of the product.",
     icon: <DemoIcon />,
   },
   {
@@ -25,13 +25,13 @@ const PROCESS_STEPS = [
 
 const PRODUCT_DATA = {
   hrms: {
-    badge: "PagarBook killer",
+    badge: "70% lower cost",
     badgeColor: "#6366f1",
     badgeBg: "rgba(99,102,241,0.08)",
     teaserTag: "Replace PagarBook today",
     teaserHeadline: "HR & payroll that runs itself. No more spreadsheets.",
     title: "HRMS",
-    desc: "Full HR & payroll platform. Handles attendance, leaves, compliance, and payslips — automatically.",
+    desc: "Full HR & payroll platform. Handles attendance, leaves, compliance, and payslips automatically.",
     price: "₹99",
     pricePer: "/ employee / month",
     priceNote: "Minimum 10 employees. Billed monthly.",

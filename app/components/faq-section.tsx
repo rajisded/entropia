@@ -7,7 +7,7 @@ import { GRID_LINE } from "../lib/grid";
 const FAQS = [
   {
     q: "How long does it take to switch from UEngage or PagarBook to Spartan?",
-    a: "Most businesses are fully live within 3–5 business days. We handle the entire migration — menus, employee records, historical data — for free. No downtime, no data loss.",
+    a: "Most businesses are fully live within 3 to 5 business days. We handle the entire migration (menus, employee records, historical data) for free. No downtime, no data loss.",
   },
   {
     q: "Do you integrate with PetPooja?",
@@ -15,11 +15,11 @@ const FAQS = [
   },
   {
     q: "What happens to our existing data when we switch?",
-    a: "We migrate everything — employee records, payroll history, menu items, order data. Our dedicated onboarding team runs the migration and validates every record before you go live.",
+    a: "We migrate everything: employee records, payroll history, menu items, order data. Our dedicated onboarding team runs the migration and validates every record before you go live.",
   },
   {
     q: "Is Spartan actually cheaper than UEngage and PagarBook?",
-    a: "Significantly. Restaurants typically save 60–80% over UEngage. HRMS customers cut their PagarBook bill by 70% on average. Our pricing is per-location and per-employee with zero hidden fees.",
+    a: "Significantly. Restaurants typically save 60 to 80% over UEngage. HRMS customers cut their PagarBook bill by 70% on average. Our pricing is per-location and per-employee with zero hidden fees.",
   },
   {
     q: "Does the kiosk work offline if internet goes down?",
@@ -27,7 +27,7 @@ const FAQS = [
   },
   {
     q: "Can we manage multiple locations from one dashboard?",
-    a: "Absolutely. Spartan is built for chains and multi-location businesses. One dashboard shows every location's kiosk data, payroll, attendance, and reports — in real time.",
+    a: "Absolutely. Spartan is built for chains and multi-location businesses. One dashboard shows every location's kiosk data, payroll, attendance, and reports in real time.",
   },
 ];
 
@@ -190,7 +190,7 @@ export function FaqSection() {
               See Spartan live in 15 minutes.
             </h3>
             <p style={{ fontSize: 13.5, lineHeight: 1.6, color: "#888", margin: "0 0 28px" }}>
-              No sales pressure. Just a real walkthrough of the Kiosk or HRMS — on your actual use case, with your data.
+              No sales pressure. Just a real walkthrough of the Kiosk or HRMS on your actual use case, with your data.
             </p>
 
             <div className="faq-cta-row" style={{ display: "flex", alignItems: "center", gap: 16 }}>

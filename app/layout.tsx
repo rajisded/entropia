@@ -4,9 +4,9 @@ import "./globals.css";
 import { LenisProvider } from "./components/lenis-provider";
 
 export const metadata: Metadata = {
-  title: "Joseph Alexander — Design that delivers results",
+  title: "Spartan | Software built to replace the giants",
   description:
-    "Strategic design that drives growth, not just looks good. I create everything your brand needs to attract customers and turn them into sales.",
+    "Spartan replaces UEngage and PagarBook with modern kiosk and HRMS software at a fraction of the cost.",
 };
 
 export default function RootLayout({

@@ -495,7 +495,48 @@ body {
 }
 
 .products-inner {
-  padding: 100px 0 110px;
+  padding: 0;
+}
+
+/* ─── Mobile hero (static layout) ────────────────────────── */
+.hero-mobile {
+  position: relative;
+  z-index: 5;
+  background: #fff;
+}
+
+.hero-mobile-intro {
+  padding: 88px 16px 24px;
+}
+
+.hero-mobile-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 0 16px 0;
+}
+
+.hero-mobile-card {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: #eee;
+}
+
+.hero-mobile-card-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px 10px 10px;
+  background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
+}
+
+.hero-mobile-social {
+  position: relative !important;
+  transform: none !important;
+  margin-top: 24px;
 }
 
 @media (max-width: 900px) {
@@ -547,19 +588,6 @@ body {
   .cta-button {
     font-size: 13.5px;
     padding: 9px 18px 9px 9px;
-  }
-
-  .hero-copy {
-    left: 20px !important;
-    right: 20px !important;
-    width: auto !important;
-    top: 88px !important;
-    transform: translateY(var(--copy-y, 0px)) !important;
-  }
-
-  .hero-card-stage {
-    top: 58% !important;
-    transform: translate(calc(-50% + var(--dx, 0px)), calc(-50% + var(--dy, 0px))) scale(var(--hero-scale, 0.42)) !important;
   }
 
   .social-proof-inner {
@@ -655,8 +683,11 @@ body {
   }
 
   .products-inner {
-    padding: 48px 0 56px;
-    gap: 48px !important;
+    padding: 0;
+  }
+
+  .products-slide.two-col {
+    gap: 40px;
   }
 
   .floating-cta {
@@ -692,13 +723,13 @@ body {
     max-width: none;
   }
 
-  .hero-copy {
-    top: 80px !important;
+  .hero-mobile-intro {
+    padding: 80px 14px 20px;
   }
 
-  .hero-card-stage {
-    top: 56% !important;
-    --hero-scale: 0.36;
+  .hero-mobile-grid {
+    padding: 0 14px;
+    gap: 6px;
   }
 
   .floating-cta {
