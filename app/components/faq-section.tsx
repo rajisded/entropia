@@ -6,24 +6,28 @@ import { GRID_INNER_PAD, GRID_LINE, GRID_MAX_W } from "../lib/grid";
 
 const FAQS = [
   {
-    q: "How long does a typical project take to complete?",
-    a: "Project timelines vary based on complexity. A simple project might take 2–3 weeks, while more comprehensive designs can take 1–2 months. I will provide a specific estimate after our initial consultation.",
+    q: "How long does it take to switch from UEngage or PagarBook to Spartan?",
+    a: "Most businesses are fully live within 3–5 business days. We handle the entire migration — menus, employee records, historical data — for free. No downtime, no data loss.",
   },
   {
-    q: "Can you work with my existing brand and designs?",
-    a: "Absolutely. I can work within your existing brand guidelines, extend them, or help you evolve them into something stronger — whatever best serves your goals.",
+    q: "Do you integrate with PetPooja?",
+    a: "Yes. Spartan Kiosk has a native, real-time two-way integration with PetPooja. Orders placed on the kiosk flow directly into your PetPooja POS, kitchen display, and reports.",
   },
   {
-    q: "What makes your design process unique?",
-    a: "I combine strategic thinking with craft. Every decision is tied to a business outcome, not just aesthetics. You get designs that perform, not just ones that look good.",
+    q: "What happens to our existing data when we switch?",
+    a: "We migrate everything — employee records, payroll history, menu items, order data. Our dedicated onboarding team runs the migration and validates every record before you go live.",
   },
   {
-    q: "Do you offer ongoing support after the project is completed?",
-    a: "Yes. I offer retainer arrangements and ad-hoc support so you always have a trusted design partner to turn to as your business grows.",
+    q: "Is Spartan actually cheaper than UEngage and PagarBook?",
+    a: "Significantly. Restaurants typically save 60–80% over UEngage. HRMS customers cut their PagarBook bill by 70% on average. Our pricing is per-location and per-employee with zero hidden fees.",
   },
   {
-    q: "How do you handle confidentiality and intellectual property rights?",
-    a: "All work I produce for you is fully yours upon final payment. I sign NDAs on request and take client confidentiality seriously in every engagement.",
+    q: "Does the kiosk work offline if internet goes down?",
+    a: "Yes. Spartan Kiosk has a full offline mode. Orders are queued locally and synced automatically when connectivity resumes. You will never lose an order due to internet issues.",
+  },
+  {
+    q: "Can we manage multiple locations from one dashboard?",
+    a: "Absolutely. Spartan is built for chains and multi-location businesses. One dashboard shows every location's kiosk data, payroll, attendance, and reports — in real time.",
   },
 ];
 
@@ -158,7 +162,7 @@ export function FaqSection() {
             </div>
           </div>
 
-          {/* ── Right: discovery call card ── */}
+          {/* ── Right: demo call card ── */}
           <div style={{
             background: "#fff",
             border: "1px solid rgba(0,0,0,0.08)",
@@ -168,28 +172,25 @@ export function FaqSection() {
             position: "sticky",
             top: 100,
           }}>
-            <Image
-              src="/joseph-avatar.png"
-              alt="Joseph Alexander"
-              width={52}
-              height={52}
-              style={{
-                borderRadius: "50%",
-                objectFit: "cover",
-                border: "2px solid rgba(0,0,0,0.07)",
-                marginBottom: 20,
-                display: "block",
-              }}
-            />
+            <div style={{
+              width: 52, height: 52, borderRadius: 14,
+              background: "#111", display: "flex",
+              alignItems: "center", justifyContent: "center",
+              marginBottom: 20,
+            }}>
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
 
             <p style={{ fontSize: 17, color: "#999", fontWeight: 500, margin: "0 0 4px", letterSpacing: -0.2 }}>
               Still not sure?
             </p>
             <h3 style={{ fontSize: 26, fontWeight: 800, color: "#111", letterSpacing: -0.8, margin: "0 0 16px", lineHeight: 1.2 }}>
-              Book a free discovery call.
+              See Spartan live in 15 minutes.
             </h3>
             <p style={{ fontSize: 13.5, lineHeight: 1.6, color: "#888", margin: "0 0 28px" }}>
-              Learn more about how I work and how I can help you and your business take the next step.
+              No sales pressure. Just a real walkthrough of the Kiosk or HRMS — on your actual use case, with your data.
             </p>
 
             <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
@@ -211,7 +212,7 @@ export function FaqSection() {
                 }}
               >
                 <CalIcon />
-                Schedule Now
+                Book Free Demo
               </a>
               <span style={{ fontSize: 14, color: "#bbb", fontWeight: 500, letterSpacing: -0.2 }}>
                 Cal.com

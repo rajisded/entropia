@@ -7,56 +7,56 @@ const TESTIMONIALS = [
   {
     quote: (
       <>
-        The new UI design <strong>cut our customer support tickets in half.</strong> It&apos;s been a game-changer for us.
+        Switching from UEngage to Spartan Kiosk <strong>cut our per-order cost by 65%.</strong> The PetPooja sync is flawless — works even when the internet drops.
       </>
     ),
-    name: "Martina Martinez",
-    role: "Customer Manager at SupportEase",
+    name: "Rohit Sharma",
+    role: "Owner, Spice Garden Restaurants",
   },
   {
     quote: (
       <>
-        Working with Joseph felt like having a <strong>seasoned design partner</strong> who truly understood our vision for Zazzle and brought it to life in ways we hadn&apos;t even imagined.
+        We were paying PagarBook ₹40,000 a month for features Spartan gives us at <strong>₹8,000.</strong> The migration took 3 days and the team held our hand the whole way.
       </>
     ),
-    name: "Thomas Weber",
-    role: "Co-founder of KYMA",
+    name: "Priya Nair",
+    role: "HR Director, TechCorp Solutions",
   },
   {
     quote: (
       <>
-        Our website <strong>conversion rate improved significantly</strong> thanks to Joseph&apos;s expertise.
+        Our table turnover <strong>increased 40%</strong> because customers order themselves. No more waiting for staff. Spartan paid for itself in the first month.
       </>
     ),
-    name: "Ben Harper",
-    role: "CTO of Nexus",
+    name: "Ameet Kapoor",
+    role: "Operations Head, Urban Diner Chain",
   },
   {
     quote: (
       <>
-        Joseph&apos;s design approach <strong>brought clarity</strong> to our complex data visualizations. Our users are thrilled!
+        Payroll used to take our team 2 full days every month. With Spartan HRMS, <strong>it&apos;s done in 20 minutes</strong> — including TDS and compliance reports.
       </>
     ),
-    name: "Michael Wong",
-    role: "Data Scientist at DataSphere",
+    name: "Meera Gupta",
+    role: "CFO, Nexus Retail Group",
   },
   {
     quote: (
       <>
-        The rebranding exceeded our expectations. It&apos;s given us a <strong>competitive edge</strong> in our industry.
+        The old kiosk vendors quoted us ₹3 lakh per machine. <strong>Spartan set us up for ₹30,000</strong> including installation and training. Absurd difference.
       </>
     ),
-    name: "Natalie Rivera",
-    role: "Brand Manager at UnityBrands",
+    name: "Vikram Singh",
+    role: "Franchise Director, Bite Club",
   },
   {
     quote: (
       <>
-        The redesign transformed our brand image. We&apos;ve seen a <strong>30% increase in engagement</strong> since launch.
+        We manage 8 branches and 200+ employees. Spartan is the <strong>only software that actually handles multi-location</strong> without crashing or losing data.
       </>
     ),
-    name: "Emma Kraft",
-    role: "CMO of TechVista",
+    name: "Ananya Das",
+    role: "People Manager, FoodFirst Group",
   },
 ];
 
@@ -87,15 +87,15 @@ export function TestimonialsSection() {
             margin: 0,
             maxWidth: 480,
           }}>
-            <span style={{ fontWeight: 300, color: "#b0b0b0" }}>Hear from what my</span>
+            <span style={{ fontWeight: 300, color: "#b0b0b0" }}>Real results from</span>
             <br />
-            <span style={{ fontWeight: 800, color: "#111" }}>clients have to say.</span>
+            <span style={{ fontWeight: 800, color: "#111" }}>real businesses.</span>
           </h2>
 
           <div style={{ display: "flex", alignItems: "center", gap: 14, paddingTop: 8 }}>
             <Image
               src="/client-avatars.png"
-              alt="Happy clients"
+              alt="Happy customers"
               width={110}
               height={40}
               style={{ objectFit: "cover", objectPosition: "left center" }}
@@ -104,7 +104,7 @@ export function TestimonialsSection() {
               <div style={{ display: "flex", gap: 2, color: "#111", fontSize: 12, letterSpacing: 1, marginBottom: 4 }}>
                 {"★★★★★".split("").map((s, i) => <span key={i}>{s}</span>)}
               </div>
-              <span style={{ fontSize: 12, color: "#777", fontWeight: 500 }}>99+ Happy clients</span>
+              <span style={{ fontSize: 12, color: "#777", fontWeight: 500 }}>500+ businesses saved</span>
             </div>
           </div>
         </div>

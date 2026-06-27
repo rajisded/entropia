@@ -1,62 +1,112 @@
 "use client";
 
+import { useState } from "react";
 import { GRID_INNER_PAD, GRID_LINE, GRID_MAX_W } from "../lib/grid";
+
+type Product = "hrms" | "kiosk";
 
 const PROCESS_STEPS = [
   {
-    title: "Subscribe",
-    desc: "Subscribe via stripe & start requesting through my trello board.",
-    icon: <SubscribeIcon />,
+    title: "Book a Demo",
+    desc: "See Spartan live in 15 minutes. No sales pitch — just a real walkthrough of the product.",
+    icon: <DemoIcon />,
   },
   {
-    title: "Request",
-    desc: "Request whatever service I offer, from branding to web design.",
-    icon: <RequestIcon />,
+    title: "Free Migration",
+    desc: "We import all your existing data from UEngage, PagarBook, or any legacy system. Zero downtime.",
+    icon: <MigrateIcon />,
   },
   {
-    title: "Receive",
-    desc: "Receive your design within 48 hours on average.",
-    icon: <ReceiveIcon />,
+    title: "Go Live",
+    desc: "Cut costs by up to 70% from day one. Our team handles setup, training, and onboarding.",
+    icon: <RocketIcon />,
   },
 ];
 
-const UNLIMITED_FEATURES = [
-  "No contracts or commitments",
-  "Pause or cancel anytime",
-  "Multiple Brands",
-  "Unlimited requests",
-  "Avg 48 hour turnaround",
-  "Framer development",
+const PRODUCT_DATA = {
+  hrms: {
+    badge: "PagarBook killer",
+    badgeColor: "#6366f1",
+    badgeBg: "rgba(99,102,241,0.08)",
+    teaserTag: "Replace PagarBook today",
+    teaserHeadline: "HR & payroll that runs itself. No more spreadsheets.",
+    title: "HRMS",
+    desc: "Full HR & payroll platform. Handles attendance, leaves, compliance, and payslips — automatically.",
+    price: "₹99",
+    pricePer: "/ employee / month",
+    priceNote: "Minimum 10 employees. Billed monthly.",
+    features: [
+      "Automated payroll & TDS",
+      "Face attendance sync",
+      "Leave & shift management",
+      "Employee self-service app",
+      "GST & compliance built-in",
+      "Multi-branch dashboard",
+    ],
+    ctaLabel: "Start Free Trial",
+    ctaAccent: "#6366f1",
+    availabilityLabel: "14-day free trial available",
+  },
+  kiosk: {
+    badge: "30× cheaper than UEngage",
+    badgeColor: "#16a34a",
+    badgeBg: "rgba(22,163,74,0.08)",
+    teaserTag: "Replace UEngage today",
+    teaserHeadline: "Self-ordering kiosks for restaurants that mean business.",
+    title: "Kiosk System",
+    desc: "Replace your UEngage terminal. PetPooja-integrated, fully branded, offline-capable kiosk for any restaurant format.",
+    price: "₹2,999",
+    pricePer: "/ location / month",
+    priceNote: "Includes hardware support & unlimited terminals.",
+    features: [
+      "PetPooja POS integration",
+      "Unlimited menu items",
+      "Real-time order sync",
+      "Offline mode included",
+      "Custom branding & UI",
+      "Multi-terminal support",
+    ],
+    ctaLabel: "Book Installation",
+    ctaAccent: "#16a34a",
+    availabilityLabel: "Onboarding available now",
+  },
+};
+
+const ENTERPRISE_FEATURES = [
+  "Dedicated account manager",
+  "Custom SLA & uptime guarantee",
+  "Priority support (2-hr response)",
+  "Custom integrations on request",
+  "Unlimited locations / employees",
+  "White-label options available",
 ];
 
-const SINGLE_FEATURES = [
-  "Clearly defined scope",
-  "Fixed timeline",
-  "3 revision rounds",
-  "Milestone updates",
-];
-
-function SubscribeIcon() {
+function DemoIcon() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M21 12a9 9 0 1 1-3-6.7" />
-      <path d="M21 3v6h-6" />
+      <rect x="2" y="3" width="20" height="14" rx="2"/>
+      <path d="M8 21h8M12 17v4"/>
+      <path d="M10 8l4 3-4 3V8z" fill="currentColor" stroke="none"/>
     </svg>
   );
 }
 
-function RequestIcon() {
+function MigrateIcon() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z" />
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+      <path d="M14 2v6h6M9 15l2 2 4-4"/>
     </svg>
   );
 }
 
-function ReceiveIcon() {
+function RocketIcon() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+      <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2l8-8-3-3-8 8z"/>
+      <path d="M12 15l-3-3 7-7 3 3-7 7z"/>
+      <path d="M14 6l3 3"/>
+      <circle cx="19" cy="5" r="2"/>
     </svg>
   );
 }
@@ -69,7 +119,7 @@ function CheckIcon({ color = "#999" }: { color?: string }) {
   );
 }
 
-function LightningBolt() {
+function BoltIcon() {
   return (
     <svg width="88" height="88" viewBox="0 0 88 88" fill="none" style={{ flexShrink: 0 }}>
       <defs>
@@ -86,28 +136,8 @@ function LightningBolt() {
           <feDropShadow dx="0" dy="8" stdDeviation="8" floodColor="#000" floodOpacity="0.35" />
         </filter>
       </defs>
-      <path
-        d="M48 8 28 44h16l-8 36 32-44H50l10-28z"
-        fill="url(#boltGrad1)"
-        filter="url(#boltShadow)"
-      />
-      <path
-        d="M46 12 30 42h14l-6 30 26-36H48l8-24z"
-        fill="url(#boltGrad2)"
-        opacity="0.85"
-      />
-    </svg>
-  );
-}
-
-function StripeMark() {
-  return (
-    <svg width="42" height="18" viewBox="0 0 60 25" fill="none">
-      <path
-        d="M59.64 14.28h-8.06c0 1.68.83 2.48 2.28 2.48 1.38 0 2.35-.63 2.72-1.64h7.06c-1.45 4.6-5.2 7.16-9.9 7.16-6.2 0-10.4-4.2-10.4-10.4S55.5 1.44 61.7 1.44c6.04 0 9.9 4.08 9.9 10.08 0 .58-.04 1.16-.12 1.76h-11.84zm-8.06-3.64h4.84c0-1.56-.9-2.48-2.36-2.48-1.5 0-2.36.96-2.48 2.48zM40.5 20.2V2.2h6.8v2.04c1.08-1.56 2.88-2.52 5.16-2.52 4.56 0 7.44 3.12 7.44 8.28v10.2h-7.08V11.2c0-2.04-1.08-3.24-2.88-3.24-1.86 0-3.12 1.32-3.12 3.48v8.76H40.5zM25.1 20.2l-9.6-18h7.56l4.92 10.2L32.9 2.2h7.32l-9.48 18H25.1zM13.5 20.56c-5.16 0-8.88-3.96-8.88-9.72S8.34 1.12 13.5 1.12c3.24 0 5.64 1.44 6.84 3.72V2.2h6.84v18h-6.84v-2.16c-1.2 2.28-3.6 3.72-6.84 3.72zm1.44-6.12c2.64 0 4.44-2.04 4.44-5.04s-1.8-5.04-4.44-5.04-4.44 2.04-4.44 5.04 1.8 5.04 4.44 5.04z"
-        fill="#9ca3af"
-        transform="scale(0.72) translate(2, 2)"
-      />
+      <path d="M48 8 28 44h16l-8 36 32-44H50l10-28z" fill="url(#boltGrad1)" filter="url(#boltShadow)" />
+      <path d="M46 12 30 42h14l-6 30 26-36H48l8-24z" fill="url(#boltGrad2)" opacity="0.85" />
     </svg>
   );
 }
@@ -122,6 +152,9 @@ function DocIcon() {
 }
 
 export function PricingSection() {
+  const [active, setActive] = useState<Product>("hrms");
+  const p = PRODUCT_DATA[active];
+
   return (
     <section
       style={{
@@ -136,13 +169,13 @@ export function PricingSection() {
         {/* ── Header row ── */}
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "start", marginBottom: 56 }}>
           <h2 style={{ fontSize: "clamp(38px, 4.4vw, 52px)", lineHeight: 1.1, letterSpacing: -1.8, margin: 0 }}>
-            <span style={{ fontWeight: 300, color: "#b0b0b0" }}>Simple pricing.</span>
+            <span style={{ fontWeight: 300, color: "#b0b0b0" }}>Pay less.</span>
             <br />
-            <span style={{ fontWeight: 800, color: "#111" }}>Standout designs.</span>
+            <span style={{ fontWeight: 800, color: "#111" }}>Get more.</span>
           </h2>
           <p style={{ fontSize: 14.5, lineHeight: 1.65, color: "#777", margin: 0, paddingTop: 8, maxWidth: 340, marginLeft: "auto" }}>
-            <strong style={{ color: "#111", fontWeight: 600 }}>Clear costs, no hidden fees.</strong>{" "}
-            Select from monthly subscriptions or individual project rates.
+            <strong style={{ color: "#111", fontWeight: 600 }}>No contracts. No hidden fees.</strong>{" "}
+            Transparent per-location and per-employee pricing. Cancel anytime.
           </p>
         </div>
 
@@ -170,41 +203,81 @@ export function PricingSection() {
           ))}
         </div>
 
-        {/* ── Two-card row ── */}
-        <div style={{ display: "grid", gridTemplateColumns: "0.92fr 1.08fr", gap: 20, marginBottom: 20, alignItems: "stretch" }}>
+        {/* ── Product toggle ── */}
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: 36 }}>
+          <div style={{
+            display: "inline-flex",
+            background: "#f4f4f4",
+            borderRadius: 50,
+            padding: 4,
+            gap: 2,
+          }}>
+            {(["hrms", "kiosk"] as Product[]).map((key) => {
+              const isActive = active === key;
+              const labels: Record<Product, string> = { hrms: "HRMS", kiosk: "Kiosk System" };
+              return (
+                <button
+                  key={key}
+                  onClick={() => setActive(key)}
+                  style={{
+                    padding: "10px 24px",
+                    borderRadius: 50,
+                    border: "none",
+                    cursor: "pointer",
+                    fontSize: 14,
+                    fontWeight: 600,
+                    letterSpacing: -0.2,
+                    transition: "all 0.18s ease",
+                    background: isActive ? "#111" : "transparent",
+                    color: isActive ? "#fff" : "#888",
+                    boxShadow: isActive ? "0 2px 12px rgba(0,0,0,0.18)" : "none",
+                  }}
+                >
+                  {labels[key]}
+                </button>
+              );
+            })}
+          </div>
+        </div>
 
-          {/* Left: Hire me today */}
-          <div style={{ position: "relative", paddingTop: 108 }}>
+        {/* ── Product pricing card ── */}
+        <div style={{ display: "grid", gridTemplateColumns: "0.85fr 1.15fr", gap: 20, marginBottom: 20, alignItems: "stretch" }}>
+
+          {/* Left: dark teaser card */}
+          <div style={{ position: "relative", paddingTop: 116 }}>
+            {/* Dark floating header */}
             <div style={{
               position: "absolute", top: 0, left: 0, right: 0, zIndex: 2,
               background: "#111", borderRadius: 20, padding: "22px 22px 28px",
-              boxShadow: "0 16px 40px rgba(0,0,0,0.18)",
+              boxShadow: "0 16px 40px rgba(0,0,0,0.20)",
               overflow: "hidden",
             }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 12 }}>
                 <div style={{ flex: 1 }}>
                   <span style={{
-                    display: "inline-block", fontSize: 11, fontWeight: 500, color: "rgba(255,255,255,0.85)",
+                    display: "inline-block", fontSize: 11, fontWeight: 500,
+                    color: "rgba(255,255,255,0.85)",
                     border: "1px solid rgba(255,255,255,0.2)", borderRadius: 20,
                     padding: "5px 12px", marginBottom: 16,
                   }}>
-                    Pause or cancel anytime
+                    {p.teaserTag}
                   </span>
                   <p style={{
                     fontSize: 17, fontWeight: 600, color: "#fff", lineHeight: 1.45,
                     letterSpacing: -0.3, margin: 0, maxWidth: 220,
                   }}>
-                    Subscription design services for brands who move fast.
+                    {p.teaserHeadline}
                   </p>
                 </div>
-                <LightningBolt />
+                <BoltIcon />
               </div>
             </div>
 
+            {/* White card behind */}
             <div style={{
               position: "relative", zIndex: 1, background: "#fff",
               border: "1px solid rgba(0,0,0,0.08)", borderRadius: 20,
-              padding: "132px 28px 28px",
+              padding: "140px 28px 28px",
               boxShadow: "0 4px 24px rgba(0,0,0,0.05)",
             }}>
               <div style={{
@@ -216,45 +289,47 @@ export function PricingSection() {
                   width: 7, height: 7, borderRadius: "50%", background: "#22c55e",
                   boxShadow: "0 0 0 3px rgba(34,197,94,0.2)",
                 }} />
-                <span style={{ fontSize: 11.5, fontWeight: 500, color: "#444" }}>Slots available</span>
+                <span style={{ fontSize: 11.5, fontWeight: 500, color: "#444" }}>{p.availabilityLabel}</span>
               </div>
-              <h3 style={{ fontSize: 22, fontWeight: 800, color: "#111", letterSpacing: -0.5, margin: "0 0 10px" }}>
-                Hire me today
-              </h3>
+              <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
+                <h3 style={{ fontSize: 22, fontWeight: 800, color: "#111", letterSpacing: -0.5, margin: 0 }}>
+                  {p.title}
+                </h3>
+                <span style={{
+                  fontSize: 11, fontWeight: 600, color: p.badgeColor,
+                  background: p.badgeBg, borderRadius: 20, padding: "3px 10px",
+                }}>
+                  {p.badge}
+                </span>
+              </div>
               <p style={{ fontSize: 13.5, lineHeight: 1.6, color: "#888", margin: 0 }}>
-                Skip the agency markup and work directly with an experienced designer.
+                {p.desc}
               </p>
             </div>
           </div>
 
-          {/* Right: Unlimited Design */}
+          {/* Right: pricing detail card */}
           <div style={{
             background: "#fff", border: "1px solid rgba(0,0,0,0.08)",
             borderRadius: 20, padding: "28px 28px 24px",
             boxShadow: "0 4px 24px rgba(0,0,0,0.05)",
             display: "flex", flexDirection: "column",
           }}>
-            <h3 style={{ fontSize: 22, fontWeight: 800, color: "#111", letterSpacing: -0.5, margin: "0 0 8px" }}>
-              Unlimited Design
-            </h3>
-            <p style={{ fontSize: 13.5, lineHeight: 1.6, color: "#888", margin: "0 0 22px", maxWidth: 420 }}>
-              One flat monthly rate for unlimited design requests. Ideal for ongoing design requirements.
-            </p>
-
-            <div style={{ borderTop: "1px solid rgba(0,0,0,0.07)", paddingTop: 22, marginBottom: 22 }}>
-              <div style={{ display: "flex", alignItems: "baseline", gap: 6, marginBottom: 22 }}>
-                <span style={{ fontSize: 46, fontWeight: 800, color: "#111", letterSpacing: -2 }}>$8,000</span>
-                <span style={{ fontSize: 15, color: "#999", fontWeight: 500 }}>/ month</span>
+            <div style={{ borderBottom: "1px solid rgba(0,0,0,0.07)", paddingBottom: 22, marginBottom: 22 }}>
+              <div style={{ display: "flex", alignItems: "baseline", gap: 6, marginBottom: 4 }}>
+                <span style={{ fontSize: 46, fontWeight: 800, color: "#111", letterSpacing: -2 }}>{p.price}</span>
+                <span style={{ fontSize: 15, color: "#999", fontWeight: 500 }}>{p.pricePer}</span>
               </div>
+              <p style={{ fontSize: 12, color: "#bbb", margin: 0 }}>{p.priceNote}</p>
+            </div>
 
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px 28px", marginBottom: 28 }}>
-                {UNLIMITED_FEATURES.map((feat) => (
-                  <div key={feat} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
-                    <CheckIcon />
-                    <span style={{ fontSize: 13, color: "#666", lineHeight: 1.45 }}>{feat}</span>
-                  </div>
-                ))}
-              </div>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px 28px", marginBottom: 28 }}>
+              {p.features.map((feat) => (
+                <div key={feat} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
+                  <CheckIcon />
+                  <span style={{ fontSize: 13, color: "#666", lineHeight: 1.45 }}>{feat}</span>
+                </div>
+              ))}
             </div>
 
             <div style={{ display: "flex", alignItems: "center", gap: 16, marginTop: "auto" }}>
@@ -268,18 +343,18 @@ export function PricingSection() {
                 }}
               >
                 <span style={{
-                  width: 22, height: 22, borderRadius: 6, background: "#635bff",
+                  width: 22, height: 22, borderRadius: 6, background: p.ctaAccent,
                   display: "flex", alignItems: "center", justifyContent: "center",
                   fontSize: 13, fontWeight: 800, color: "#fff",
                 }}>S</span>
-                Get Started
+                {p.ctaLabel}
               </a>
-              <StripeMark />
+              <span style={{ fontSize: 12.5, color: "#bbb", fontWeight: 500 }}>No credit card needed</span>
             </div>
           </div>
         </div>
 
-        {/* ── Single Project card ── */}
+        {/* ── Enterprise card ── */}
         <div style={{
           background: "#111", borderRadius: 20, padding: "32px 36px",
           display: "grid", gridTemplateColumns: "1.1fr 1fr auto",
@@ -288,15 +363,15 @@ export function PricingSection() {
         }}>
           <div>
             <h3 style={{ fontSize: 22, fontWeight: 800, color: "#fff", letterSpacing: -0.5, margin: "0 0 10px" }}>
-              Single Project
+              Enterprise / Chain
             </h3>
             <p style={{ fontSize: 13.5, lineHeight: 1.6, color: "rgba(255,255,255,0.55)", margin: 0, maxWidth: 320 }}>
-              Comprehensive design services for any project scope. Ideal for one-time design needs or individual tasks.
+              Running 5+ locations or 100+ employees? Get dedicated onboarding, custom integrations, SLA support, and a named account manager.
             </p>
           </div>
 
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px 24px" }}>
-            {SINGLE_FEATURES.map((feat) => (
+            {ENTERPRISE_FEATURES.map((feat) => (
               <div key={feat} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
                 <CheckIcon color="rgba(255,255,255,0.45)" />
                 <span style={{ fontSize: 13, color: "rgba(255,255,255,0.75)", lineHeight: 1.45 }}>{feat}</span>

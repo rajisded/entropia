@@ -3,67 +3,68 @@
 import { GRID_INNER_PAD, GRID_LINE, GRID_MAX_W } from "../lib/grid";
 
 const CLIENTS = [
-  { name: "Luminary", icon: <LuminaryIcon /> },
-  { name: "45 Degrees°", icon: <DegreesIcon /> },
-  { name: "Codecraft_", icon: <CodecraftIcon /> },
-  { name: "Frequencii", icon: <FrequenciiIcon /> },
-  { name: "Axiom", icon: <AxiomIcon /> },
-  { name: "Nimbus", icon: <NimbusIcon /> },
+  { name: "Biryani Blues", icon: <BiryaniIcon /> },
+  { name: "Wow Momo", icon: <WowIcon /> },
+  { name: "Chai Sutta Bar", icon: <ChaiIcon /> },
+  { name: "UrbanEats", icon: <UrbanIcon /> },
+  { name: "NorthEat Kitchen", icon: <NorthEatIcon /> },
+  { name: "CloudKitchen Co.", icon: <CloudIcon /> },
 ];
 
 const MARQUEE_ITEMS = [...CLIENTS, ...CLIENTS];
 
-function LuminaryIcon() {
+function BiryaniIcon() {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
-      <path d="M8 4c-3 2-4 5-4 8s1 6 4 8" />
-      <path d="M16 4c3 2 4 5 4 8s-1 6-4 8" />
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M3 11l19-9-9 19-2-8-8-2z" />
     </svg>
   );
 }
 
-function DegreesIcon() {
+function WowIcon() {
   return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M7 17 17 7" />
-      <path d="M10 7h7v7" />
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="10" />
+      <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+      <line x1="9" y1="9" x2="9.01" y2="9" />
+      <line x1="15" y1="9" x2="15.01" y2="9" />
     </svg>
   );
 }
 
-function CodecraftIcon() {
+function ChaiIcon() {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-      <rect x="3" y="10" width="7" height="7" rx="1.5" />
-      <rect x="10" y="6" width="7" height="7" rx="1.5" />
-      <rect x="14" y="13" width="7" height="7" rx="1.5" opacity="0.75" />
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M17 8h1a4 4 0 0 1 0 8h-1" />
+      <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z" />
+      <line x1="6" y1="2" x2="6" y2="4" />
+      <line x1="10" y1="2" x2="10" y2="4" />
+      <line x1="14" y1="2" x2="14" y2="4" />
     </svg>
   );
 }
 
-function FrequenciiIcon() {
+function UrbanIcon() {
   return (
-    <svg width="22" height="18" viewBox="0 0 24 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-      <ellipse cx="7" cy="10" rx="5" ry="8" transform="rotate(-18 7 10)" />
-      <ellipse cx="12" cy="10" rx="5" ry="8" transform="rotate(-18 12 10)" />
-      <ellipse cx="17" cy="10" rx="5" ry="8" transform="rotate(-18 17 10)" />
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+      <polyline points="9 22 9 12 15 12 15 22" />
     </svg>
   );
 }
 
-function AxiomIcon() {
+function NorthEatIcon() {
   return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinejoin="round">
-      <path d="M12 2 22 20H2L12 2z" />
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
     </svg>
   );
 }
 
-function NimbusIcon() {
+function CloudIcon() {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-      <circle cx="12" cy="12" r="9" />
-      <path d="M12 3v18M3 12h18" opacity="0.4" />
+    <svg width="22" height="16" viewBox="0 0 24 18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M18 10H6a4 4 0 0 1 0-8 5 5 0 0 1 9.8 1A4 4 0 0 1 18 10z" />
     </svg>
   );
 }
@@ -101,7 +102,7 @@ export function ClientsSection() {
         }}
       >
         <p style={{ margin: 0, fontSize: 15, color: "#888", letterSpacing: -0.2, flexShrink: 0 }}>
-          Trusted by <strong style={{ color: "#111", fontWeight: 700 }}>many</strong>
+          Trusted by <strong style={{ color: "#111", fontWeight: 700 }}>500+</strong> businesses
         </p>
 
         <div

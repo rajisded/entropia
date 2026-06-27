@@ -10,6 +10,15 @@ function XIcon() {
   );
 }
 
+function LinkedInIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z" />
+      <circle cx="4" cy="4" r="2" />
+    </svg>
+  );
+}
+
 function InstagramIcon() {
   return (
     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -20,38 +29,20 @@ function InstagramIcon() {
   );
 }
 
-function FramerIcon() {
+function YoutubeIcon() {
   return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M5 5h14L12 13H5V5zM5 13h7l7 8H5v-8z" />
-    </svg>
-  );
-}
-
-function DribbbleIcon() {
-  return (
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="12" r="10" />
-      <path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32" />
-    </svg>
-  );
-}
-
-function LinkedInIcon() {
-  return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z" />
-      <circle cx="4" cy="4" r="2" />
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
+      <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/>
     </svg>
   );
 }
 
 const SOCIAL = [
-  { label: "X", icon: <XIcon />, count: "1,214", href: "#" },
-  { label: "Instagram", icon: <InstagramIcon />, href: "#" },
-  { label: "Framer", icon: <FramerIcon />, href: "#" },
-  { label: "Dribbble", icon: <DribbbleIcon />, href: "#" },
+  { label: "X", icon: <XIcon />, count: "2,840", href: "#" },
   { label: "LinkedIn", icon: <LinkedInIcon />, href: "#" },
+  { label: "Instagram", icon: <InstagramIcon />, href: "#" },
+  { label: "YouTube", icon: <YoutubeIcon />, href: "#" },
 ];
 
 export function Footer() {
@@ -67,9 +58,9 @@ export function Footer() {
           margin: "0 0 56px",
           fontWeight: 800,
         }}>
-          <span style={{ color: "#fff" }}>Lets create</span>
+          <span style={{ color: "#fff" }}>Lets build the future</span>
           <br />
-          <span style={{ color: "rgba(255,255,255,0.35)" }}>incredible work together.</span>
+          <span style={{ color: "rgba(255,255,255,0.35)" }}>of business software.</span>
         </h2>
 
         {/* ── Contact row ── */}
@@ -87,23 +78,23 @@ export function Footer() {
               Email
             </p>
             <a
-              href="mailto:joseph@launchnow.design"
+              href="mailto:hello@gospartan.in"
               style={{ fontSize: 16, fontWeight: 500, color: "#fff", textDecoration: "none", letterSpacing: -0.3 }}
             >
-              joseph@launchnow.design
+              hello@gospartan.in
             </a>
           </div>
 
-          {/* Call Me */}
+          {/* Book Demo */}
           <div>
             <p style={{ fontSize: 11.5, fontWeight: 500, color: "rgba(255,255,255,0.4)", letterSpacing: 0.3, margin: "0 0 10px" }}>
-              Call Me
+              Book a Demo
             </p>
             <a
               href="#"
               style={{ fontSize: 16, fontWeight: 500, color: "#fff", textDecoration: "none", letterSpacing: -0.3 }}
             >
-              Book Now
+              Schedule Now →
             </a>
           </div>
 
@@ -132,7 +123,6 @@ export function Footer() {
                     fontSize: 12,
                     fontWeight: 600,
                     justifyContent: "center",
-                    transition: "background 0.2s ease",
                     flexShrink: 0,
                   }}
                 >
@@ -152,21 +142,21 @@ export function Footer() {
           paddingBottom: 56,
           alignItems: "start",
         }}>
-          {/* Menu */}
+          {/* Products */}
           <div>
             <p style={{ fontSize: 11.5, fontWeight: 500, color: "rgba(255,255,255,0.4)", letterSpacing: 0.3, margin: "0 0 14px" }}>
-              Menu
+              Products
             </p>
             <div style={{ display: "flex", gap: 24 }}>
               <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-                {["Work", "Pricing"].map((item) => (
+                {["Kiosk System", "HRMS"].map((item) => (
                   <a key={item} href="#" style={{ fontSize: 13, color: "rgba(255,255,255,0.7)", textDecoration: "none", fontWeight: 400 }}>
                     {item}
                   </a>
                 ))}
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-                {["Services", "Blog"].map((item) => (
+                {["Pricing", "Blog"].map((item) => (
                   <a key={item} href="#" style={{ fontSize: 13, color: "rgba(255,255,255,0.7)", textDecoration: "none", fontWeight: 400 }}>
                     {item}
                   </a>
@@ -192,7 +182,7 @@ export function Footer() {
           {/* Copyright */}
           <div style={{ display: "flex", alignItems: "flex-end", paddingBottom: 2 }}>
             <p style={{ fontSize: 13, color: "rgba(255,255,255,0.35)", margin: 0, fontWeight: 400 }}>
-              © 2026 Joseph Alexander
+              © 2026 Spartan Technologies Pvt. Ltd.
             </p>
           </div>
         </div>
@@ -213,9 +203,8 @@ export function Footer() {
           color: "#fff",
           letterSpacing: -8,
           display: "block",
-          opacity: 1,
         }}>
-          JOSEPH
+          SPARTAN
         </span>
       </div>
     </footer>
