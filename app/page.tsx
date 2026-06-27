@@ -231,30 +231,22 @@ export default function Home() {
 
   // ── Derived animation values ───────────────────────────────
 
-  // Hero text: fades out in first 22% of scroll
-  const copyOpacity = remap(prog, 0, 0.22, 1, 0);
+  // Hero text: slides UP and exits viewport as cards form (no fade, just moves up)
+  const copySlideY   = lerp(0, -420, prog);  // moves up 420px → clears the space for the grid
 
-  // Social proof bar fades with copy
-  const spOpacity = remap(prog, 0, 0.30, 1, 0);
-
-  // Section heading ("Selected Work") fades in late
-
+  // Social proof bar: slides DOWN and exits as cards form
+  const spSlideY     = lerp(0, 130, prog);
 
   // Card labels fade in near the end
   const labelOpacity = remap(prog, 0.68, 0.90, 0, 1);
 
-  // Background: always pure white
-  const bg = "#ffffff";
-
   // ── Card container journey ─────────────────────────────────
   //
-  // The container is absolutely centered (left:50%, top:50%,
-  // translate(-50%, -50%)) and then offset by (dx, dy).
-  //
-  // Hero position:  dx=+225px (pushed right, inset from right grid line)
-  // Grid position:  dx=0 (centered),          dy=+100px (below center = "next section")
-  const containerDX = lerp(225, 0, prog);
-  const containerDY = lerp(-40, 100, prog);
+  // Start: stacked on right beside the hero (dx=+260, dy=-40)
+  // End:   2×2 grid centered in the lower half of the viewport (dx=0, dy=+80)
+  //        Grid fits entirely within the sticky 100vh panel — no overflow.
+  const containerDX = lerp(260, 0, prog);
+  const containerDY = lerp(-40, 120, prog);
 
   return (
     <PageGrid>
@@ -268,6 +260,7 @@ export default function Home() {
         style={{
           height: `calc(100vh + ${SCROLL_RANGE}px)`,
           position: "relative",
+          zIndex: 5,   // keeps the sticky panel + cards above subsequent sections
         }}
       >
         <div
@@ -276,8 +269,7 @@ export default function Home() {
             top: 0,
             height: "100vh",
             background: "transparent",
-            // No overflow:hidden — cards can extend downward during travel
-            overflow: "visible",
+            overflow: "hidden",  // grid fits within 100vh — no overflow needed
           }}
         >
           {/* ── NAVBAR ────────────────────────────────────── */}
@@ -304,15 +296,12 @@ export default function Home() {
           <div
             style={{
               position: "absolute",
-              // Inset from left grid line by GRID_INNER_PAD
               left: `max(${GRID_OUTER_MARGIN + GRID_INNER_PAD}px, calc(50% - ${GRID_HALF}px + ${GRID_INNER_PAD}px))`,
               top: "50%",
-              transform: "translateY(calc(-50% - 72px))",
+              transform: `translateY(calc(-50% - 72px + ${copySlideY}px))`,
               width: 440,
-              opacity: copyOpacity,
-              pointerEvents: prog > 0.15 ? "none" : "auto",
-              // Slight upward drift as it fades
-              marginTop: lerp(0, -30, 1 - copyOpacity),
+              opacity: 1,
+              zIndex: 2,
             }}
           >
             <div className="availability-badge">
@@ -372,6 +361,7 @@ export default function Home() {
               top: "50%",
               width: GRID_W,
               height: GRID_H,
+              zIndex: 10,
               // Container travels: right+up → center+down
               transform: `translate(calc(-50% + ${containerDX}px), calc(-50% + ${containerDY}px))`,
               display: "flex",
@@ -456,7 +446,7 @@ export default function Home() {
             })}
           </div>
 
-          {/* ── SOCIAL PROOF BAR (bottom, fades out) ─────── */}
+          {/* ── SOCIAL PROOF BAR (bottom, slides down + fades) ─────── */}
           <div
             className="social-proof-bar"
             style={{
@@ -464,8 +454,9 @@ export default function Home() {
               bottom: 0,
               left: 0,
               right: 0,
-              opacity: spOpacity,
-              pointerEvents: prog > 0.25 ? "none" : "auto",
+              opacity: 1,
+              transform: `translateY(${spSlideY}px)`,
+              pointerEvents: prog > 0.5 ? "none" : "auto",
             }}
           >
             <div className="social-proof-inner">
