@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import { LenisProvider } from "./components/lenis-provider";
 
@@ -25,6 +26,7 @@ export default function RootLayout({
       </head>
       <body>
         <LenisProvider>{children}</LenisProvider>
+        <Analytics />
       </body>
     </html>
   );

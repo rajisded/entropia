@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { GRID_INNER_PAD, GRID_LINE, GRID_MAX_W } from "../lib/grid";
+import { GRID_LINE } from "../lib/grid";
 
 const FAQS = [
   {
@@ -67,8 +67,8 @@ export function FaqSection() {
         borderBottom: GRID_LINE,
       }}
     >
-      <div style={{ maxWidth: GRID_MAX_W, margin: "0 auto", padding: `100px ${GRID_INNER_PAD}px 110px` }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 0.72fr", gap: 64, alignItems: "start" }}>
+      <div className="section-shell">
+        <div className="faq-grid">
 
           {/* ── Left: heading + accordion ── */}
           <div>
@@ -163,7 +163,7 @@ export function FaqSection() {
           </div>
 
           {/* ── Right: demo call card ── */}
-          <div style={{
+          <div className="faq-sticky-card" style={{
             background: "#fff",
             border: "1px solid rgba(0,0,0,0.08)",
             borderRadius: 20,
@@ -193,7 +193,7 @@ export function FaqSection() {
               No sales pressure. Just a real walkthrough of the Kiosk or HRMS — on your actual use case, with your data.
             </p>
 
-            <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+            <div className="faq-cta-row" style={{ display: "flex", alignItems: "center", gap: 16 }}>
               <a
                 href="#"
                 style={{

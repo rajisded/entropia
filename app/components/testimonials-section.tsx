@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { GRID_INNER_PAD, GRID_LINE, GRID_MAX_W } from "../lib/grid";
+import { GRID_LINE } from "../lib/grid";
 
 const TESTIMONIALS = [
   {
@@ -69,10 +69,10 @@ export function TestimonialsSection() {
         borderBottom: GRID_LINE,
       }}
     >
-      <div style={{ maxWidth: GRID_MAX_W, margin: "0 auto", padding: `100px ${GRID_INNER_PAD}px 110px` }}>
+      <div className="section-shell">
 
         {/* ── Header ── */}
-        <div style={{
+        <div className="testimonials-header" style={{
           display: "flex",
           justifyContent: "space-between",
           alignItems: "flex-start",
@@ -110,11 +110,7 @@ export function TestimonialsSection() {
         </div>
 
         {/* ── 3×2 card grid ── */}
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
-          gap: 16,
-        }}>
+        <div className="three-col">
           {TESTIMONIALS.map((t) => (
             <div
               key={t.name}

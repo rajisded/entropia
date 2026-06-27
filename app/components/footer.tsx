@@ -1,7 +1,5 @@
 "use client";
 
-import { GRID_INNER_PAD, GRID_MAX_W } from "../lib/grid";
-
 function XIcon() {
   return (
     <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
@@ -48,7 +46,7 @@ const SOCIAL = [
 export function Footer() {
   return (
     <footer style={{ background: "#000", color: "#fff", overflow: "hidden" }}>
-      <div style={{ maxWidth: GRID_MAX_W, margin: "0 auto", padding: `80px ${GRID_INNER_PAD}px 0` }}>
+      <div className="footer-shell">
 
         {/* ── Headline ── */}
         <h2 style={{
@@ -64,10 +62,7 @@ export function Footer() {
         </h2>
 
         {/* ── Contact row ── */}
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr 1fr",
-          gap: 40,
+        <div className="footer-contact-grid" style={{
           marginBottom: 48,
           paddingBottom: 48,
           borderBottom: "1px solid rgba(255,255,255,0.1)",
@@ -135,13 +130,7 @@ export function Footer() {
         </div>
 
         {/* ── Bottom row ── */}
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr 1fr",
-          gap: 40,
-          paddingBottom: 56,
-          alignItems: "start",
-        }}>
+        <div className="footer-bottom-grid" style={{ paddingBottom: 56, alignItems: "start" }}>
           {/* Products */}
           <div>
             <p style={{ fontSize: 11.5, fontWeight: 500, color: "rgba(255,255,255,0.4)", letterSpacing: 0.3, margin: "0 0 14px" }}>

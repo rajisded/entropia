@@ -9,7 +9,8 @@ import { TestimonialsSection } from "./components/testimonials-section";
 import { FaqSection } from "./components/faq-section";
 import { Footer } from "./components/footer";
 import { PageGrid } from "./components/page-grid";
-import { GRID_HALF, GRID_INNER_PAD, GRID_LINE, GRID_MAX_W, GRID_OUTER_MARGIN } from "./lib/grid";
+import { GRID_HALF, GRID_INNER_PAD, GRID_LINE, GRID_OUTER_MARGIN } from "./lib/grid";
+import { useIsMobile } from "./lib/use-media-query";
 
 // ─── Integration badges ──────────────────────────────────────
 const INTEGRATIONS = [
@@ -203,6 +204,7 @@ function easeInOutQuart(t: number) {
 export default function Home() {
   const [prog, setProg] = useState(0); // 0 = hero state, 1 = grid state
   const rafRef = useRef<number | null>(null);
+  const isMobile = useIsMobile();
 
   // Drive hero → grid animation from Lenis scroll position (keeps sticky transition smooth)
   useLenis((lenis) => {
@@ -217,21 +219,18 @@ export default function Home() {
   // ── Derived animation values ───────────────────────────────
 
   // Hero text: slides UP and exits viewport as cards form (no fade, just moves up)
-  const copySlideY   = lerp(0, -420, prog);  // moves up 420px → clears the space for the grid
+  const copySlideY   = lerp(0, isMobile ? -260 : -420, prog);
 
   // Social proof bar: slides DOWN and exits as cards form
-  const spSlideY     = lerp(0, 130, prog);
+  const spSlideY     = lerp(0, isMobile ? 100 : 130, prog);
 
   // Card labels fade in near the end
   const labelOpacity = remap(prog, 0.68, 0.90, 0, 1);
 
-  // ── Card container journey ─────────────────────────────────
-  //
-  // Start: stacked on right beside the hero (dx=+260, dy=-40)
-  // End:   2×2 grid centered in the lower half of the viewport (dx=0, dy=+80)
-  //        Grid fits entirely within the sticky 100vh panel — no overflow.
-  const containerDX = lerp(260, 0, prog);
-  const containerDY = lerp(-40, 120, prog);
+  // Card container journey — tighter on mobile so cards stay in viewport
+  const containerDX = lerp(isMobile ? 0 : 260, 0, prog);
+  const containerDY = lerp(isMobile ? 60 : -40, isMobile ? 140 : 120, prog);
+  const heroScale = isMobile ? 0.42 : 1;
 
   return (
     <PageGrid>
@@ -281,14 +280,16 @@ export default function Home() {
 
           {/* ── HERO TEXT (absolute, slides out) ──────────── */}
           <div
+            className="hero-copy"
             style={{
-              position: "absolute",
               left: `max(${GRID_OUTER_MARGIN + GRID_INNER_PAD}px, calc(50% - ${GRID_HALF}px + ${GRID_INNER_PAD}px))`,
               top: "50%",
               transform: `translateY(calc(-50% - 72px + ${copySlideY}px))`,
               width: 460,
-              opacity: 1,
-              zIndex: 2,
+              // CSS custom props for mobile overrides in globals.css
+              ["--copy-y" as string]: isMobile
+                ? `${copySlideY}px`
+                : `calc(-50% - 72px + ${copySlideY}px)`,
             }}
           >
             <div className="availability-badge">
@@ -331,19 +332,14 @@ export default function Home() {
               Cards animate from stacked → 2×2 grid within this container.
           */}
           <div
+            className="hero-card-stage"
             style={{
-              position: "absolute",
-              left: "50%",
-              top: "50%",
               width: GRID_W,
               height: GRID_H,
-              zIndex: 10,
-              // Container travels: right+up → center+down
-              transform: `translate(calc(-50% + ${containerDX}px), calc(-50% + ${containerDY}px))`,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              willChange: "transform",
+              transform: `translate(calc(-50% + ${containerDX}px), calc(-50% + ${containerDY}px)) scale(${heroScale})`,
+              ["--dx" as string]: `${containerDX}px`,
+              ["--dy" as string]: `${containerDY}px`,
+              ["--hero-scale" as string]: String(heroScale),
             }}
           >
             {PROJECTS.map((project, i) => {
@@ -475,14 +471,8 @@ export default function Home() {
         borderTop: GRID_LINE,
         borderBottom: GRID_LINE,
       }}>
-        <div style={{ maxWidth: GRID_MAX_W, margin: "0 auto", padding: `100px ${GRID_INNER_PAD}px 110px` }}>
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: 80,
-            padding: "100px 0 110px",
-            alignItems: "center",
-          }}>
+        <div className="section-shell">
+          <div className="two-col products-inner">
 
             {/* ── Left column: Heading + Integrations ── */}
             <div style={{ display: "flex", flexDirection: "column", gap: 52 }}>
@@ -617,25 +607,8 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════════
           FLOATING "SPEAK TO ME" BAR
          ══════════════════════════════════════════════════════ */}
-      <div style={{
-        position: "fixed",
-        bottom: 28,
-        left: "50%",
-        transform: "translateX(-50%)",
-        zIndex: 900,
-        display: "flex",
-        alignItems: "center",
-        gap: 10,
-        background: "rgba(255,255,255,0.92)",
-        backdropFilter: "blur(20px)",
-        WebkitBackdropFilter: "blur(20px)",
-        border: "1px solid rgba(0,0,0,0.09)",
-        borderRadius: 50,
-        padding: "10px 10px 10px 18px",
-        boxShadow: "0 8px 32px rgba(0,0,0,0.12)",
-        whiteSpace: "nowrap",
-      }}>
-        <div style={{ display: "flex", flexDirection: "column", gap: 1, marginRight: 4 }}>
+      <div className="floating-cta">
+        <div className="floating-cta-text" style={{ display: "flex", flexDirection: "column", gap: 1, marginRight: 4 }}>
           <span style={{ fontSize: 13, fontWeight: 600, color: "#111", letterSpacing: -0.2 }}>
             Ready to switch?
           </span>

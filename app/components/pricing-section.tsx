@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { GRID_INNER_PAD, GRID_LINE, GRID_MAX_W } from "../lib/grid";
+import { GRID_LINE } from "../lib/grid";
 
 type Product = "hrms" | "kiosk";
 
@@ -164,10 +164,10 @@ export function PricingSection() {
         borderBottom: GRID_LINE,
       }}
     >
-      <div style={{ maxWidth: GRID_MAX_W, margin: "0 auto", padding: `100px ${GRID_INNER_PAD}px 120px` }}>
+      <div className="section-shell" style={{ paddingBottom: 120 }}>
 
         {/* ── Header row ── */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "start", marginBottom: 56 }}>
+        <div className="pricing-header-grid">
           <h2 style={{ fontSize: "clamp(38px, 4.4vw, 52px)", lineHeight: 1.1, letterSpacing: -1.8, margin: 0 }}>
             <span style={{ fontWeight: 300, color: "#b0b0b0" }}>Pay less.</span>
             <br />
@@ -180,7 +180,7 @@ export function PricingSection() {
         </div>
 
         {/* ── Process steps ── */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 40, marginBottom: 56, paddingBottom: 56, borderBottom: "1px solid rgba(0,0,0,0.07)" }}>
+        <div className="pricing-steps-grid">
           {PROCESS_STEPS.map((step) => (
             <div key={step.title} style={{ display: "flex", gap: 14, alignItems: "flex-start" }}>
               <div style={{
@@ -218,6 +218,7 @@ export function PricingSection() {
               return (
                 <button
                   key={key}
+                  className="product-toggle-btn"
                   onClick={() => setActive(key)}
                   style={{
                     padding: "10px 24px",
@@ -241,7 +242,7 @@ export function PricingSection() {
         </div>
 
         {/* ── Product pricing card ── */}
-        <div style={{ display: "grid", gridTemplateColumns: "0.85fr 1.15fr", gap: 20, marginBottom: 20, alignItems: "stretch" }}>
+        <div className="pricing-cards-grid">
 
           {/* Left: dark teaser card */}
           <div style={{ position: "relative", paddingTop: 116 }}>
@@ -323,7 +324,7 @@ export function PricingSection() {
               <p style={{ fontSize: 12, color: "#bbb", margin: 0 }}>{p.priceNote}</p>
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px 28px", marginBottom: 28 }}>
+            <div className="pricing-features-grid">
               {p.features.map((feat) => (
                 <div key={feat} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
                   <CheckIcon />
@@ -332,7 +333,7 @@ export function PricingSection() {
               ))}
             </div>
 
-            <div style={{ display: "flex", alignItems: "center", gap: 16, marginTop: "auto" }}>
+            <div className="pricing-cta-row" style={{ display: "flex", alignItems: "center", gap: 16, marginTop: "auto" }}>
               <a
                 href="#"
                 style={{
@@ -355,10 +356,8 @@ export function PricingSection() {
         </div>
 
         {/* ── Enterprise card ── */}
-        <div style={{
+        <div className="enterprise-grid" style={{
           background: "#111", borderRadius: 20, padding: "32px 36px",
-          display: "grid", gridTemplateColumns: "1.1fr 1fr auto",
-          gap: 32, alignItems: "center",
           boxShadow: "0 12px 40px rgba(0,0,0,0.15)",
         }}>
           <div>
@@ -370,7 +369,7 @@ export function PricingSection() {
             </p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px 24px" }}>
+          <div className="pricing-features-grid" style={{ marginBottom: 0 }}>
             {ENTERPRISE_FEATURES.map((feat) => (
               <div key={feat} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
                 <CheckIcon color="rgba(255,255,255,0.45)" />

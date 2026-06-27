@@ -1,6 +1,6 @@
 "use client";
 
-import { GRID_INNER_PAD, GRID_LINE, GRID_MAX_W } from "../lib/grid";
+import { GRID_LINE } from "../lib/grid";
 
 const CLIENTS = [
   { name: "Biryani Blues", icon: <BiryaniIcon /> },
@@ -91,16 +91,7 @@ export function ClientsSection() {
         }
       `}</style>
 
-      <div
-        style={{
-          maxWidth: GRID_MAX_W,
-          margin: "0 auto",
-          padding: `36px ${GRID_INNER_PAD}px`,
-          display: "flex",
-          alignItems: "center",
-          gap: 40,
-        }}
-      >
+      <div className="clients-shell clients-row">
         <p style={{ margin: 0, fontSize: 15, color: "#888", letterSpacing: -0.2, flexShrink: 0 }}>
           Trusted by <strong style={{ color: "#111", fontWeight: 700 }}>500+</strong> businesses
         </p>
