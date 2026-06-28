@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { GRID_LINE } from "../lib/grid";
 
 const INTERVAL_MS = 4000;
 const FADE_MS = 320;
@@ -31,13 +32,13 @@ const PRODUCT_SLIDES = [
     tagColor: "#16a34a",
     tagBg: "rgba(22,163,74,0.08)",
     description:
-      "UEngage locks restaurants into expensive contracts. Spartan Kiosk integrates natively with PetPooja, works offline, and goes live in days.",
+      "UEngage locks restaurants into expensive contracts. Spartan Kiosk integrates natively with PetPooja, syncs every order instantly, and goes live in days.",
     integrations: ["PetPooja", "Razorpay", "WhatsApp", "GST Ready"],
     features: [
       { name: "Self-Ordering Kiosk", icon: <KioskIcon /> },
       { name: "PetPooja POS Integration", icon: <POSIcon /> },
       { name: "Real-time Order Analytics", icon: <AnalyticsIcon /> },
-      { name: "Offline Mode Included", icon: <OfflineIcon /> },
+      { name: "UPI & Card Payments", icon: <PaymentIcon /> },
       { name: "Custom Branding & UI", icon: <BrandIcon /> },
       { name: "Multi-terminal Support", icon: <MultiIcon /> },
     ],
@@ -113,10 +114,11 @@ function BiometricIcon() {
     </svg>
   );
 }
-function OfflineIcon() {
+function PaymentIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" />
+      <rect x="2" y="5" width="20" height="14" rx="2" />
+      <path d="M2 10h20" />
     </svg>
   );
 }

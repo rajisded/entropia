@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useRef, useState } from "react";
 import { useLenis } from "lenis/react";
 import { PricingSection } from "./components/pricing-section";
@@ -10,6 +11,7 @@ import { FaqSection } from "./components/faq-section";
 import { Footer } from "./components/footer";
 import { ProductsSection } from "./components/products-section";
 import { PageGrid } from "./components/page-grid";
+import { SiteNavbar } from "./components/site-navbar";
 import { GRID_HALF, GRID_INNER_PAD, GRID_OUTER_MARGIN } from "./lib/grid";
 import { useIsMobile } from "./lib/use-media-query";
 
@@ -29,7 +31,7 @@ const LOGOS = [
 
 // ─── Product screenshot data ───────────────────────────────────
 const PROJECTS = [
-  { img: "/hero/1.png", title: "Kiosk System",  sub: "Self-Ordering" },
+  { img: "/hero/1.png", title: "Kiosk System",  sub: "Self-Ordering", href: "/kiosk" },
   { img: "/hero/2.png", title: "HRMS",           sub: "HR & Payroll" },
   { img: "/hero/3.png", title: "Analytics",      sub: "Real-time Insights" },
   { img: "/hero/4.png", title: "Multi-Location", sub: "Central Dashboard" },
@@ -112,8 +114,9 @@ export default function Home() {
       const shadowA = lerp(0.22, 0.09, prog);
 
       return (
-        <div
+        <Link
           key={i}
+          href={project.href ?? "#"}
           className="project-card"
           style={{
             position: "absolute",
@@ -124,8 +127,10 @@ export default function Home() {
             zIndex: s.z,
             transform: `translate(${tx}px, ${ty}px) rotate(${rot}deg) scale(${sc})`,
             boxShadow: `0 ${shadowY}px ${shadowBlur}px rgba(0,0,0,${shadowA})`,
-            cursor: "pointer",
+            cursor: project.href ? "pointer" : "default",
             willChange: "transform, width, height",
+            display: "block",
+            textDecoration: "none",
           }}
         >
           <Image
@@ -164,7 +169,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
+        </Link>
       );
     });
 
@@ -229,28 +234,7 @@ export default function Home() {
     </div>
   );
 
-  const renderNavbar = () => (
-    <nav className="navbar">
-      <a href="#" className="navbar-brand">
-        <div style={{
-          width: 34, height: 34, borderRadius: 10,
-          background: "#111", display: "flex", alignItems: "center",
-          justifyContent: "center", flexShrink: 0,
-        }}>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          </svg>
-        </div>
-        <span style={{ fontWeight: 700, letterSpacing: -0.4 }}>Spartan</span>
-      </a>
-      <ul className="navbar-links">
-        {["Products", "Pricing", "About", "Blog"].map((item) => (
-          <li key={item}><a href="#">{item}</a></li>
-        ))}
-      </ul>
-      <a href="#" className="navbar-contact">Get Demo</a>
-    </nav>
-  );
+  const renderNavbar = () => <SiteNavbar />;
 
   return (
     <PageGrid>
@@ -265,27 +249,39 @@ export default function Home() {
 
           {/* Static 2×2 card grid */}
           <div className="hero-mobile-grid">
-            {PROJECTS.map((project, i) => (
-              <div key={i} className="hero-mobile-card">
-                <Image
-                  src={project.img}
-                  alt={project.title}
-                  fill
-                  className="project-card-img"
-                  style={{ objectFit: "cover" }}
-                  sizes="50vw"
-                  priority={i < 2}
-                />
-                <div className="hero-mobile-card-label">
-                  <div style={{ fontWeight: 700, fontSize: 12, color: "#fff", letterSpacing: -0.2 }}>
-                    {project.title}
+            {PROJECTS.map((project, i) => {
+              const card = (
+                <>
+                  <Image
+                    src={project.img}
+                    alt={project.title}
+                    fill
+                    className="project-card-img"
+                    style={{ objectFit: "cover" }}
+                    sizes="50vw"
+                    priority={i < 2}
+                  />
+                  <div className="hero-mobile-card-label">
+                    <div style={{ fontWeight: 700, fontSize: 12, color: "#fff", letterSpacing: -0.2 }}>
+                      {project.title}
+                    </div>
+                    <div style={{ fontSize: 10.5, color: "rgba(255,255,255,0.6)", marginTop: 2 }}>
+                      {project.sub}
+                    </div>
                   </div>
-                  <div style={{ fontSize: 10.5, color: "rgba(255,255,255,0.6)", marginTop: 2 }}>
-                    {project.sub}
-                  </div>
+                </>
+              );
+
+              return project.href ? (
+                <Link key={i} href={project.href} className="hero-mobile-card">
+                  {card}
+                </Link>
+              ) : (
+                <div key={i} className="hero-mobile-card">
+                  {card}
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           <div className="social-proof-bar hero-mobile-social">

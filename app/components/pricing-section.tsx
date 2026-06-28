@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { KioskPricingPlans } from "./kiosk-pricing-plans";
 
 type Product = "hrms" | "kiosk";
 
@@ -53,15 +54,29 @@ const PRODUCT_DATA = {
     teaserTag: "Replace UEngage today",
     teaserHeadline: "Self-ordering kiosks for restaurants that mean business.",
     title: "Kiosk System",
-    desc: "Replace your UEngage terminal. PetPooja-integrated, fully branded, offline-capable kiosk for any restaurant format.",
-    price: "₹2,999",
-    pricePer: "/ location / month",
-    priceNote: "Includes hardware support & unlimited terminals.",
+    desc: "Replace your UEngage terminal. PetPooja-integrated, fully branded kiosk built for any restaurant format.",
+    price: "₹999",
+    pricePer: "/ outlet / month",
+    priceNote: "Or white-label the full product with a one-time license.",
+    pricingTiers: [
+      {
+        label: "White label",
+        price: "₹99,999",
+        pricePer: "one-time",
+        priceNote: "Full product under your brand. Lifetime license.",
+      },
+      {
+        label: "Monthly",
+        price: "₹999",
+        pricePer: "/ outlet / month",
+        priceNote: "PetPooja integration, support, and updates included.",
+      },
+    ],
     features: [
       "PetPooja POS integration",
       "Unlimited menu items",
       "Real-time order sync",
-      "Offline mode included",
+      "UPI & card payments",
       "Custom branding & UI",
       "Multi-terminal support",
     ],
@@ -156,6 +171,7 @@ export function PricingSection() {
 
   return (
     <section
+      id="pricing"
       className="section-grid-lines"
       style={{
         position: "relative",
@@ -239,7 +255,10 @@ export function PricingSection() {
           </div>
         </div>
 
-        {/* ── Product pricing card ── */}
+        {/* ── Product pricing ── */}
+        {active === "kiosk" ? (
+          <KioskPricingPlans compact />
+        ) : (
         <div className="pricing-cards-grid">
 
           {/* Left: dark teaser card */}
@@ -315,11 +334,28 @@ export function PricingSection() {
             display: "flex", flexDirection: "column",
           }}>
             <div style={{ borderBottom: "1px solid rgba(0,0,0,0.07)", paddingBottom: 22, marginBottom: 22 }}>
-              <div style={{ display: "flex", alignItems: "baseline", gap: 6, marginBottom: 4 }}>
-                <span style={{ fontSize: 46, fontWeight: 800, color: "#111", letterSpacing: -2 }}>{p.price}</span>
-                <span style={{ fontSize: 15, color: "#999", fontWeight: 500 }}>{p.pricePer}</span>
-              </div>
-              <p style={{ fontSize: 12, color: "#bbb", margin: 0 }}>{p.priceNote}</p>
+              {"pricingTiers" in p && p.pricingTiers ? (
+                <div className="pricing-tier-stack">
+                  {p.pricingTiers.map((tier, i) => (
+                    <div key={tier.label} className="pricing-tier-block" style={i > 0 ? { marginTop: 20, paddingTop: 20, borderTop: "1px solid rgba(0,0,0,0.07)" } : undefined}>
+                      <span className="pricing-tier-label">{tier.label}</span>
+                      <div style={{ display: "flex", alignItems: "baseline", gap: 6, marginBottom: 4, marginTop: 8 }}>
+                        <span style={{ fontSize: 40, fontWeight: 800, color: "#111", letterSpacing: -1.6 }}>{tier.price}</span>
+                        <span style={{ fontSize: 14, color: "#999", fontWeight: 500 }}>{tier.pricePer}</span>
+                      </div>
+                      <p style={{ fontSize: 12, color: "#bbb", margin: 0 }}>{tier.priceNote}</p>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <>
+                  <div style={{ display: "flex", alignItems: "baseline", gap: 6, marginBottom: 4 }}>
+                    <span style={{ fontSize: 46, fontWeight: 800, color: "#111", letterSpacing: -2 }}>{p.price}</span>
+                    <span style={{ fontSize: 15, color: "#999", fontWeight: 500 }}>{p.pricePer}</span>
+                  </div>
+                  <p style={{ fontSize: 12, color: "#bbb", margin: 0 }}>{p.priceNote}</p>
+                </>
+              )}
             </div>
 
             <div className="pricing-features-grid">
@@ -352,8 +388,10 @@ export function PricingSection() {
             </div>
           </div>
         </div>
+        )}
 
         {/* ── Enterprise card ── */}
+        {active === "hrms" && (
         <div className="enterprise-grid" style={{
           background: "#111", borderRadius: 20, padding: "32px 36px",
           boxShadow: "0 12px 40px rgba(0,0,0,0.15)",
@@ -390,6 +428,7 @@ export function PricingSection() {
             Get quote
           </a>
         </div>
+        )}
 
       </div>
     </section>

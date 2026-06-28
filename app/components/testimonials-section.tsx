@@ -6,7 +6,7 @@ const TESTIMONIALS = [
   {
     quote: (
       <>
-        Switching from UEngage to Spartan Kiosk <strong>cut our per-order cost by 65%.</strong> The PetPooja sync is flawless and works even when the internet drops.
+        Switching from UEngage to Spartan Kiosk <strong>cut our per-order cost by 65%.</strong> The PetPooja sync is flawless and orders hit the kitchen in seconds.
       </>
     ),
     name: "Rohit Sharma",

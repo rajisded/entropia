@@ -21,8 +21,8 @@ const FAQS = [
     a: "Significantly. Restaurants typically save 60 to 80% over UEngage. HRMS customers cut their PagarBook bill by 70% on average. Our pricing is per-location and per-employee with zero hidden fees.",
   },
   {
-    q: "Does the kiosk work offline if internet goes down?",
-    a: "Yes. Spartan Kiosk has a full offline mode. Orders are queued locally and synced automatically when connectivity resumes. You will never lose an order due to internet issues.",
+    q: "What payment methods does the kiosk support?",
+    a: "Customers can pay via UPI, cards through Razorpay, or choose pay-at-counter. Every payment is logged and synced to PetPooja automatically.",
   },
   {
     q: "Can we manage multiple locations from one dashboard?",
