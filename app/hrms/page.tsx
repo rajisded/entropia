@@ -5,6 +5,7 @@ import { Footer } from "../components/footer";
 import { HrmsPricingPlans } from "../components/hrms-pricing-plans";
 import { PageGrid } from "../components/page-grid";
 import { SiteNavbar } from "../components/site-navbar";
+import { HRMS_DEMO_URL } from "../lib/links";
 
 export const metadata: Metadata = {
   title: "Spartan HRMS | Face Attendance to Payroll in One Click",
@@ -104,7 +105,12 @@ export default function HrmsPage() {
                 ))}
               </div>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
-                <Link href="/#book-call-btn" className="cta-button">
+                <a
+                  href={HRMS_DEMO_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="cta-button"
+                >
                   <div style={{
                     width: 36, height: 36, borderRadius: "50%",
                     background: "rgba(255,255,255,0.2)",
@@ -112,11 +118,13 @@ export default function HrmsPage() {
                     flexShrink: 0,
                   }}>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <rect x="3" y="4" width="18" height="18" rx="2"/>
-                      <path d="M16 2v4M8 2v4M3 10h18"/>
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
                     </svg>
                   </div>
-                  Book a Free Demo
+                  Try live demo
+                </a>
+                <Link href="/#book-call-btn" className="kiosk-secondary-cta">
+                  Book a call
                 </Link>
                 <Link href="/#pricing" className="kiosk-secondary-cta">
                   View pricing

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { HRMS_DEMO_URL } from "../lib/links";
 
 const EMPLOYEE_FEATURES = [
   "Face scan attendance",
@@ -59,9 +60,14 @@ export function HrmsPricingPlans({ compact = false }: { compact?: boolean }) {
             ))}
           </ul>
 
-          <Link href="/#book-call-btn" className="plan-cta plan-cta--dark">
-            Start free trial
-          </Link>
+          <a
+            href={HRMS_DEMO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="plan-cta plan-cta--dark"
+          >
+            Try live demo
+          </a>
         </article>
 
         <article className="plan-card plan-card--dark">

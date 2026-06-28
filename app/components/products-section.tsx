@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { GRID_LINE } from "../lib/grid";
+import { HRMS_DEMO_URL } from "../lib/links";
 
 const INTERVAL_MS = 4000;
 const FADE_MS = 320;
@@ -311,7 +311,9 @@ export function ProductsSection() {
                       <IntegrationBadge key={label} label={label} />
                     ))}
                     <a
-                      href="#book-call-btn"
+                      href={slide.id === "hrms" ? HRMS_DEMO_URL : "#book-call-btn"}
+                      target={slide.id === "hrms" ? "_blank" : undefined}
+                      rel={slide.id === "hrms" ? "noopener noreferrer" : undefined}
                       style={{
                         height: 40,
                         padding: "0 14px",
@@ -330,7 +332,7 @@ export function ProductsSection() {
                         whiteSpace: "nowrap",
                       }}
                     >
-                      Book Demo
+                      {slide.id === "hrms" ? "Try live demo" : "Book Demo"}
                     </a>
                   </div>
                 </div>

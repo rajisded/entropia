@@ -1,5 +1,7 @@
 "use client";
 
+import { HRMS_DEMO_URL } from "../lib/links";
+
 function XIcon() {
   return (
     <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
@@ -138,15 +140,24 @@ export function Footer() {
             </p>
             <div style={{ display: "flex", gap: 24 }}>
               <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-                {["Kiosk System", "HRMS"].map((item) => (
-                  <a key={item} href="#" style={{ fontSize: 13, color: "rgba(255,255,255,0.7)", textDecoration: "none", fontWeight: 400 }}>
-                    {item}
-                  </a>
-                ))}
+                <a href="/kiosk" style={{ fontSize: 13, color: "rgba(255,255,255,0.7)", textDecoration: "none", fontWeight: 400 }}>
+                  Kiosk System
+                </a>
+                <a href="/hrms" style={{ fontSize: 13, color: "rgba(255,255,255,0.7)", textDecoration: "none", fontWeight: 400 }}>
+                  HRMS
+                </a>
+                <a
+                  href={HRMS_DEMO_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ fontSize: 13, color: "rgba(255,255,255,0.7)", textDecoration: "none", fontWeight: 400 }}
+                >
+                  HRMS live demo →
+                </a>
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                 {["Pricing", "Blog"].map((item) => (
-                  <a key={item} href="#" style={{ fontSize: 13, color: "rgba(255,255,255,0.7)", textDecoration: "none", fontWeight: 400 }}>
+                  <a key={item} href={item === "Pricing" ? "/#pricing" : "#"} style={{ fontSize: 13, color: "rgba(255,255,255,0.7)", textDecoration: "none", fontWeight: 400 }}>
                     {item}
                   </a>
                 ))}
