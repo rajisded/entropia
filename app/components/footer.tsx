@@ -76,10 +76,10 @@ export function Footer() {
               Email
             </p>
             <a
-              href="mailto:hello@gospartan.in"
+              href="mailto:hello@entropia.in"
               style={{ fontSize: 16, fontWeight: 500, color: "#fff", textDecoration: "none", letterSpacing: -0.3 }}
             >
-              hello@gospartan.in
+              hello@entropia.in
             </a>
           </div>
 
@@ -183,7 +183,7 @@ export function Footer() {
           {/* Copyright */}
           <div style={{ display: "flex", alignItems: "flex-end", paddingBottom: 2 }}>
             <p style={{ fontSize: 13, color: "rgba(255,255,255,0.35)", margin: 0, fontWeight: 400 }}>
-              © 2026 Spartan Technologies Pvt. Ltd.
+              © 2026 Entropia Technologies Pvt. Ltd.
             </p>
           </div>
         </div>

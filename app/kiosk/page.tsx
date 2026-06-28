@@ -9,7 +9,7 @@ import { SiteNavbar } from "../components/site-navbar";
 import { BOOK_DEMO_URL } from "../lib/links";
 
 export const metadata: Metadata = {
-  title: "Spartan Kiosk System | Self-Ordering for Restaurants",
+  title: "Entropia Kiosk System | Self-Ordering for Restaurants",
   description:
     "PetPooja-integrated self-ordering kiosks with UPI payments, custom branding, and real-time analytics. Replace UEngage at a fraction of the cost.",
 };
@@ -58,7 +58,7 @@ export default function KioskPage() {
               </h1>
               <p className="hero-subtitle" style={{ maxWidth: 440, marginBottom: 32 }}>
                 <strong>Replace expensive legacy terminals.</strong>{" "}
-                Spartan Kiosk integrates natively with PetPooja, accepts UPI and card payments, and goes live in days.
+                Entropia Kiosk integrates natively with PetPooja, accepts UPI and card payments, and goes live in days.
               </p>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginBottom: 28 }}>
                 {INTEGRATIONS.map((label) => (
@@ -89,7 +89,7 @@ export default function KioskPage() {
             <div className="kiosk-portrait-frame kiosk-hero-phone">
               <Image
                 src="/kiosk/ss-app1.png"
-                alt="Spartan kiosk menu screen"
+                alt="Entropia kiosk menu screen"
                 width={1080}
                 height={1920}
                 priority
@@ -211,7 +211,7 @@ export default function KioskPage() {
                 <span style={{ fontWeight: 500, color: "#111" }}>who run at scale.</span>
               </h2>
               <blockquote className="kiosk-quote">
-                <strong>SVS Food Company</strong> in Madhya Pradesh runs Spartan Kiosk across their outlets.
+                <strong>SVS Food Company</strong> in Madhya Pradesh runs Entropia Kiosk across their outlets.
                 Customers order directly from the screen, orders hit PetPooja instantly, and the team
                 tracks everything from one dashboard.
               </blockquote>

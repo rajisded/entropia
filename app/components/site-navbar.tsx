@@ -16,7 +16,7 @@ export function SiteNavbar() {
     <nav className="navbar">
       <Link href="/" className="navbar-brand">
         <BrandLogo height={28} />
-        <span className="navbar-brand-name">Spartan</span>
+        <span className="navbar-brand-name">Entropia</span>
       </Link>
       <ul className="navbar-links">
         {NAV_LINKS.map((item) => (

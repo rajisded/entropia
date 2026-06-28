@@ -10,7 +10,7 @@ type Product = "hrms" | "kiosk";
 const PROCESS_STEPS = [
   {
     title: "Book a Demo",
-    desc: "See Spartan live in 15 minutes. No sales pitch, just a real walkthrough of the product.",
+    desc: "See Entropia live in 15 minutes. No sales pitch, just a real walkthrough of the product.",
     icon: <DemoIcon />,
   },
   {

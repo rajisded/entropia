@@ -9,7 +9,7 @@ export function BrandLogo({ height = 32, className = "" }: BrandLogoProps) {
   return (
     <Image
       src="/logo.png"
-      alt="Spartan"
+      alt="Entropia"
       width={140}
       height={40}
       priority

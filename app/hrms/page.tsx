@@ -8,7 +8,7 @@ import { SiteNavbar } from "../components/site-navbar";
 import { BOOK_DEMO_URL, HRMS_DEMO_URL } from "../lib/links";
 
 export const metadata: Metadata = {
-  title: "Spartan HRMS | Face Attendance to Payroll in One Click",
+  title: "Entropia HRMS | Face Attendance to Payroll in One Click",
   description:
     "Face scanning marks attendance automatically. Formula engine calculates salary from real check-ins. EPF, TDS, ESIC, and payslips handled in minutes. Replace PagarBook at 70% less cost.",
 };
@@ -91,7 +91,7 @@ export default function HrmsPage() {
               </h1>
               <p className="hero-subtitle" style={{ maxWidth: 460, marginBottom: 28 }}>
                 <strong>Employees scan their face. Salary calculates itself.</strong>{" "}
-                Spartan marks attendance automatically, runs your pay formulas on real check-in data,
+                Entropia marks attendance automatically, runs your pay formulas on real check-in data,
                 and handles EPF, TDS, and ESIC before your HR team opens Excel.
               </p>
               <div className="hrms-value-strip">
@@ -135,7 +135,7 @@ export default function HrmsPage() {
             <div className="hrms-hero-shot">
               <Image
                 src="/hrms/dashboard.png"
-                alt="Spartan HRMS dashboard"
+                alt="Entropia HRMS dashboard"
                 width={1400}
                 height={900}
                 priority
@@ -202,7 +202,7 @@ export default function HrmsPage() {
               </h2>
               <p style={{ fontSize: 15, lineHeight: 1.65, color: "#666", maxWidth: 420, margin: "0 0 24px" }}>
                 No fingerprint machines. No manual registers. Employees scan their face on arrival
-                and Spartan marks attendance instantly across every branch.
+                and Entropia marks attendance instantly across every branch.
               </p>
               <ul className="kiosk-checklist">
                 {["Sub-second face verification", "Anti buddy-punching built in", "Works across all branches", "Syncs to payroll in real time"].map((item) => (
@@ -230,7 +230,7 @@ export default function HrmsPage() {
                 Salary from real attendance. Not spreadsheets.
               </h2>
               <p style={{ fontSize: 15, lineHeight: 1.65, color: "#666", maxWidth: 420, margin: "0 0 24px" }}>
-                Set your pay formulas once. Spartan applies them to every face-marked check-in,
+                Set your pay formulas once. Entropia applies them to every face-marked check-in,
                 calculates EPF, ESIC, and TDS, and generates payslips in one click.
               </p>
               <ul className="kiosk-checklist">
@@ -267,7 +267,7 @@ export default function HrmsPage() {
               </h2>
               <p style={{ fontSize: 15, lineHeight: 1.65, color: "#666", margin: 0, maxWidth: 480 }}>
                 PagarBook charges per head and your team still runs payroll manually.
-                Spartan connects face attendance to salary automatically, at 70% less cost.
+                Entropia connects face attendance to salary automatically, at 70% less cost.
               </p>
             </div>
             <div className="hrms-highlight-stats">
@@ -321,7 +321,7 @@ export default function HrmsPage() {
                 <span style={{ fontWeight: 500, color: "#111" }}>20-minute payroll.</span>
               </h2>
               <blockquote className="kiosk-quote">
-                <strong>Nandhishwar Polymers Private Limited</strong> ditched PagarBook and switched to Spartan HRMS across 8 branches.
+                <strong>Nandhishwar Polymers Private Limited</strong> ditched PagarBook and switched to Entropia HRMS across 8 branches.
                 Face scanning replaced manual attendance. The formula engine runs payroll from real check-ins,
                 with EPF and TDS filed automatically every month.
               </blockquote>

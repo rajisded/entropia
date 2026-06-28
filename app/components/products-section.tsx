@@ -14,7 +14,7 @@ const PRODUCT_SLIDES = [
     tagColor: "#6366f1",
     tagBg: "rgba(99,102,241,0.08)",
     description:
-      "Employees scan their face. Attendance marks itself. Spartan's formula engine runs payroll from real check-ins with EPF, TDS, and ESIC handled automatically.",
+      "Employees scan their face. Attendance marks itself. Entropia's formula engine runs payroll from real check-ins with EPF, TDS, and ESIC handled automatically.",
     integrations: ["Face Scan", "EPF Ready", "ESIC", "TDS"],
     features: [
       { name: "Face Scan Attendance", icon: <FaceIcon /> },
@@ -32,7 +32,7 @@ const PRODUCT_SLIDES = [
     tagColor: "#16a34a",
     tagBg: "rgba(22,163,74,0.08)",
     description:
-      "UEngage locks restaurants into expensive contracts. Spartan Kiosk integrates natively with PetPooja, syncs every order instantly, and goes live in days.",
+      "UEngage locks restaurants into expensive contracts. Entropia Kiosk integrates natively with PetPooja, syncs every order instantly, and goes live in days.",
     integrations: ["PetPooja", "Razorpay", "WhatsApp", "GST Ready"],
     features: [
       { name: "Self-Ordering Kiosk", icon: <KioskIcon /> },

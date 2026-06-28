@@ -197,7 +197,7 @@ export default function Home() {
     <>
       <div className="availability-badge">
         <span className="availability-dot" />
-        Kill the old. Build with Spartan.
+        Kill the old. Build with Entropia.
       </div>
       <h1 className="hero-heading">
         <span className="hero-heading-light">Software built to </span>
@@ -206,7 +206,7 @@ export default function Home() {
       </h1>
       <p className="hero-subtitle">
         <strong>Old software is bleeding your business dry.</strong>{" "}
-        Spartan replaces UEngage &amp; PagarBook with faster, leaner, cheaper products without the enterprise bloat.
+        Entropia replaces UEngage &amp; PagarBook with faster, leaner, cheaper products without the enterprise bloat.
       </p>
       <Link href={BOOK_DEMO_URL} className="cta-button">
         <div style={{
@@ -392,7 +392,7 @@ export default function Home() {
           </span>
         </div>
         <a
-          href="mailto:hello@gospartan.in"
+          href="mailto:hello@entropia.in"
           aria-label="Email"
           style={{
             width: 38, height: 38,

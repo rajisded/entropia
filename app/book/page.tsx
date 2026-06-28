@@ -5,9 +5,9 @@ import { PageGrid } from "../components/page-grid";
 import { SiteNavbar } from "../components/site-navbar";
 
 export const metadata: Metadata = {
-  title: "Book a Demo | Spartan",
+  title: "Book a Demo | Entropia",
   description:
-    "Schedule a free 15-minute walkthrough of Spartan Kiosk or HRMS with our team.",
+    "Schedule a free 15-minute walkthrough of Entropia Kiosk or HRMS with our team.",
 };
 
 export default function BookPage() {

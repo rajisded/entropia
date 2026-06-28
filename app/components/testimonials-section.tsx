@@ -6,7 +6,7 @@ const TESTIMONIALS = [
   {
     quote: (
       <>
-        Switching from UEngage to Spartan Kiosk <strong>cut our per-order cost by 65%.</strong> The PetPooja sync is flawless and orders hit the kitchen in seconds.
+        Switching from UEngage to Entropia Kiosk <strong>cut our per-order cost by 65%.</strong> The PetPooja sync is flawless and orders hit the kitchen in seconds.
       </>
     ),
     name: "Rohit Sharma",
@@ -15,7 +15,7 @@ const TESTIMONIALS = [
   {
     quote: (
       <>
-        We were paying PagarBook ₹40,000 a month and still running payroll manually. Spartan&apos;s face scan and formula engine <strong>cut our bill to ₹8,000</strong> and payroll now finishes in 20 minutes with EPF auto-filed.
+        We were paying PagarBook ₹40,000 a month and still running payroll manually. Entropia&apos;s face scan and formula engine <strong>cut our bill to ₹8,000</strong> and payroll now finishes in 20 minutes with EPF auto-filed.
       </>
     ),
     name: "Priya Nair",
@@ -24,7 +24,7 @@ const TESTIMONIALS = [
   {
     quote: (
       <>
-        Our table turnover <strong>increased 40%</strong> because customers order themselves. No more waiting for staff. Spartan paid for itself in the first month.
+        Our table turnover <strong>increased 40%</strong> because customers order themselves. No more waiting for staff. Entropia paid for itself in the first month.
       </>
     ),
     name: "Ameet Kapoor",
@@ -33,7 +33,7 @@ const TESTIMONIALS = [
   {
     quote: (
       <>
-        Payroll used to take our team 2 full days every month. With Spartan HRMS, <strong>face scan marks attendance, formulas calculate salary, and EPF is filed in 20 minutes.</strong> We haven&apos;t opened Excel since.
+        Payroll used to take our team 2 full days every month. With Entropia HRMS, <strong>face scan marks attendance, formulas calculate salary, and EPF is filed in 20 minutes.</strong> We haven&apos;t opened Excel since.
       </>
     ),
     name: "Meera Gupta",
@@ -42,7 +42,7 @@ const TESTIMONIALS = [
   {
     quote: (
       <>
-        The old kiosk vendors quoted us ₹3 lakh per machine. <strong>Spartan set us up for ₹30,000</strong> including installation and training. Absurd difference.
+        The old kiosk vendors quoted us ₹3 lakh per machine. <strong>Entropia set us up for ₹30,000</strong> including installation and training. Absurd difference.
       </>
     ),
     name: "Vikram Singh",
@@ -51,7 +51,7 @@ const TESTIMONIALS = [
   {
     quote: (
       <>
-        We manage 8 branches and 200+ employees. Spartan is the <strong>only software that actually handles multi-location</strong> without crashing or losing data.
+        We manage 8 branches and 200+ employees. Entropia is the <strong>only software that actually handles multi-location</strong> without crashing or losing data.
       </>
     ),
     name: "Ananya Das",

@@ -7,28 +7,28 @@ import { BOOK_DEMO_URL } from "../lib/links";
 
 const FAQS = [
   {
-    q: "How long does it take to switch from UEngage or PagarBook to Spartan?",
+    q: "How long does it take to switch from UEngage or PagarBook to Entropia?",
     a: "Most businesses are fully live within 3 to 5 business days. We handle the entire migration (menus, employee records, historical data) for free. No downtime, no data loss.",
   },
   {
     q: "Do you integrate with PetPooja?",
-    a: "Yes. Spartan Kiosk has a native, real-time two-way integration with PetPooja. Orders placed on the kiosk flow directly into your PetPooja POS, kitchen display, and reports.",
+    a: "Yes. Entropia Kiosk has a native, real-time two-way integration with PetPooja. Orders placed on the kiosk flow directly into your PetPooja POS, kitchen display, and reports.",
   },
   {
     q: "What happens to our existing data when we switch?",
     a: "We migrate everything: employee records, payroll history, menu items, order data. Our dedicated onboarding team runs the migration and validates every record before you go live.",
   },
   {
-    q: "Is Spartan actually cheaper than UEngage and PagarBook?",
+    q: "Is Entropia actually cheaper than UEngage and PagarBook?",
     a: "Significantly. Restaurants typically save 60 to 80% over UEngage. HRMS customers cut their PagarBook bill by 70% on average. Our pricing is per-location and per-employee with zero hidden fees.",
   },
   {
     q: "How does face scan attendance work?",
-    a: "Employees scan their face on arrival. Spartan verifies identity in under a second, marks attendance automatically, and syncs check-in data directly to your payroll formulas. No cards, no manual registers, no buddy punching.",
+    a: "Employees scan their face on arrival. Entropia verifies identity in under a second, marks attendance automatically, and syncs check-in data directly to your payroll formulas. No cards, no manual registers, no buddy punching.",
   },
   {
     q: "Can we manage multiple locations from one dashboard?",
-    a: "Absolutely. Spartan is built for chains and multi-location businesses. One dashboard shows every location's kiosk data, payroll, attendance, and reports in real time.",
+    a: "Absolutely. Entropia is built for chains and multi-location businesses. One dashboard shows every location's kiosk data, payroll, attendance, and reports in real time.",
   },
 ];
 
@@ -187,7 +187,7 @@ export function FaqSection() {
               Still not sure?
             </p>
             <h3 style={{ fontSize: 26, fontWeight: 500, color: "#111", letterSpacing: -0.8, margin: "0 0 16px", lineHeight: 1.2 }}>
-              See Spartan live in 15 minutes.
+              See Entropia live in 15 minutes.
             </h3>
             <p style={{ fontSize: 13.5, lineHeight: 1.6, color: "#888", margin: "0 0 28px" }}>
               No sales pressure. Just a real walkthrough of the Kiosk or HRMS on your actual use case, with your data.
