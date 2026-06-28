@@ -103,9 +103,9 @@ export default function KioskPage() {
           <div className="kiosk-section-header">
             <p className="kiosk-eyebrow">Product screens</p>
             <h2 className="kiosk-section-title">
-              <span style={{ fontWeight: 300, color: "#b0b0b0" }}>An ordering flow</span>
+              <span style={{ fontWeight: 400, color: "#b0b0b0" }}>An ordering flow</span>
               <br />
-              <span style={{ fontWeight: 800, color: "#111" }}>customers actually enjoy.</span>
+              <span style={{ fontWeight: 500, color: "#111" }}>customers actually enjoy.</span>
             </h2>
           </div>
           <div className="kiosk-screenshots">
@@ -177,9 +177,9 @@ export default function KioskPage() {
           <div className="kiosk-section-header">
             <p className="kiosk-eyebrow">Capabilities</p>
             <h2 className="kiosk-section-title">
-              <span style={{ fontWeight: 300, color: "#b0b0b0" }}>Everything you need</span>
+              <span style={{ fontWeight: 400, color: "#b0b0b0" }}>Everything you need</span>
               <br />
-              <span style={{ fontWeight: 800, color: "#111" }}>to replace UEngage.</span>
+              <span style={{ fontWeight: 500, color: "#111" }}>to replace UEngage.</span>
             </h2>
           </div>
           <div className="kiosk-features">
@@ -187,7 +187,7 @@ export default function KioskPage() {
               <div key={feat.title} className="kiosk-feature-card">
                 <div className="kiosk-feature-dot" />
                 <div>
-                  <h3 style={{ fontSize: 16, fontWeight: 600, color: "#111", margin: "0 0 6px", letterSpacing: -0.2 }}>
+                  <h3 style={{ fontSize: 16, fontWeight: 500, color: "#111", margin: "0 0 6px", letterSpacing: -0.2 }}>
                     {feat.title}
                   </h3>
                   <p style={{ fontSize: 14, lineHeight: 1.6, color: "#777", margin: 0 }}>
@@ -205,9 +205,9 @@ export default function KioskPage() {
             <div>
               <p className="kiosk-eyebrow">Customer story</p>
               <h2 className="kiosk-section-title" style={{ marginBottom: 20 }}>
-                <span style={{ fontWeight: 300, color: "#b0b0b0" }}>Trusted by operators</span>
+                <span style={{ fontWeight: 400, color: "#b0b0b0" }}>Trusted by operators</span>
                 <br />
-                <span style={{ fontWeight: 800, color: "#111" }}>who run at scale.</span>
+                <span style={{ fontWeight: 500, color: "#111" }}>who run at scale.</span>
               </h2>
               <blockquote className="kiosk-quote">
                 <strong>SVS Food Company</strong> in Madhya Pradesh runs Spartan Kiosk across their outlets.

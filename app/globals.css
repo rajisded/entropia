@@ -1,9 +1,18 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 @import "tailwindcss";
+
+@font-face {
+  font-family: "Main";
+  src: url("/main.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   --background: #ffffff;
   --foreground: #111111;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
 }
 
 *,
@@ -29,9 +38,15 @@ body {
   min-height: 100%;
   background-color: var(--background);
   color: var(--foreground);
-  font-family: "Inter", sans-serif;
+  font-family: "Main", sans-serif;
+  font-weight: var(--font-weight-normal);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+strong,
+b {
+  font-weight: var(--font-weight-medium);
 }
 
 /* ─── Navbar ─────────────────────────────────────────────── */
@@ -70,7 +85,7 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-weight: 600;
+  font-weight: var(--font-weight-medium);
   font-size: 14px;
   color: #111;
   text-decoration: none;
@@ -85,7 +100,7 @@ body {
 
 .navbar-links a {
   font-size: 14px;
-  font-weight: 450;
+  font-weight: var(--font-weight-medium);
   color: #555;
   text-decoration: none;
   padding: 6px 12px;
@@ -164,12 +179,12 @@ body {
 }
 
 .hero-heading-light {
-  font-weight: 300;
+  font-weight: var(--font-weight-normal);
   color: #777;
 }
 
 .hero-heading-bold {
-  font-weight: 800;
+  font-weight: var(--font-weight-medium);
   color: #111;
 }
 
@@ -184,7 +199,7 @@ body {
 
 .hero-subtitle strong {
   color: #111;
-  font-weight: 600;
+  font-weight: var(--font-weight-medium);
 }
 
 /* ─── CTA Button ─────────────────────────────────────────── */
@@ -314,7 +329,7 @@ body {
   gap: 7px;
   color: #444;
   font-size: 14.5px;
-  font-weight: 600;
+  font-weight: var(--font-weight-medium);
   white-space: nowrap;
   opacity: 0.65;
   transition: opacity 0.2s ease;
@@ -483,7 +498,7 @@ body {
 
 .kiosk-eyebrow {
   font-size: 12px;
-  font-weight: 600;
+  font-weight: var(--font-weight-medium);
   color: #16a34a;
   letter-spacing: 0.3;
   margin: 0 0 12px;
@@ -506,7 +521,7 @@ body {
   border-radius: 10px;
   background: #fff;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: var(--font-weight-medium);
   color: #444;
   letter-spacing: -0.2;
 }
@@ -591,7 +606,7 @@ body {
   background: rgba(0, 0, 0, 0.55);
   backdrop-filter: blur(8px);
   font-size: 11.5px;
-  font-weight: 600;
+  font-weight: var(--font-weight-medium);
   color: rgba(255, 255, 255, 0.9);
   letter-spacing: 0.2;
 }
@@ -642,7 +657,7 @@ body {
 
 .kiosk-quote strong {
   color: #111;
-  font-weight: 600;
+  font-weight: var(--font-weight-medium);
 }
 
 .kiosk-quote-meta {
@@ -666,7 +681,7 @@ body {
 
 .kiosk-stat-value {
   font-size: 28px;
-  font-weight: 800;
+  font-weight: var(--font-weight-medium);
   color: #111;
   letter-spacing: -1px;
   line-height: 1;
@@ -704,6 +719,151 @@ body {
   border-radius: 50%;
   background: #16a34a;
   flex-shrink: 0;
+}
+
+.hrms-screenshots {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.hrms-screenshot-card {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #eee;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.hrms-hero-shot,
+.hrms-shot-frame {
+  border-radius: 16px;
+  overflow: hidden;
+  background: #f4f4f4;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.hrms-shot-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hrms-split {
+  grid-template-columns: 1fr 1.2fr;
+}
+
+.hrms-testimonial-grid {
+  grid-template-columns: 1fr 1.2fr;
+}
+
+.hrms-value-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.hrms-value-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+  font-size: 12px;
+  font-weight: var(--font-weight-medium);
+  color: #6366f1;
+  letter-spacing: -0.1px;
+}
+
+.hrms-pipeline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  position: relative;
+}
+
+.hrms-pipeline-step {
+  position: relative;
+  padding: 24px 20px;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  background: linear-gradient(180deg, #fafafa 0%, #fff 100%);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.hrms-pipeline-step-num {
+  font-size: 11px;
+  font-weight: var(--font-weight-medium);
+  color: #6366f1;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+.hrms-pipeline-step-title {
+  font-size: 17px;
+  font-weight: var(--font-weight-medium);
+  color: #111;
+  letter-spacing: -0.3px;
+  margin: 0 0 8px;
+  line-height: 1.2;
+}
+
+.hrms-pipeline-step-desc {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #777;
+  margin: 0;
+}
+
+.hrms-pipeline-arrow {
+  display: none;
+}
+
+.hrms-highlight-band {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding: 40px 44px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(99, 102, 241, 0.02) 100%);
+  border: 1px solid rgba(99, 102, 241, 0.12);
+}
+
+.hrms-highlight-stats {
+  display: flex;
+  gap: 36px;
+  flex-wrap: wrap;
+}
+
+.hrms-highlight-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: center;
+  min-width: 100px;
+}
+
+.hrms-highlight-stat-value {
+  font-size: 36px;
+  font-weight: var(--font-weight-medium);
+  color: #6366f1;
+  letter-spacing: -1.5px;
+  line-height: 1;
+}
+
+.hrms-highlight-stat-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #888;
+  max-width: 120px;
+  line-height: 1.35;
 }
 
 .kiosk-features {
@@ -762,7 +922,7 @@ body {
 .kiosk-pricing-tier-label {
   display: inline-block;
   font-size: 11px;
-  font-weight: 600;
+  font-weight: var(--font-weight-medium);
   color: rgba(255, 255, 255, 0.45);
   text-transform: uppercase;
   letter-spacing: 0.4px;
@@ -771,7 +931,7 @@ body {
 
 .kiosk-pricing-tier-price {
   font-size: clamp(26px, 3vw, 34px);
-  font-weight: 800;
+  font-weight: var(--font-weight-medium);
   color: #fff;
   letter-spacing: -1px;
   margin: 0 0 8px;
@@ -804,7 +964,7 @@ body {
 .pricing-tier-label {
   display: inline-block;
   font-size: 11px;
-  font-weight: 600;
+  font-weight: var(--font-weight-medium);
   color: #16a34a;
   text-transform: uppercase;
   letter-spacing: 0.3px;
@@ -827,7 +987,7 @@ body {
 
 .plans-pricing-title {
   font-size: clamp(32px, 4vw, 44px);
-  font-weight: 800;
+  font-weight: var(--font-weight-medium);
   color: #111;
   letter-spacing: -1.4px;
   margin: 0 0 12px;
@@ -880,7 +1040,7 @@ body {
 
 .plan-card-name {
   font-size: 18px;
-  font-weight: 700;
+  font-weight: var(--font-weight-medium);
   color: #111;
   letter-spacing: -0.3px;
   margin: 0;
@@ -895,7 +1055,7 @@ body {
   align-items: center;
   gap: 4px;
   font-size: 11px;
-  font-weight: 600;
+  font-weight: var(--font-weight-medium);
   color: #ea580c;
   background: #fff7ed;
   border: 1px solid #ffedd5;
@@ -911,7 +1071,7 @@ body {
 
 .plan-card-price {
   font-size: 42px;
-  font-weight: 800;
+  font-weight: var(--font-weight-medium);
   color: #111;
   letter-spacing: -2px;
   line-height: 1;
@@ -974,7 +1134,7 @@ body {
   height: 46px;
   border-radius: 10px;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: var(--font-weight-medium);
   text-decoration: none;
   letter-spacing: -0.2px;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
@@ -1020,7 +1180,7 @@ body {
   background: #fff;
   color: #111;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: var(--font-weight-medium);
   text-decoration: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -1367,6 +1527,25 @@ a.hero-mobile-card {
   .plans-pricing-grid {
     grid-template-columns: 1fr;
     max-width: 420px;
+  }
+
+  .hrms-screenshots {
+    grid-template-columns: 1fr;
+  }
+
+  .hrms-pipeline {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .hrms-highlight-band {
+    padding: 28px 24px;
+  }
+
+  .hrms-highlight-stats {
+    gap: 24px;
+    width: 100%;
+    justify-content: space-between;
   }
 }
 

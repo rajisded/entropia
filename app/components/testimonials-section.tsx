@@ -15,7 +15,7 @@ const TESTIMONIALS = [
   {
     quote: (
       <>
-        We were paying PagarBook ₹40,000 a month for features Spartan gives us at <strong>₹8,000.</strong> The migration took 3 days and the team held our hand the whole way.
+        We were paying PagarBook ₹40,000 a month and still running payroll manually. Spartan&apos;s face scan and formula engine <strong>cut our bill to ₹8,000</strong> and payroll now finishes in 20 minutes with EPF auto-filed.
       </>
     ),
     name: "Priya Nair",
@@ -33,11 +33,11 @@ const TESTIMONIALS = [
   {
     quote: (
       <>
-        Payroll used to take our team 2 full days every month. With Spartan HRMS, <strong>it&apos;s done in 20 minutes</strong>, including TDS and compliance reports.
+        Payroll used to take our team 2 full days every month. With Spartan HRMS, <strong>face scan marks attendance, formulas calculate salary, and EPF is filed in 20 minutes.</strong> We haven&apos;t opened Excel since.
       </>
     ),
     name: "Meera Gupta",
-    role: "CFO, Nexus Retail Group",
+    role: "CFO, Nandhishwar Polymers Private Limited",
   },
   {
     quote: (
@@ -85,9 +85,9 @@ export function TestimonialsSection() {
             margin: 0,
             maxWidth: 480,
           }}>
-            <span style={{ fontWeight: 300, color: "#b0b0b0" }}>Real results from</span>
+            <span style={{ fontWeight: 400, color: "#b0b0b0" }}>Real results from</span>
             <br />
-            <span style={{ fontWeight: 800, color: "#111" }}>real businesses.</span>
+            <span style={{ fontWeight: 500, color: "#111" }}>real businesses.</span>
           </h2>
 
           <div style={{ display: "flex", alignItems: "center", gap: 14, paddingTop: 8 }}>
@@ -129,7 +129,7 @@ export function TestimonialsSection() {
                   fontSize: 28,
                   lineHeight: 1,
                   color: "#111",
-                  fontWeight: 700,
+                  fontWeight: 500,
                   display: "block",
                   marginBottom: 14,
                   fontFamily: "Georgia, serif",
@@ -161,7 +161,7 @@ export function TestimonialsSection() {
                   }}
                 />
                 <div>
-                  <div style={{ fontWeight: 700, fontSize: 13.5, color: "#111", letterSpacing: -0.2 }}>
+                  <div style={{ fontWeight: 500, fontSize: 13.5, color: "#111", letterSpacing: -0.2 }}>
                     {t.name}
                   </div>
                   <div style={{ color: "#888", fontSize: 12, marginTop: 2 }}>

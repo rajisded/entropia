@@ -10,19 +10,19 @@ const PRODUCT_SLIDES = [
   {
     id: "hrms",
     label: "HRMS",
-    tag: "70% lower cost",
+    tag: "Payroll in 20 min",
     tagColor: "#6366f1",
     tagBg: "rgba(99,102,241,0.08)",
     description:
-      "PagarBook charges per employee and still needs spreadsheets. Spartan HRMS runs payroll, attendance, and compliance automatically at 70% less cost.",
-    integrations: ["Biometric", "GST Ready", "Slack", "Razorpay"],
+      "Employees scan their face. Attendance marks itself. Spartan's formula engine runs payroll from real check-ins with EPF, TDS, and ESIC handled automatically.",
+    integrations: ["Face Scan", "EPF Ready", "ESIC", "TDS"],
     features: [
-      { name: "Automated Payroll & TDS", icon: <PayrollIcon /> },
-      { name: "Face Attendance Sync", icon: <BiometricIcon /> },
-      { name: "Leave & Shift Management", icon: <LeaveIcon /> },
-      { name: "Employee Self-Service App", icon: <ESIcon /> },
-      { name: "Multi-branch Dashboard", icon: <MultiIcon /> },
-      { name: "GST & Compliance Built-in", icon: <GSTIcon /> },
+      { name: "Face Scan Attendance", icon: <FaceIcon /> },
+      { name: "Auto Attendance Marking", icon: <LeaveIcon /> },
+      { name: "Formula Management", icon: <PayrollIcon /> },
+      { name: "One-Click Payroll", icon: <GSTIcon /> },
+      { name: "EPF, ESIC & TDS Auto", icon: <MultiIcon /> },
+      { name: "Multi-Branch Dashboard", icon: <ESIcon /> },
     ],
   },
   {
@@ -107,10 +107,12 @@ function GSTIcon() {
     </svg>
   );
 }
-function BiometricIcon() {
+function FaceIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      <circle cx="12" cy="10" r="4" />
+      <path d="M6 20c0-3.3 2.7-6 6-6s6 2.7 6 6" />
+      <path d="M9 9h.01M15 9h.01" />
     </svg>
   );
 }
@@ -163,7 +165,7 @@ function IntegrationBadge({ label }: { label: string }) {
         color: "#444",
         flexShrink: 0,
         fontSize: 12,
-        fontWeight: 600,
+        fontWeight: 500,
         letterSpacing: -0.2,
       }}
     >
@@ -271,7 +273,7 @@ export function ProductsSection() {
                   marginBottom: 20,
                 }}>
                   <div style={{ width: 6, height: 6, borderRadius: "50%", background: "#22c55e", boxShadow: "0 0 0 2px rgba(34,197,94,0.25)" }} />
-                  <span style={{ fontSize: 11.5, fontWeight: 600, color: "#444" }}>2 Products. Zero bloat.</span>
+                  <span style={{ fontSize: 11.5, fontWeight: 500, color: "#444" }}>2 Products. Zero bloat.</span>
                 </div>
                 <h2 style={{
                   fontSize: "clamp(38px, 4.4vw, 52px)",
@@ -279,19 +281,19 @@ export function ProductsSection() {
                   letterSpacing: -1.8,
                   margin: 0,
                 }}>
-                  <span style={{ fontWeight: 300, color: "#b0b0b0" }}>Products that</span>
+                  <span style={{ fontWeight: 400, color: "#b0b0b0" }}>Products that</span>
                   <br />
-                  <span style={{ fontWeight: 800, color: "#111" }}>replace the<br />giants.</span>
+                  <span style={{ fontWeight: 500, color: "#111" }}>replace the<br />giants.</span>
                 </h2>
               </div>
 
               <div className={`products-content-grid${visible ? "" : " products-content-grid--hidden"}`}>
                 <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14 }}>
-                  <span style={{ fontSize: 13, fontWeight: 700, color: "#111", letterSpacing: -0.3 }}>
+                  <span style={{ fontSize: 13, fontWeight: 500, color: "#111", letterSpacing: -0.3 }}>
                     {slide.label}
                   </span>
                   <span style={{
-                    fontSize: 11, fontWeight: 600, color: slide.tagColor,
+                    fontSize: 11, fontWeight: 500, color: slide.tagColor,
                     background: slide.tagBg, borderRadius: 20, padding: "3px 10px",
                   }}>
                     {slide.tag}
@@ -322,7 +324,7 @@ export function ProductsSection() {
                         color: "#fff",
                         flexShrink: 0,
                         fontSize: 12,
-                        fontWeight: 600,
+                        fontWeight: 500,
                         letterSpacing: -0.2,
                         textDecoration: "none",
                         whiteSpace: "nowrap",

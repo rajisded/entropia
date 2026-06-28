@@ -90,7 +90,7 @@ export function ClientsSection() {
 
       <div className="clients-shell clients-row">
         <p style={{ margin: 0, fontSize: 15, color: "#888", letterSpacing: -0.2, flexShrink: 0 }}>
-          Trusted by <strong style={{ color: "#111", fontWeight: 700 }}>500+</strong> businesses
+          Trusted by <strong style={{ color: "#111", fontWeight: 500 }}>500+</strong> businesses
         </p>
 
         <div
@@ -132,7 +132,7 @@ export function ClientsSection() {
                   gap: 8,
                   color: "#555",
                   fontSize: 14.5,
-                  fontWeight: 600,
+                  fontWeight: 500,
                   whiteSpace: "nowrap",
                   opacity: 0.8,
                   letterSpacing: -0.2,

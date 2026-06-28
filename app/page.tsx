@@ -32,7 +32,7 @@ const LOGOS = [
 // ─── Product screenshot data ───────────────────────────────────
 const PROJECTS = [
   { img: "/hero/1.png", title: "Kiosk System",  sub: "Self-Ordering", href: "/kiosk" },
-  { img: "/hero/2.png", title: "HRMS",           sub: "HR & Payroll" },
+  { img: "/hero/2.png", title: "HRMS",           sub: "Face Scan Payroll", href: "/hrms" },
   { img: "/hero/3.png", title: "Analytics",      sub: "Real-time Insights" },
   { img: "/hero/4.png", title: "Multi-Location", sub: "Central Dashboard" },
 ];
@@ -157,7 +157,7 @@ export default function Home() {
           >
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
               <div>
-                <div style={{ color: "#fff", fontWeight: 700, fontSize: 13, letterSpacing: -0.3 }}>
+                <div style={{ color: "#fff", fontWeight: 500, fontSize: 13, letterSpacing: -0.3 }}>
                   {project.title}
                 </div>
                 <div style={{ color: "rgba(255,255,255,0.6)", fontSize: 11, marginTop: 2 }}>
@@ -262,7 +262,7 @@ export default function Home() {
                     priority={i < 2}
                   />
                   <div className="hero-mobile-card-label">
-                    <div style={{ fontWeight: 700, fontSize: 12, color: "#fff", letterSpacing: -0.2 }}>
+                    <div style={{ fontWeight: 500, fontSize: 12, color: "#fff", letterSpacing: -0.2 }}>
                       {project.title}
                     </div>
                     <div style={{ fontSize: 10.5, color: "rgba(255,255,255,0.6)", marginTop: 2 }}>
@@ -364,7 +364,7 @@ export default function Home() {
          ══════════════════════════════════════════════════════ */}
       <div className="floating-cta">
         <div className="floating-cta-text" style={{ display: "flex", flexDirection: "column", gap: 1, marginRight: 4 }}>
-          <span style={{ fontSize: 13, fontWeight: 600, color: "#111", letterSpacing: -0.2 }}>
+          <span style={{ fontSize: 13, fontWeight: 500, color: "#111", letterSpacing: -0.2 }}>
             Ready to switch?
           </span>
           <span style={{ fontSize: 11, color: "#999", fontWeight: 400 }}>

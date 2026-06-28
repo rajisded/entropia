@@ -21,8 +21,8 @@ const FAQS = [
     a: "Significantly. Restaurants typically save 60 to 80% over UEngage. HRMS customers cut their PagarBook bill by 70% on average. Our pricing is per-location and per-employee with zero hidden fees.",
   },
   {
-    q: "What payment methods does the kiosk support?",
-    a: "Customers can pay via UPI, cards through Razorpay, or choose pay-at-counter. Every payment is logged and synced to PetPooja automatically.",
+    q: "How does face scan attendance work?",
+    a: "Employees scan their face on arrival. Spartan verifies identity in under a second, marks attendance automatically, and syncs check-in data directly to your payroll formulas. No cards, no manual registers, no buddy punching.",
   },
   {
     q: "Can we manage multiple locations from one dashboard?",
@@ -76,9 +76,9 @@ export function FaqSection() {
               letterSpacing: -2,
               margin: "0 0 48px",
             }}>
-              <span style={{ fontWeight: 800, color: "#111" }}>Your questions</span>
+              <span style={{ fontWeight: 500, color: "#111" }}>Your questions</span>
               <br />
-              <span style={{ fontWeight: 800, color: "#c0c0c0" }}>answered.</span>
+              <span style={{ fontWeight: 500, color: "#c0c0c0" }}>answered.</span>
             </h2>
 
             <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
@@ -113,7 +113,7 @@ export function FaqSection() {
                       {i > 0 && (
                         <span style={{
                           fontSize: 12,
-                          fontWeight: 600,
+                          fontWeight: 500,
                           color: "#bbb",
                           flexShrink: 0,
                           width: 22,
@@ -125,7 +125,7 @@ export function FaqSection() {
                       <span style={{
                         flex: 1,
                         fontSize: 14.5,
-                        fontWeight: 600,
+                        fontWeight: 500,
                         color: "#111",
                         letterSpacing: -0.2,
                         lineHeight: 1.4,
@@ -184,7 +184,7 @@ export function FaqSection() {
             <p style={{ fontSize: 17, color: "#999", fontWeight: 500, margin: "0 0 4px", letterSpacing: -0.2 }}>
               Still not sure?
             </p>
-            <h3 style={{ fontSize: 26, fontWeight: 800, color: "#111", letterSpacing: -0.8, margin: "0 0 16px", lineHeight: 1.2 }}>
+            <h3 style={{ fontSize: 26, fontWeight: 500, color: "#111", letterSpacing: -0.8, margin: "0 0 16px", lineHeight: 1.2 }}>
               See Spartan live in 15 minutes.
             </h3>
             <p style={{ fontSize: 13.5, lineHeight: 1.6, color: "#888", margin: "0 0 28px" }}>
@@ -204,7 +204,7 @@ export function FaqSection() {
                   padding: "12px 22px",
                   borderRadius: 50,
                   fontSize: 14,
-                  fontWeight: 600,
+                  fontWeight: 500,
                   letterSpacing: -0.2,
                   boxShadow: "0 4px 16px rgba(0,0,0,0.18)",
                 }}

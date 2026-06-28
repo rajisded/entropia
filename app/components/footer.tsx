@@ -54,7 +54,7 @@ export function Footer() {
           lineHeight: 1.1,
           letterSpacing: -2.5,
           margin: "0 0 56px",
-          fontWeight: 800,
+          fontWeight: 500,
         }}>
           <span style={{ color: "#fff" }}>Lets build the future</span>
           <br />
@@ -116,7 +116,7 @@ export function Footer() {
                     color: "#fff",
                     textDecoration: "none",
                     fontSize: 12,
-                    fontWeight: 600,
+                    fontWeight: 500,
                     justifyContent: "center",
                     flexShrink: 0,
                   }}
@@ -188,7 +188,7 @@ export function Footer() {
       }}>
         <span style={{
           fontSize: "clamp(120px, 22vw, 280px)",
-          fontWeight: 900,
+          fontWeight: 500,
           color: "#fff",
           letterSpacing: -8,
           display: "block",
