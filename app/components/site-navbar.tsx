@@ -5,7 +5,8 @@ export function SiteNavbar() {
   return (
     <nav className="navbar">
       <Link href="/" className="navbar-brand">
-        <BrandLogo />
+        <BrandLogo height={28} />
+        <span className="navbar-brand-name">Spartan</span>
       </Link>
       <ul className="navbar-links">
         {["Products", "Pricing", "About", "Blog"].map((item) => (

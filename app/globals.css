@@ -91,6 +91,14 @@ b {
   text-decoration: none;
 }
 
+.navbar-brand-name {
+  font-size: 15px;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: -0.4px;
+  color: #111;
+  line-height: 1;
+}
+
 .navbar-links {
   display: flex;
   align-items: center;
