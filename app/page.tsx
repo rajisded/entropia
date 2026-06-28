@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useLenis } from "lenis/react";
 import { PricingSection } from "./components/pricing-section";
 import { ClientsSection } from "./components/clients-section";
@@ -81,12 +81,31 @@ export default function Home() {
   const [prog, setProg] = useState(0);
   const rafRef = useRef<number | null>(null);
   const isMobile = useIsMobile();
+  const lenis = useLenis();
 
-  useLenis((lenis) => {
+  useEffect(() => {
+    const hash = window.location.hash.slice(1);
+    if (!hash) return;
+
+    const scrollToHash = () => {
+      const target = document.getElementById(hash);
+      if (!target) return;
+
+      if (lenis) {
+        lenis.scrollTo(target, { offset: -88 });
+      } else {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    };
+
+    requestAnimationFrame(() => requestAnimationFrame(scrollToHash));
+  }, [lenis]);
+
+  useLenis((lenisInstance) => {
     if (isMobile) return; // no scroll animation on mobile
     if (rafRef.current) return;
     rafRef.current = requestAnimationFrame(() => {
-      const raw = clamp(lenis.scroll / SCROLL_RANGE);
+      const raw = clamp(lenisInstance.scroll / SCROLL_RANGE);
       setProg(easeInOutQuart(raw));
       rafRef.current = null;
     });

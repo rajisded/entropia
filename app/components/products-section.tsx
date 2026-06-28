@@ -217,7 +217,7 @@ export function ProductsSection() {
   }, [autoPlay, active, changeProduct]);
 
   return (
-    <section className="section-grid-lines" style={{
+    <section id="products" className="section-grid-lines" style={{
       position: "relative",
       background: "#ffffff",
     }}>

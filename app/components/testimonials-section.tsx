@@ -62,6 +62,7 @@ const TESTIMONIALS = [
 export function TestimonialsSection() {
   return (
     <section
+      id="blog"
       className="section-grid-lines"
       style={{
         background: "#ffffff",

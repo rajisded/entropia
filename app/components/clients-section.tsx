@@ -70,6 +70,7 @@ function CloudIcon() {
 export function ClientsSection() {
   return (
     <section
+      id="about"
       className="section-grid-lines"
       style={{
         background: "#ffffff",
