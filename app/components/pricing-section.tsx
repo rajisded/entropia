@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { BOOK_DEMO_URL } from "../lib/links";
 import { HrmsPricingPlans } from "./hrms-pricing-plans";
 import { KioskPricingPlans } from "./kiosk-pricing-plans";
 
@@ -200,7 +201,7 @@ export function PricingSection() {
           </div>
 
           <a
-            href="#"
+            href={BOOK_DEMO_URL}
             style={{
               display: "inline-flex", alignItems: "center", gap: 10,
               background: "#fff", color: "#111", textDecoration: "none",

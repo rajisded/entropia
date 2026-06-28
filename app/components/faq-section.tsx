@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
+import { BOOK_DEMO_URL } from "../lib/links";
 
 const FAQS = [
   {
@@ -192,8 +194,8 @@ export function FaqSection() {
             </p>
 
             <div className="faq-cta-row" style={{ display: "flex", alignItems: "center", gap: 16 }}>
-              <a
-                href="#"
+              <Link
+                href={BOOK_DEMO_URL}
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
@@ -211,7 +213,7 @@ export function FaqSection() {
               >
                 <CalIcon />
                 Book Free Demo
-              </a>
+              </Link>
               <span style={{ fontSize: 14, color: "#bbb", fontWeight: 500, letterSpacing: -0.2 }}>
                 Cal.com
               </span>

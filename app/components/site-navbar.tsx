@@ -25,7 +25,7 @@ export function SiteNavbar() {
           </li>
         ))}
       </ul>
-      <NavAnchor href="/#book-call-btn" className="navbar-contact">
+      <NavAnchor href="/book" className="navbar-contact">
         Get Demo
       </NavAnchor>
     </nav>

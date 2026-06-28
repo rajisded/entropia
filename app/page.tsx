@@ -13,6 +13,7 @@ import { ProductsSection } from "./components/products-section";
 import { PageGrid } from "./components/page-grid";
 import { SiteNavbar } from "./components/site-navbar";
 import { GRID_HALF, GRID_INNER_PAD, GRID_OUTER_MARGIN } from "./lib/grid";
+import { BOOK_DEMO_URL } from "./lib/links";
 import { useIsMobile } from "./lib/use-media-query";
 
 // ─── Customer logo data ────────────────────────────────────────
@@ -207,7 +208,7 @@ export default function Home() {
         <strong>Old software is bleeding your business dry.</strong>{" "}
         Spartan replaces UEngage &amp; PagarBook with faster, leaner, cheaper products without the enterprise bloat.
       </p>
-      <a href="#" className="cta-button" id="book-call-btn">
+      <Link href={BOOK_DEMO_URL} className="cta-button">
         <div style={{
           width: 36, height: 36, borderRadius: "50%",
           background: "rgba(255,255,255,0.2)",
@@ -219,7 +220,7 @@ export default function Home() {
           </svg>
         </div>
         Get a Free Demo
-      </a>
+      </Link>
     </>
   );
 
@@ -409,8 +410,8 @@ export default function Home() {
             <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
           </svg>
         </a>
-        <a
-          href="#"
+        <Link
+          href={BOOK_DEMO_URL}
           aria-label="Book a call"
           style={{
             width: 38, height: 38,
@@ -427,7 +428,7 @@ export default function Home() {
             <rect x="3" y="4" width="18" height="18" rx="2"/>
             <path d="M16 2v4M8 2v4M3 10h18"/>
           </svg>
-        </a>
+        </Link>
       </div>
     </PageGrid>
   );

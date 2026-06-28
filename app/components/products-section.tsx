@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { HRMS_DEMO_URL } from "../lib/links";
+import { BOOK_DEMO_URL, HRMS_DEMO_URL } from "../lib/links";
 
 const INTERVAL_MS = 4000;
 const FADE_MS = 320;
@@ -311,7 +311,7 @@ export function ProductsSection() {
                       <IntegrationBadge key={label} label={label} />
                     ))}
                     <a
-                      href={slide.id === "hrms" ? HRMS_DEMO_URL : "#book-call-btn"}
+                      href={slide.id === "hrms" ? HRMS_DEMO_URL : BOOK_DEMO_URL}
                       target={slide.id === "hrms" ? "_blank" : undefined}
                       rel={slide.id === "hrms" ? "noopener noreferrer" : undefined}
                       style={{

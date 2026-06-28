@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BOOK_DEMO_URL } from "../lib/links";
 
 const OUTLET_FEATURES = [
   "PetPooja POS integration",
@@ -60,7 +61,7 @@ export function KioskPricingPlans({ compact = false }: { compact?: boolean }) {
             ))}
           </ul>
 
-          <Link href="/#book-call-btn" className="plan-cta plan-cta--dark">
+          <Link href={BOOK_DEMO_URL} className="plan-cta plan-cta--dark">
             Get started
           </Link>
         </article>
@@ -85,7 +86,7 @@ export function KioskPricingPlans({ compact = false }: { compact?: boolean }) {
             ))}
           </ul>
 
-          <Link href="/#book-call-btn" className="plan-cta plan-cta--light">
+          <Link href={BOOK_DEMO_URL} className="plan-cta plan-cta--light">
             Talk to sales
           </Link>
         </article>

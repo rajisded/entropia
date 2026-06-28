@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { HRMS_DEMO_URL } from "../lib/links";
+import { BOOK_DEMO_URL, HRMS_DEMO_URL } from "../lib/links";
 
 const EMPLOYEE_FEATURES = [
   "Face scan attendance",
@@ -89,7 +89,7 @@ export function HrmsPricingPlans({ compact = false }: { compact?: boolean }) {
             ))}
           </ul>
 
-          <Link href="/#book-call-btn" className="plan-cta plan-cta--light">
+          <Link href={BOOK_DEMO_URL} className="plan-cta plan-cta--light">
             Talk to sales
           </Link>
         </article>

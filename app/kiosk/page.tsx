@@ -6,6 +6,7 @@ import { KioskAutoplayVideo } from "../components/kiosk-autoplay-video";
 import { KioskPricingPlans } from "../components/kiosk-pricing-plans";
 import { PageGrid } from "../components/page-grid";
 import { SiteNavbar } from "../components/site-navbar";
+import { BOOK_DEMO_URL } from "../lib/links";
 
 export const metadata: Metadata = {
   title: "Spartan Kiosk System | Self-Ordering for Restaurants",
@@ -65,7 +66,7 @@ export default function KioskPage() {
                 ))}
               </div>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
-                <Link href="/#book-call-btn" className="cta-button">
+                <Link href={BOOK_DEMO_URL} className="cta-button">
                   <div style={{
                     width: 36, height: 36, borderRadius: "50%",
                     background: "rgba(255,255,255,0.2)",

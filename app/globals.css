@@ -53,9 +53,49 @@ b {
 #products,
 #pricing,
 #about,
-#blog,
-#book-call-btn {
+#blog {
   scroll-margin-top: 88px;
+}
+
+.book-page {
+  padding: 96px 0 64px;
+}
+
+.book-page .section-shell {
+  padding-top: 20px;
+  padding-bottom: 80px;
+}
+
+.book-page-header {
+  margin-bottom: 20px;
+}
+
+.book-page-heading {
+  font-size: clamp(22px, 2.8vw, 28px);
+  line-height: 1.2;
+  letter-spacing: -0.6px;
+  font-weight: 500;
+  color: #111;
+  margin: 0 0 6px;
+}
+
+.book-page-subtitle {
+  font-size: 14px;
+  line-height: 1.45;
+  color: #888;
+  margin: 0;
+  max-width: 480px;
+}
+
+.cal-booking-frame {
+  min-height: 720px;
+  height: calc(100vh - 200px);
+  max-height: 920px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.06);
 }
 
 /* ─── Navbar ─────────────────────────────────────────────── */
@@ -1390,6 +1430,24 @@ a.hero-mobile-card {
 
   .section-shell {
     padding: 64px 20px 72px;
+  }
+
+  .book-page {
+    padding: 88px 0 40px;
+  }
+
+  .book-page .section-shell {
+    padding-top: 12px;
+    padding-bottom: 48px;
+  }
+
+  .book-page-header {
+    margin-bottom: 14px;
+  }
+
+  .cal-booking-frame {
+    min-height: 560px;
+    height: calc(100vh - 180px);
   }
 
   .two-col,

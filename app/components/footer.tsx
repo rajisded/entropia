@@ -1,6 +1,7 @@
 "use client";
 
-import { HRMS_DEMO_URL } from "../lib/links";
+import Link from "next/link";
+import { BOOK_DEMO_URL, HRMS_DEMO_URL } from "../lib/links";
 
 function XIcon() {
   return (
@@ -87,12 +88,12 @@ export function Footer() {
             <p style={{ fontSize: 11.5, fontWeight: 500, color: "rgba(255,255,255,0.4)", letterSpacing: 0.3, margin: "0 0 10px" }}>
               Book a Demo
             </p>
-            <a
-              href="#"
+            <Link
+              href={BOOK_DEMO_URL}
               style={{ fontSize: 16, fontWeight: 500, color: "#fff", textDecoration: "none", letterSpacing: -0.3 }}
             >
               Schedule Now →
-            </a>
+            </Link>
           </div>
 
           {/* Social */}
