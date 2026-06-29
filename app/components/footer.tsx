@@ -46,9 +46,35 @@ const SOCIAL = [
   { label: "YouTube", icon: <YoutubeIcon />, href: "#" },
 ];
 
+function FooterWatermark() {
+  return (
+    <div className="footer-watermark" aria-hidden>
+      <svg
+        className="footer-watermark-svg"
+        viewBox="0 0 1000 200"
+        preserveAspectRatio="xMidYMax meet"
+      >
+        <text
+          x="500"
+          y="172"
+          textAnchor="middle"
+          fontSize="200"
+          fontWeight="500"
+          fill="#ffffff"
+          textLength="980"
+          lengthAdjust="spacingAndGlyphs"
+          style={{ fontFamily: '"Main", sans-serif' }}
+        >
+          ENTROPIA
+        </text>
+      </svg>
+    </div>
+  );
+}
+
 export function Footer() {
   return (
-    <footer id="lets-connect" style={{ background: "#000", color: "#fff", overflow: "hidden" }}>
+    <footer id="lets-connect" style={{ background: "#000", color: "#fff", overflowX: "clip" }}>
       <div className="footer-shell">
 
         {/* ── Headline ── */}
@@ -189,25 +215,7 @@ export function Footer() {
         </div>
       </div>
 
-      {/* ── Giant name watermark ── */}
-      <div style={{
-        textAlign: "center",
-        lineHeight: 0.85,
-        userSelect: "none",
-        pointerEvents: "none",
-        overflow: "hidden",
-        marginTop: -20,
-      }}>
-        <span style={{
-          fontSize: "clamp(120px, 22vw, 280px)",
-          fontWeight: 500,
-          color: "#fff",
-          letterSpacing: -8,
-          display: "block",
-        }}>
-          ENTROPIA
-        </span>
-      </div>
+      <FooterWatermark />
     </footer>
   );
 }

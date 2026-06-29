@@ -77,18 +77,17 @@ export default function HrmsPage() {
       <SiteNavbar />
 
       <main className="kiosk-page">
-        <section className="kiosk-hero section-shell">
+        <section className="kiosk-hero">
+          <div className="hrms-hero-header">
+            <h1 className="hrms-hero-brand">Entropia HRMS</h1>
+            <h2 className="hrms-hero-tagline">
+              <span className="hero-heading-light">Face in.</span>{" "}
+              <span className="hero-heading-bold">Payroll out.</span>
+            </h2>
+          </div>
+          <div className="section-shell kiosk-hero-body">
           <div className="kiosk-hero-grid">
             <div>
-              <div className="availability-badge" style={{ marginBottom: 24 }}>
-                <span className="availability-dot" />
-                Payroll in 20 minutes, not 2 days
-              </div>
-              <h1 className="hero-heading" style={{ marginBottom: 20 }}>
-                <span className="hero-heading-light">Face in.</span>
-                <br />
-                <span className="hero-heading-bold">Payroll out.</span>
-              </h1>
               <p className="hero-subtitle" style={{ maxWidth: 460, marginBottom: 28 }}>
                 <strong>Employees scan their face. Salary calculates itself.</strong>{" "}
                 Entropia marks attendance automatically, runs your pay formulas on real check-in data,
@@ -142,6 +141,7 @@ export default function HrmsPage() {
                 className="hrms-shot-img"
               />
             </div>
+          </div>
           </div>
         </section>
 

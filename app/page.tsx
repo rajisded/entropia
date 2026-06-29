@@ -329,11 +329,11 @@ export default function Home() {
       )}
       <ProductsSection />
 
-      <PricingSection />
-
       <ClientsSection />
 
       <TestimonialsSection />
+
+      <PricingSection />
 
       <FaqSection />
 
