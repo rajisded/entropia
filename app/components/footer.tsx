@@ -48,7 +48,7 @@ const SOCIAL = [
 
 export function Footer() {
   return (
-    <footer style={{ background: "#000", color: "#fff", overflow: "hidden" }}>
+    <footer id="lets-connect" style={{ background: "#000", color: "#fff", overflow: "hidden" }}>
       <div className="footer-shell">
 
         {/* ── Headline ── */}

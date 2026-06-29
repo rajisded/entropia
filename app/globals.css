@@ -15,12 +15,14 @@
   --font-weight-medium: 500;
 }
 
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@layer base {
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 }
 
 /* ─── Reset Tailwind base height overrides ────────────────
@@ -53,7 +55,8 @@ b {
 #products,
 #pricing,
 #about,
-#blog {
+#blog,
+#lets-connect {
   scroll-margin-top: 88px;
 }
 
@@ -402,6 +405,23 @@ b {
   transform: translateY(0);
 }
 
+.clients-marquee-track {
+  animation: clients-marquee-scroll 24s linear infinite;
+}
+
+.clients-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes clients-marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 /* ─── Social Proof Bar ───────────────────────────────────── */
 .social-proof-bar {
   background: #fff;
@@ -411,6 +431,10 @@ b {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+}
+
+.social-proof-bar .clients-shell {
+  width: 100%;
 }
 
 .social-proof-inner {
@@ -1762,5 +1786,44 @@ a.hero-mobile-card {
   .product-toggle-btn {
     padding: 9px 16px !important;
     font-size: 13px !important;
+  }
+
+  .landing-testimonials-marquee-item {
+    font-size: clamp(2.75rem, 14vw, 4.5rem);
+    letter-spacing: -0.035em;
+  }
+}
+
+/* ─── Testimonials marquee (landing) ─────────────────────────── */
+.landing-testimonials-marquee-wrap {
+  opacity: 0.95;
+}
+
+.landing-testimonials-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: landing-testimonials-marquee 48s linear infinite;
+  will-change: transform;
+}
+
+.landing-testimonials-marquee-item {
+  font-size: clamp(4.5rem, 16vw, 12rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.045em;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.landing-testimonials-marquee-wrap--light .landing-testimonials-marquee-item {
+  color: #111111;
+}
+
+@keyframes landing-testimonials-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }

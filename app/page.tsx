@@ -6,6 +6,7 @@ import { useRef, useState, useEffect } from "react";
 import { useLenis } from "lenis/react";
 import { PricingSection } from "./components/pricing-section";
 import { ClientsSection } from "./components/clients-section";
+import { ClientsMarquee } from "./components/clients-marquee";
 import { TestimonialsSection } from "./components/testimonials-section";
 import { FaqSection } from "./components/faq-section";
 import { Footer } from "./components/footer";
@@ -15,20 +16,6 @@ import { SiteNavbar } from "./components/site-navbar";
 import { GRID_HALF, GRID_INNER_PAD, GRID_OUTER_MARGIN } from "./lib/grid";
 import { BOOK_DEMO_URL } from "./lib/links";
 import { useIsMobile } from "./lib/use-media-query";
-
-// ─── Customer logo data ────────────────────────────────────────
-const LOGOS = [
-  { icon: "🍱", name: "Biryani Blues" },
-  { icon: "🍕", name: "Pizza Corner" },
-  { icon: "☕", name: "Chai House" },
-  { icon: "🍔", name: "UrbanEats" },
-  { icon: "🥗", name: "NorthEat Kitchen" },
-  { icon: "🍜", name: "CloudKitchen Co." },
-  { icon: "🍱", name: "Biryani Blues" },
-  { icon: "🍕", name: "Pizza Corner" },
-  { icon: "☕", name: "Chai House" },
-  { icon: "🍔", name: "UrbanEats" },
-];
 
 // ─── Product screenshot data ───────────────────────────────────
 const PROJECTS = [
@@ -224,35 +211,7 @@ export default function Home() {
     </>
   );
 
-  const renderSocialProof = () => (
-    <div className="social-proof-inner">
-      <div className="clients-info">
-        <Image
-          src="/client-avatars.png"
-          alt="Happy customers"
-          width={120}
-          height={44}
-          style={{ objectFit: "cover", objectPosition: "left center" }}
-        />
-        <div className="clients-meta">
-          <div className="stars">
-            {"★★★★★".split("").map((s, idx) => <span key={idx}>{s}</span>)}
-          </div>
-          <span className="clients-count">500+ businesses saved</span>
-        </div>
-      </div>
-      <div className="logos-marquee-wrapper">
-        <div className="logos-track">
-          {LOGOS.map((logo, i) => (
-            <div key={i} className="logo-item">
-              <span className="logo-icon">{logo.icon}</span>
-              <span>{logo.name}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
+  const renderSocialProof = () => <ClientsMarquee />;
 
   const renderNavbar = () => <SiteNavbar />;
 
