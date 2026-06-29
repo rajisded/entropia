@@ -100,6 +100,8 @@ export default function KioskPage() {
           </div>
         </section>
 
+        <KioskInteractiveDemoSection />
+
         {/* Screenshots */}
         <section className="section-grid-lines kiosk-section section-shell">
           <div className="kiosk-section-header">
@@ -124,8 +126,6 @@ export default function KioskPage() {
             ))}
           </div>
         </section>
-
-        <KioskInteractiveDemoSection />
 
         {/* App recording — portrait 1080×1920 */}
         <section className="section-grid-lines kiosk-section section-shell">

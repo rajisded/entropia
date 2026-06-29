@@ -32,8 +32,8 @@ const LOGOS = [
 
 // ─── Product screenshot data ───────────────────────────────────
 const PROJECTS = [
-  { img: "/hero/1.png", title: "Kiosk System",  sub: "Self-Ordering", href: "/kiosk" },
-  { img: "/hero/2.png", title: "HRMS",           sub: "Face Scan Payroll", href: "/hrms" },
+  { img: "/kiosk.png", title: "Kiosk System",  sub: "Self-Ordering", href: "/kiosk" },
+  { img: "/hrms.png", title: "HRMS",           sub: "Face Scan Payroll", href: "/hrms" },
   { img: "/hero/3.png", title: "Analytics",      sub: "Real-time Insights" },
   { img: "/hero/4.png", title: "Multi-Location", sub: "Central Dashboard" },
 ];
@@ -41,12 +41,12 @@ const PROJECTS = [
 // ─── Card sizes ───────────────────────────────────────
 const S_W = 530;   // stack card width
 const S_H = 370;   // stack card height
-const G_W = 455;   // grid card width  (bigger final grid)
-const G_H = 320;   // grid card height
+const G_W = 560;   // grid card width — ~16:9 to match kiosk/hrms screenshots
+const G_H = 313;   // grid card height (560 × 572/1024)
 const G_GAP = 16;  // grid gap
 
-const GRID_W = G_W * 2 + G_GAP;  // 926
-const GRID_H = G_H * 2 + G_GAP;  // 656
+const GRID_W = G_W * 2 + G_GAP;  // 1136
+const GRID_H = G_H * 2 + G_GAP;  // 642
 
 // ─── Stack layout (top card = index 0) ───────────────────────
 const STACK = [

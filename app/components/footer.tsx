@@ -205,7 +205,7 @@ export function Footer() {
           letterSpacing: -8,
           display: "block",
         }}>
-          SPARTAN
+          ENTROPIA
         </span>
       </div>
     </footer>
