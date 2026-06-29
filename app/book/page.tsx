@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
+import { JsonLd } from "../components/json-ld";
 import { CalBooking } from "../components/cal-booking";
 import { Footer } from "../components/footer";
 import { PageGrid } from "../components/page-grid";
 import { SiteNavbar } from "../components/site-navbar";
+import { BOOK_METADATA } from "../lib/seo";
+import { bookPageSchemas } from "../lib/seo-schemas";
 
-export const metadata: Metadata = {
-  title: "Book a Demo | Entropia",
-  description:
-    "Schedule a free 15-minute walkthrough of Entropia Kiosk or HRMS with our team.",
-};
+export const metadata: Metadata = BOOK_METADATA;
 
 export default function BookPage() {
   return (
     <PageGrid>
+      <JsonLd data={bookPageSchemas()} />
       <SiteNavbar />
 
       <main className="book-page">

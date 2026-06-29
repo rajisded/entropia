@@ -1,17 +1,16 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { JsonLd } from "../components/json-ld";
 import { Footer } from "../components/footer";
 import { HrmsPricingPlans } from "../components/hrms-pricing-plans";
 import { PageGrid } from "../components/page-grid";
 import { SiteNavbar } from "../components/site-navbar";
 import { BOOK_DEMO_URL, HRMS_DEMO_URL } from "../lib/links";
+import { HRMS_METADATA } from "../lib/seo";
+import { hrmsPageSchemas } from "../lib/seo-schemas";
 
-export const metadata: Metadata = {
-  title: "Entropia HRMS | Face Attendance to Payroll in One Click",
-  description:
-    "Face scanning marks attendance automatically. Formula engine calculates salary from real check-ins. EPF, TDS, ESIC, and payslips handled in minutes. Replace PagarBook at 70% less cost.",
-};
+export const metadata: Metadata = HRMS_METADATA;
 
 const PIPELINE = [
   {
@@ -74,6 +73,7 @@ const CUSTOMER_STATS = [
 export default function HrmsPage() {
   return (
     <PageGrid>
+      <JsonLd data={hrmsPageSchemas()} />
       <SiteNavbar />
 
       <main className="kiosk-page">

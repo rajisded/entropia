@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { JsonLd } from "../components/json-ld";
 import { Footer } from "../components/footer";
 import { KioskAutoplayVideo } from "../components/kiosk-autoplay-video";
 import { KioskInteractiveDemoSection } from "../components/kiosk-interactive-demo-section";
@@ -8,12 +9,10 @@ import { KioskPricingPlans } from "../components/kiosk-pricing-plans";
 import { PageGrid } from "../components/page-grid";
 import { SiteNavbar } from "../components/site-navbar";
 import { BOOK_DEMO_URL } from "../lib/links";
+import { KIOSK_METADATA } from "../lib/seo";
+import { kioskPageSchemas } from "../lib/seo-schemas";
 
-export const metadata: Metadata = {
-  title: "Entropia Kiosk System | Self-Ordering for Restaurants",
-  description:
-    "PetPooja-integrated self-ordering kiosks with UPI payments, custom branding, and real-time analytics. Replace UEngage at a fraction of the cost.",
-};
+export const metadata: Metadata = KIOSK_METADATA;
 
 const SCREENSHOTS = [
   { src: "/kiosk/ss-app1.png", alt: "Kiosk menu browsing screen" },
@@ -41,6 +40,7 @@ const SVS_STATS = [
 export default function KioskPage() {
   return (
     <PageGrid>
+      <JsonLd data={kioskPageSchemas()} />
       <SiteNavbar />
 
       <main className="kiosk-page">

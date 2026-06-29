@@ -5,32 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { BOOK_DEMO_URL } from "../lib/links";
 
-const FAQS = [
-  {
-    q: "How long does it take to switch from UEngage or PagarBook to Entropia?",
-    a: "Most businesses are fully live within 3 to 5 business days. We handle the entire migration (menus, employee records, historical data) for free. No downtime, no data loss.",
-  },
-  {
-    q: "Do you integrate with PetPooja?",
-    a: "Yes. Entropia Kiosk has a native, real-time two-way integration with PetPooja. Orders placed on the kiosk flow directly into your PetPooja POS, kitchen display, and reports.",
-  },
-  {
-    q: "What happens to our existing data when we switch?",
-    a: "We migrate everything: employee records, payroll history, menu items, order data. Our dedicated onboarding team runs the migration and validates every record before you go live.",
-  },
-  {
-    q: "Is Entropia actually cheaper than UEngage and PagarBook?",
-    a: "Significantly. Restaurants typically save 60 to 80% over UEngage. HRMS customers cut their PagarBook bill by 70% on average. Our pricing is per-location and per-employee with zero hidden fees.",
-  },
-  {
-    q: "How does face scan attendance work?",
-    a: "Employees scan their face on arrival. Entropia verifies identity in under a second, marks attendance automatically, and syncs check-in data directly to your payroll formulas. No cards, no manual registers, no buddy punching.",
-  },
-  {
-    q: "Can we manage multiple locations from one dashboard?",
-    a: "Absolutely. Entropia is built for chains and multi-location businesses. One dashboard shows every location's kiosk data, payroll, attendance, and reports in real time.",
-  },
-];
+import { SITE_FAQS } from "../lib/faq-data";
 
 function PlusIcon() {
   return (
@@ -84,7 +59,7 @@ export function FaqSection() {
             </h2>
 
             <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-              {FAQS.map((faq, i) => {
+              {SITE_FAQS.map((faq, i) => {
                 const isOpen = open === i;
                 return (
                   <div
@@ -132,7 +107,7 @@ export function FaqSection() {
                         letterSpacing: -0.2,
                         lineHeight: 1.4,
                       }}>
-                        {faq.q}
+                        {faq.question}
                       </span>
                       <span style={{ flexShrink: 0, color: "#999" }}>
                         {isOpen ? <MinusIcon /> : <PlusIcon />}
@@ -153,7 +128,7 @@ export function FaqSection() {
                         letterSpacing: -0.1,
                         paddingLeft: i > 0 ? 58 : 20,
                       }}>
-                        {faq.a}
+                        {faq.answer}
                       </p>
                     </div>
                   </div>

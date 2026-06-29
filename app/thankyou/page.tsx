@@ -1,15 +1,13 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { JsonLd } from '../components/json-ld';
 import { Footer } from '../components/footer';
 import { PageGrid } from '../components/page-grid';
 import { SiteNavbar } from '../components/site-navbar';
 import { BOOK_DEMO_URL } from '../lib/links';
+import { THANKYOU_METADATA } from '../lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Thank You | Entropia Kiosk Demo',
-  description:
-    'Thanks for trying the Entropia kiosk demo. We would love to help you bring self-ordering to your restaurant.',
-};
+export const metadata: Metadata = THANKYOU_METADATA;
 
 type ThankYouPageProps = {
   searchParams: Promise<{ ref?: string }>;
