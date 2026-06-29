@@ -15,7 +15,7 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      "We were paying PagarBook ₹40,000 a month and still running payroll manually. Entropia cut our bill to ₹8,000 and payroll now finishes in 20 minutes with EPF auto-filed.",
+      "We were paying PagarBook ₹20,000 a month and still running payroll manually. Entropia cut our bill to ₹4,000 and payroll now finishes in 20 minutes with EPF auto-filed.",
     company: "TechCorp Solutions",
   },
   {
@@ -128,7 +128,7 @@ export function TestimonialsSection() {
         </div>
 
         <div
-          className="relative z-10 px-5 sm:px-8 md:px-12 lg:px-16"
+          className="relative z-10 px-5 sm:px-6 md:px-10 lg:px-12"
           style={{ marginTop: `calc(-1 * ${viewport})` }}
         >
           <div style={{ height: viewport }} aria-hidden />

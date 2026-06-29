@@ -440,7 +440,7 @@ b {
 .social-proof-inner {
   max-width: 1200px;
   width: 100%;
-  padding: 0 80px;
+  padding: 0 56px;
   display: flex;
   align-items: center;
 }
@@ -557,7 +557,7 @@ b {
 .section-shell {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 100px 80px 110px;
+  padding: 100px 56px 110px;
 }
 
 .two-col {
@@ -635,13 +635,13 @@ b {
 .clients-shell {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 36px 80px;
+  padding: 36px 56px;
 }
 
 .footer-shell {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 80px 80px 0;
+  padding: 80px 56px 0;
 }
 
 .testimonials-header {
@@ -651,20 +651,6 @@ b {
   gap: 40px;
   margin-bottom: 48px;
   flex-wrap: wrap;
-}
-
-.page-grid-rails {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: calc(100% - 64px);
-  max-width: 1200px;
-  border-left: 1px solid rgba(0, 0, 0, 0.09);
-  border-right: 1px solid rgba(0, 0, 0, 0.09);
-  pointer-events: none;
-  z-index: 20;
 }
 
 .section-grid-lines {
@@ -1650,10 +1636,6 @@ a.hero-mobile-card {
 
   .enterprise-grid {
     padding: 24px 20px !important;
-  }
-
-  .page-grid-rails {
-    display: none;
   }
 
   .section-grid-lines {

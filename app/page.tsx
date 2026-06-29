@@ -26,8 +26,8 @@ const PROJECTS = [
 ];
 
 // ─── Card sizes ───────────────────────────────────────
-const S_W = 530;   // stack card width
-const S_H = 370;   // stack card height
+const S_W = 420;   // stack card width (starts smaller, grows into grid)
+const S_H = 295;   // stack card height
 const G_W = 560;   // grid card width — ~16:9 to match kiosk/hrms screenshots
 const G_H = 313;   // grid card height (560 × 572/1024)
 const G_GAP = 16;  // grid gap
@@ -38,9 +38,9 @@ const GRID_H = G_H * 2 + G_GAP;  // 642
 // ─── Stack layout (top card = index 0) ───────────────────────
 const STACK = [
   { tx:  0,  ty:   0, rot: -2,  scale: 1.00, z: 4 },
-  { tx: 28,  ty: -16, rot:  5,  scale: 0.97, z: 3 },
-  { tx:-20,  ty: -28, rot: -7,  scale: 0.94, z: 2 },
-  { tx: 42,  ty: -42, rot:  9,  scale: 0.91, z: 1 },
+  { tx: 22,  ty: -13, rot:  5,  scale: 0.97, z: 3 },
+  { tx:-16,  ty: -22, rot: -7,  scale: 0.94, z: 2 },
+  { tx: 33,  ty: -33, rot:  9,  scale: 0.91, z: 1 },
 ];
 
 // ─── Grid target offsets from container center ────────────────
@@ -113,8 +113,9 @@ export default function Home() {
       const ty = lerp(s.ty, g.ty, prog);
       const rot = lerp(s.rot, 0, prog);
       const sc = lerp(s.scale, 1, prog);
-      const w = lerp(S_W, G_W, prog);
-      const h = lerp(S_H, G_H, prog);
+      const sizeProg = prog * prog; // stay smaller early, grow into final grid size
+      const w = lerp(S_W, G_W, sizeProg);
+      const h = lerp(S_H, G_H, sizeProg);
       const br = lerp(20, 13, prog);
       const shadowY = lerp(24, 8, prog);
       const shadowBlur = lerp(72, 20, prog);
