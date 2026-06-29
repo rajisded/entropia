@@ -1,0 +1,1400 @@
+/* ── Kiosk web demo (embedded on /kiosk) ─────────────────── */
+
+.kd-device-wrap {
+  width: 100%;
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.kd-device-shell {
+  width: 100%;
+}
+
+.kd-device-shell--focused .kd-device-frame {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  border-radius: 26px;
+  box-shadow:
+    0 32px 80px rgba(0, 0, 0, 0.28),
+    0 0 0 1px rgba(0, 0, 0, 0.06);
+}
+
+.kd-device-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border-radius: 22px;
+  overflow: hidden;
+  overscroll-behavior: contain;
+  touch-action: pan-x pan-y;
+  background: #111;
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, 0.16),
+    0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+.kd-device-notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36%;
+  max-width: 100px;
+  height: 5px;
+  border-radius: 0 0 8px 8px;
+  background: rgba(255, 255, 255, 0.12);
+  z-index: 20;
+  pointer-events: none;
+}
+
+.kd-device-screen {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: contain;
+  background: #fff6ed;
+  font-family: inherit;
+  color: #111;
+  -webkit-font-smoothing: antialiased;
+}
+
+.kd-device-caption {
+  margin: 12px 0 0;
+  text-align: center;
+  font-size: 11px;
+  color: #888;
+  letter-spacing: 0.02em;
+}
+
+.kd-device-placeholder {
+  width: 100%;
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+  pointer-events: none;
+}
+
+.kd-focus-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: rgba(255, 255, 255, 0.52);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  cursor: zoom-out;
+  opacity: 0;
+  animation: kd-backdrop-fade 0.45s ease-out forwards;
+}
+
+@keyframes kd-backdrop-fade {
+  to {
+    opacity: 1;
+  }
+}
+
+@media (min-width: 900px) {
+  .kd-device-wrap--wide {
+    max-width: 340px;
+  }
+}
+
+/* ── Screen shell ─────────────────────────────────────────── */
+
+.kd-screen {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  background: #fff6ed;
+}
+
+.kd-screen-body {
+  flex: 1;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 14px 12px 12px;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+.kd-screen-footer {
+  flex-shrink: 0;
+  padding: 0 10px 10px;
+}
+
+/* ── Typography & chrome ──────────────────────────────────── */
+
+.kd-screen-title {
+  margin: 8px 0 14px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.4px;
+  line-height: 1.2;
+}
+
+.kd-back-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0;
+  margin: 0 0 6px;
+  border: none;
+  background: none;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(17, 17, 17, 0.55);
+  cursor: pointer;
+}
+
+.kd-back-link:hover {
+  color: #f16a35;
+}
+
+.kd-demo-note {
+  margin: 10px 0 0;
+  font-size: 10px;
+  line-height: 1.45;
+  color: rgba(17, 17, 17, 0.45);
+}
+
+.kd-demo-note--center {
+  text-align: center;
+}
+
+.kd-empty-state {
+  margin: 24px 0;
+  font-size: 13px;
+  color: rgba(17, 17, 17, 0.55);
+  text-align: center;
+}
+
+/* ── Buttons ──────────────────────────────────────────────── */
+
+.kd-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 14px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s ease, transform 0.1s ease;
+}
+
+.kd-btn:active {
+  transform: scale(0.98);
+}
+
+.kd-btn-primary {
+  background: #f16a35;
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(241, 106, 53, 0.28);
+}
+
+.kd-btn-primary:hover {
+  opacity: 0.92;
+}
+
+.kd-btn-secondary {
+  background: #fff;
+  color: #111;
+  border: 2px solid rgba(241, 106, 53, 0.25);
+}
+
+.kd-btn-block {
+  width: 100%;
+  min-height: 42px;
+}
+
+.kd-btn-xl {
+  width: 100%;
+  min-height: 48px;
+  font-size: 14px;
+  border-radius: 100px;
+}
+
+/* ── Welcome ──────────────────────────────────────────────── */
+
+.kd-welcome .kd-screen-body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  padding: 0;
+  background: #000;
+}
+
+.kd-welcome-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.kd-welcome-scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.28);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.kd-welcome-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  min-height: 0;
+  padding: 16px 14px 18px;
+}
+
+.kd-welcome-title {
+  margin: 0;
+  align-self: flex-start;
+  text-align: left;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.08;
+  letter-spacing: -0.8px;
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+}
+
+.kd-welcome-highlight {
+  font-weight: 700;
+  color: #ffb48a;
+}
+
+.kd-welcome-cta {
+  flex-shrink: 0;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+}
+
+/* ── Order type (dine in / take away) — matches kiosk start-2 ── */
+
+.kd-order-type .kd-screen-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  padding: 12px 14px 16px;
+}
+
+.kd-order-type-back {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  z-index: 2;
+}
+
+.kd-order-type-heading {
+  margin: 28px 0 20px;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.15;
+  letter-spacing: -0.4px;
+  text-align: center;
+  color: #000;
+}
+
+.kd-order-type-row {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.kd-order-type-card {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  border: 1px solid rgba(241, 106, 53, 0.2);
+  border-radius: 14px;
+  background: #fff6ed;
+  overflow: hidden;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 0 4px 14px rgba(241, 106, 53, 0.08);
+  aspect-ratio: 0.8;
+  max-height: 200px;
+}
+
+.kd-order-type-card:active {
+  opacity: 0.88;
+  transform: scale(0.98);
+}
+
+.kd-order-type-img-wrap {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 6px 0;
+  overflow: hidden;
+}
+
+.kd-order-type-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+.kd-order-type-text {
+  flex-shrink: 0;
+  padding: 6px 8px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.kd-order-type-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: #f16a35;
+  text-decoration: underline;
+  text-decoration-color: #f16a35;
+  text-underline-offset: 2px;
+}
+
+.kd-order-type-sub {
+  font-size: 8px;
+  font-weight: 500;
+  color: #f16a35;
+  opacity: 0.7;
+}
+
+/* ── Menu ─────────────────────────────────────────────────── */
+
+.kd-menu .kd-screen-body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+  padding: 8px 8px 0;
+}
+
+.kd-menu-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 2px;
+  flex-shrink: 0;
+}
+
+.kd-menu-header-text {
+  min-width: 0;
+}
+
+.kd-menu-header-eyebrow {
+  margin: 0;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #f16a35;
+}
+
+.kd-menu-header-title {
+  margin: 2px 0 0;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+}
+
+.kd-dial-strip-outer {
+  position: relative;
+  margin: 0 -8px 2px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.kd-dial-strip-outer::before,
+.kd-dial-strip-outer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 18px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.kd-dial-strip-outer::before {
+  left: 0;
+  background: linear-gradient(to right, #fff6ed 30%, transparent);
+}
+
+.kd-dial-strip-outer::after {
+  right: 0;
+  background: linear-gradient(to left, #fff6ed 30%, transparent);
+}
+
+.kd-dial-row {
+  overflow: visible;
+}
+
+.kd-dial-scroll {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: visible;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+}
+
+.kd-dial-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.kd-dial-pad {
+  flex-shrink: 0;
+  height: 1px;
+}
+
+.kd-dial-cell-wrap {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  scroll-snap-align: center;
+  transform-origin: center top;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.kd-dial-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.kd-dial-cell:active {
+  opacity: 0.82;
+}
+
+.kd-dial-image-frame,
+.kd-dial-circle {
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(241, 106, 53, 0.15);
+  background: #f8f8f8;
+  box-shadow: 0 3px 10px rgba(241, 106, 53, 0.12);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  flex-shrink: 0;
+}
+
+.kd-dial-image-frame--active,
+.kd-dial-circle--active {
+  border-color: #f16a35;
+  box-shadow: 0 5px 16px rgba(241, 106, 53, 0.28);
+}
+
+.kd-dial-image,
+.kd-dial-circle-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.kd-catalog-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin: 0 -4px;
+  padding: 0 4px;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+}
+
+.kd-catalog-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.kd-catalog-section {
+  margin-bottom: 14px;
+}
+
+.kd-catalog-section-title {
+  margin: 0 0 8px;
+  padding: 0 2px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: rgba(17, 17, 17, 0.45);
+}
+
+.kd-catalog-row {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 4px;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+}
+
+.kd-catalog-row::-webkit-scrollbar {
+  display: none;
+}
+
+.kd-catalog-spacer {
+  height: 12px;
+  flex-shrink: 0;
+}
+
+.kd-menu-inline-card {
+  flex: 0 0 auto;
+  width: 108px;
+  padding: 0;
+  border: 2px solid rgba(241, 106, 53, 0.1);
+  border-radius: 12px;
+  background: #fff;
+  overflow: hidden;
+  text-align: left;
+  cursor: pointer;
+  scroll-snap-align: start;
+}
+
+.kd-menu-inline-card:active {
+  opacity: 0.88;
+}
+
+.kd-menu-inline-img-wrap {
+  position: relative;
+  aspect-ratio: 1;
+  background: #f8f8f8;
+}
+
+.kd-menu-inline-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.kd-menu-inline-name {
+  margin: 6px 6px 2px;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #111;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.5em;
+}
+
+.kd-menu-inline-price {
+  margin: 0 6px 8px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #f16a35;
+}
+
+.kd-dial-label {
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 600;
+  color: rgba(17, 17, 17, 0.55);
+  opacity: 0.72;
+  letter-spacing: 0.03em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: color 0.15s ease, opacity 0.15s ease;
+}
+
+.kd-dial-label--active {
+  color: #f16a35;
+  opacity: 1;
+}
+
+.kd-menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  padding-bottom: 8px;
+}
+
+.kd-menu-card {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  border: 2px solid rgba(241, 106, 53, 0.12);
+  border-radius: 14px;
+  background: #fff;
+  overflow: hidden;
+  text-align: left;
+  cursor: pointer;
+}
+
+.kd-menu-card:hover {
+  border-color: rgba(241, 106, 53, 0.35);
+}
+
+.kd-menu-card-img-wrap {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: #f8f8f8;
+}
+
+.kd-menu-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.kd-veg-dot {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.kd-veg-dot--veg {
+  background: #22c55e;
+}
+
+.kd-veg-dot--nonveg {
+  background: #ef4444;
+}
+
+.kd-menu-card-body {
+  padding: 8px;
+}
+
+.kd-menu-card-name {
+  margin: 0 0 4px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #111;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.kd-menu-card-price {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 700;
+  color: #f16a35;
+}
+
+/* ── Item sheet ───────────────────────────────────────────── */
+
+.kd-sheet-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  display: flex;
+  align-items: flex-end;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.kd-sheet {
+  position: relative;
+  width: 100%;
+  max-height: 88%;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border-radius: 18px 18px 0 0;
+  background: #fff6ed;
+  animation: kd-sheet-up 0.22s ease-out;
+}
+
+@keyframes kd-sheet-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.kd-sheet-close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  z-index: 2;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.kd-sheet-img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.kd-sheet-body {
+  padding: 12px 12px 16px;
+}
+
+.kd-sheet-title {
+  margin: 0 0 6px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.kd-sheet-desc {
+  margin: 0 0 8px;
+  font-size: 11px;
+  line-height: 1.5;
+  color: rgba(17, 17, 17, 0.55);
+}
+
+.kd-sheet-price {
+  margin: 0 0 12px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #f16a35;
+}
+
+.kd-qty-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.kd-qty-btn {
+  width: 34px;
+  height: 34px;
+  border: 2px solid rgba(241, 106, 53, 0.25);
+  border-radius: 10px;
+  background: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  color: #f16a35;
+  cursor: pointer;
+}
+
+.kd-qty-btn--sm {
+  width: 26px;
+  height: 26px;
+  font-size: 14px;
+  border-radius: 8px;
+}
+
+.kd-qty-value {
+  min-width: 20px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.kd-qty-value--sm {
+  font-size: 12px;
+}
+
+/* ── Cart bar ─────────────────────────────────────────────── */
+
+.kd-cart-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 44px;
+  padding: 0 14px;
+  border: none;
+  border-radius: 14px;
+  background: #f16a35;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(241, 106, 53, 0.35);
+}
+
+.kd-cart-bar-count {
+  flex-shrink: 0;
+  padding: 2px 8px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.2);
+  font-size: 10px;
+}
+
+.kd-cart-bar-label {
+  flex: 1;
+  text-align: left;
+}
+
+.kd-cart-bar-total {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* ── Checkout ─────────────────────────────────────────────── */
+
+.kd-cart-list {
+  list-style: none;
+  margin: 0 0 12px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.kd-cart-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid rgba(241, 106, 53, 0.12);
+}
+
+.kd-cart-line-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.kd-cart-line-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.kd-cart-line-name {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.kd-cart-line-price {
+  margin: 2px 0 0;
+  font-size: 10px;
+  color: rgba(17, 17, 17, 0.5);
+}
+
+.kd-cart-line-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.kd-cart-remove {
+  width: 22px;
+  height: 22px;
+  margin-left: 2px;
+  border: none;
+  border-radius: 6px;
+  background: rgba(17, 17, 17, 0.06);
+  color: rgba(17, 17, 17, 0.5);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.kd-totals {
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid rgba(241, 106, 53, 0.12);
+}
+
+.kd-totals-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 11px;
+  color: rgba(17, 17, 17, 0.6);
+  padding: 3px 0;
+}
+
+.kd-totals-row--total {
+  margin-top: 6px;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(241, 106, 53, 0.2);
+  font-size: 13px;
+  font-weight: 700;
+  color: #111;
+}
+
+.kd-pay-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.kd-checkout .kd-screen-body {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.kd-checkout-cta {
+  margin-top: 12px;
+  flex-shrink: 0;
+}
+
+/* ── Recommended upsell ───────────────────────────────────── */
+
+.kd-recommended {
+  margin-bottom: 14px;
+}
+
+.kd-recommended-title,
+.kd-coupons-title {
+  margin: 0 0 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(17, 17, 17, 0.45);
+}
+
+.kd-recommended-row {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  margin: 0 -4px;
+  padding-left: 4px;
+  padding-right: 4px;
+  scrollbar-width: none;
+  overscroll-behavior: contain;
+}
+
+.kd-recommended-row::-webkit-scrollbar {
+  display: none;
+}
+
+.kd-recommended-card {
+  flex: 0 0 auto;
+  width: 96px;
+  padding: 0;
+  border: 2px solid rgba(241, 106, 53, 0.12);
+  border-radius: 12px;
+  background: #fff;
+  overflow: hidden;
+  text-align: left;
+  cursor: pointer;
+}
+
+.kd-recommended-card:active {
+  opacity: 0.88;
+}
+
+.kd-recommended-img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+.kd-recommended-name {
+  margin: 5px 6px 0;
+  font-size: 9px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #111;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.4em;
+}
+
+.kd-recommended-price {
+  display: block;
+  margin: 2px 6px 0;
+  font-size: 9px;
+  font-weight: 700;
+  color: #f16a35;
+}
+
+.kd-recommended-add {
+  display: block;
+  margin: 4px 6px 8px;
+  font-size: 9px;
+  font-weight: 700;
+  color: rgba(17, 17, 17, 0.45);
+}
+
+/* ── Coupons ──────────────────────────────────────────────── */
+
+.kd-coupons {
+  margin-bottom: 14px;
+}
+
+.kd-coupon-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.kd-coupon-chip {
+  padding: 5px 10px;
+  border-radius: 999px;
+  border: 1px dashed rgba(241, 106, 53, 0.45);
+  background: rgba(241, 106, 53, 0.06);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #c24e1a;
+  cursor: pointer;
+}
+
+.kd-coupon-chip--active {
+  border-style: solid;
+  background: #f16a35;
+  color: #fff;
+}
+
+.kd-coupon-input-row {
+  display: flex;
+  gap: 6px;
+}
+
+.kd-coupon-input {
+  flex: 1;
+  min-width: 0;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(17, 17, 17, 0.12);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: #fff;
+}
+
+.kd-coupon-input:focus {
+  outline: none;
+  border-color: rgba(241, 106, 53, 0.45);
+}
+
+.kd-coupon-apply {
+  flex-shrink: 0;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 10px;
+  background: #111;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.kd-coupon-applied {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 8px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: rgba(241, 106, 53, 0.1);
+  font-size: 11px;
+  font-weight: 600;
+  color: #c24e1a;
+}
+
+.kd-coupon-remove {
+  border: none;
+  background: none;
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(17, 17, 17, 0.45);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.kd-coupon-message {
+  margin: 6px 0 0;
+  font-size: 10px;
+  color: rgba(17, 17, 17, 0.5);
+}
+
+.kd-totals-row--discount {
+  color: #c24e1a;
+  font-weight: 600;
+}
+
+/* ── Payment method sheet ───────────────────────────────────── */
+
+.kd-payment-sheet {
+  max-height: 72%;
+}
+
+.kd-payment-sheet-body {
+  padding: 20px 16px 16px;
+}
+
+.kd-payment-sheet-eyebrow {
+  margin: 0 0 4px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #f16a35;
+}
+
+.kd-payment-sheet-title {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  color: #111;
+}
+
+.kd-payment-sheet-total {
+  margin: 0 0 16px;
+  font-size: 12px;
+  color: rgba(17, 17, 17, 0.55);
+}
+
+.kd-payment-sheet-total strong {
+  display: block;
+  margin-top: 2px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #111;
+  letter-spacing: -0.4px;
+}
+
+.kd-payment-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.kd-payment-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 2px solid rgba(241, 106, 53, 0.15);
+  background: #fff;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.kd-payment-option:hover {
+  border-color: rgba(241, 106, 53, 0.35);
+  background: rgba(241, 106, 53, 0.04);
+}
+
+.kd-payment-option:active {
+  opacity: 0.9;
+}
+
+.kd-payment-option-icon {
+  font-size: 22px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.kd-payment-option-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.kd-payment-option-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #111;
+}
+
+.kd-payment-option-desc {
+  font-size: 10px;
+  line-height: 1.35;
+  color: rgba(17, 17, 17, 0.5);
+}
+
+/* ── UPI payment ─────────────────────────────────────────── */
+
+.kd-upi .kd-screen-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.kd-upi-amount {
+  margin: 0 0 14px;
+  font-size: 12px;
+  color: rgba(17, 17, 17, 0.55);
+}
+
+.kd-upi-amount strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #111;
+  letter-spacing: -0.4px;
+}
+
+.kd-upi-qr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.kd-upi-qr-img {
+  display: block;
+  border-radius: 14px;
+  border: 1px solid rgba(241, 106, 53, 0.15);
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(241, 106, 53, 0.12);
+}
+
+.kd-upi-qr-skeleton {
+  border-radius: 14px;
+  background: linear-gradient(
+    110deg,
+    rgba(241, 106, 53, 0.08) 25%,
+    rgba(241, 106, 53, 0.16) 50%,
+    rgba(241, 106, 53, 0.08) 75%
+  );
+  background-size: 200% 100%;
+  animation: kd-qr-shimmer 1.2s ease-in-out infinite;
+}
+
+@keyframes kd-qr-shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
+
+.kd-upi-qr-label {
+  margin: 10px 0 0;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(17, 17, 17, 0.45);
+}
+
+.kd-upi-hint {
+  margin: 0 0 14px;
+  max-width: 220px;
+  font-size: 11px;
+  line-height: 1.45;
+  color: rgba(17, 17, 17, 0.5);
+}
+
+/* ── Success ──────────────────────────────────────────────── */
+
+.kd-success .kd-screen-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px 16px;
+}
+
+.kd-success-icon {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 14px;
+  border-radius: 50%;
+  background: #f16a35;
+  color: #fff;
+  font-size: 28px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(241, 106, 53, 0.35);
+}
+
+.kd-success-title {
+  margin: 0 0 8px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.kd-success-sub {
+  margin: 0 0 8px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(17, 17, 17, 0.6);
+}
+
+.kd-success-meta {
+  margin: 0 0 18px;
+  font-size: 11px;
+  color: rgba(17, 17, 17, 0.45);
+  max-width: 24ch;
+}
+
+/* Menu screen needs relative positioning for sheet */
+.kd-menu {
+  position: relative;
+}
+
+.kd-device-screen .kd-menu {
+  height: 100%;
+}

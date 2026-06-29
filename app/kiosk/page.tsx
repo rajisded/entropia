@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Footer } from "../components/footer";
 import { KioskAutoplayVideo } from "../components/kiosk-autoplay-video";
+import { KioskInteractiveDemoSection } from "../components/kiosk-interactive-demo-section";
 import { KioskPricingPlans } from "../components/kiosk-pricing-plans";
 import { PageGrid } from "../components/page-grid";
 import { SiteNavbar } from "../components/site-navbar";
@@ -123,6 +124,8 @@ export default function KioskPage() {
             ))}
           </div>
         </section>
+
+        <KioskInteractiveDemoSection />
 
         {/* App recording — portrait 1080×1920 */}
         <section className="section-grid-lines kiosk-section section-shell">

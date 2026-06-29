@@ -98,6 +98,122 @@ b {
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.06);
 }
 
+.thankyou-page {
+  padding: 96px 0 64px;
+}
+
+.thankyou-page-inner {
+  max-width: 640px;
+  padding-top: 20px;
+  padding-bottom: 80px;
+}
+
+.thankyou-eyebrow {
+  margin: 0 0 10px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #f16a35;
+}
+
+.thankyou-heading {
+  margin: 0 0 12px;
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.15;
+  letter-spacing: -0.8px;
+  font-weight: 500;
+  color: #111;
+}
+
+.thankyou-lead {
+  margin: 0 0 28px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.thankyou-card {
+  margin-bottom: 28px;
+  padding: 24px;
+  border-radius: 20px;
+  border: 1px solid rgba(241, 106, 53, 0.15);
+  background: linear-gradient(160deg, #fff6ed 0%, #fff 55%);
+  box-shadow: 0 10px 40px rgba(241, 106, 53, 0.08);
+}
+
+.thankyou-card-title {
+  margin: 0 0 10px;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  color: #111;
+}
+
+.thankyou-card-body {
+  margin: 0 0 16px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #666;
+}
+
+.thankyou-list {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #333;
+}
+
+.thankyou-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.thankyou-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.thankyou-btn--primary {
+  background: #f16a35;
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(241, 106, 53, 0.28);
+}
+
+.thankyou-btn--primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(241, 106, 53, 0.34);
+}
+
+.thankyou-btn--secondary {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #fff;
+  color: #111;
+}
+
+.thankyou-btn--secondary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.thankyou-ref {
+  margin: 20px 0 0;
+  font-size: 11px;
+  color: #aaa;
+  font-family: ui-monospace, monospace;
+}
+
 /* ─── Navbar ─────────────────────────────────────────────── */
 .navbar {
   position: fixed;

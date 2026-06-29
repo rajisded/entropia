@@ -15,6 +15,9 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
         wheelMultiplier: 1,
         touchMultiplier: 1.4,
         anchors: true,
+        prevent: (node) =>
+          node instanceof HTMLElement &&
+          !!node.closest("[data-lenis-prevent], .kd-device-wrap, .kd-device-shell"),
       }}
     >
       {children}
