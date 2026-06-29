@@ -13,7 +13,7 @@ export function KioskInteractiveDemoSection() {
           </h2>
           <p style={{ fontSize: 15, lineHeight: 1.65, color: '#666', maxWidth: 420, margin: '0 0 20px' }}>
             Pick dine-in or take-away, browse the menu, add items, and complete a fake checkout.
-            Nothing connects to a POS — it&apos;s a hands-on preview for your team.
+            Nothing connects to a POS. It&apos;s a hands-on preview for your team.
           </p>
           <ul className="kiosk-checklist">
             {['Dummy menu & photos', 'Cart & checkout UI', 'UPI / counter flow', 'Auto-resets when done'].map((item) => (

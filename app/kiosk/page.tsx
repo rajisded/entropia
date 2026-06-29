@@ -127,7 +127,7 @@ export default function KioskPage() {
           </div>
         </section>
 
-        {/* App recording — portrait 1080×1920 */}
+        {/* App recording, portrait 1080×1920 */}
         <section className="section-grid-lines kiosk-section section-shell">
           <div className="kiosk-split">
             <div>
@@ -149,7 +149,7 @@ export default function KioskPage() {
           </div>
         </section>
 
-        {/* Dashboard recording — landscape */}
+        {/* Dashboard recording, landscape */}
         <section className="section-grid-lines kiosk-section section-shell">
           <div className="kiosk-split kiosk-split-reverse">
             <div>
@@ -203,7 +203,7 @@ export default function KioskPage() {
           </div>
         </section>
 
-        {/* SVS Food testimonial — portrait video */}
+        {/* SVS Food testimonial, portrait video */}
         <section className="section-grid-lines kiosk-section section-shell">
           <div className="kiosk-testimonial-grid">
             <div>

@@ -175,9 +175,8 @@ export function KioskDemoProvider({ children, actionsRef }: KioskDemoProviderPro
   }, []);
 
   const startUpiPayment = useCallback((total: number) => {
-    const origin = typeof window !== 'undefined' ? window.location.origin : '';
     setPaymentTotal(total);
-    setUpiPaymentUrl(buildThankYouUrl(origin));
+    setUpiPaymentUrl(buildThankYouUrl());
     setScreen('upi');
   }, []);
 

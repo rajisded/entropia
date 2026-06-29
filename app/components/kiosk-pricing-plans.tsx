@@ -38,7 +38,7 @@ export function KioskPricingPlans({ compact = false }: { compact?: boolean }) {
       </div>
 
       <div className="plans-pricing-grid">
-        {/* Outlet — popular */}
+        {/* Outlet, popular */}
         <article className="plan-card">
           <div className="plan-card-top">
             <div className="plan-card-title-row">
@@ -66,7 +66,7 @@ export function KioskPricingPlans({ compact = false }: { compact?: boolean }) {
           </Link>
         </article>
 
-        {/* White label — dark */}
+        {/* White label, dark */}
         <article className="plan-card plan-card--dark">
           <div className="plan-card-top">
             <h3 className="plan-card-name">White Label</h3>

@@ -10,45 +10,45 @@ import { ClientsMarquee } from "./components/clients-marquee";
 import { TestimonialsSection } from "./components/testimonials-section";
 import { FaqSection } from "./components/faq-section";
 import { Footer } from "./components/footer";
-import { ProductsSection } from "./components/products-section";
+import { HeroProductLinks } from "./components/hero-product-links";
+import { ProductShowcaseSection } from "./components/product-showcase-section";
+import { HRMS_SHOWCASE_PRODUCTS, KIOSK_SHOWCASE_PRODUCTS } from "./lib/product-showcase-data";
 import { PageGrid } from "./components/page-grid";
 import { SiteNavbar } from "./components/site-navbar";
-import { GRID_HALF, GRID_INNER_PAD, GRID_OUTER_MARGIN } from "./lib/grid";
+import { GRID_HALF, GRID_INNER_PAD, GRID_OUTER_MARGIN, PAGE_SIDE_PAD } from "./lib/grid";
 import { BOOK_DEMO_URL } from "./lib/links";
 import { useIsMobile } from "./lib/use-media-query";
 
 // ─── Product screenshot data ───────────────────────────────────
 const PROJECTS = [
-  { img: "/kiosk.png", title: "Kiosk System",  sub: "Self-Ordering", href: "/kiosk" },
-  { img: "/hrms.png", title: "HRMS",           sub: "Face Scan Payroll", href: "/hrms" },
-  { img: "/hero/3.png", title: "Analytics",      sub: "Real-time Insights" },
-  { img: "/hero/4.png", title: "Multi-Location", sub: "Central Dashboard" },
-];
+  { img: "/kiosk.png", title: "Kiosk System", sub: "Self-Ordering", href: "/kiosk" },
+  { img: "/hrms.png", title: "HRMS", sub: "Face Scan Payroll", href: "/hrms" },
+] as const;
 
 // ─── Card sizes ───────────────────────────────────────
-const S_W = 420;   // stack card width (starts smaller, grows into grid)
-const S_H = 295;   // stack card height
-const G_W = 560;   // grid card width — ~16:9 to match kiosk/hrms screenshots
-const G_H = 313;   // grid card height (560 × 572/1024)
-const G_GAP = 16;  // grid gap
+const S_W = 420;
+const S_H = 295;
+const G_GAP = 16;
 
-const GRID_W = G_W * 2 + G_GAP;  // 1136
-const GRID_H = G_H * 2 + G_GAP;  // 642
+function getHeroGridMetrics(viewportW: number) {
+  const gridW = Math.max(viewportW - PAGE_SIDE_PAD * 2, 640);
+  const gW = Math.max(Math.floor((gridW - G_GAP) / 2), 280);
+  const gH = Math.round((gW * 572) / 1024);
+  return {
+    gW,
+    gH,
+    gridW: gW * 2 + G_GAP,
+    gridImgH: gH,
+    gridTargets: [
+      { tx: -(gW / 2 + G_GAP / 2), ty: 0 },
+      { tx: gW / 2 + G_GAP / 2, ty: 0 },
+    ] as const,
+  };
+}
 
-// ─── Stack layout (top card = index 0) ───────────────────────
 const STACK = [
-  { tx:  0,  ty:   0, rot: -2,  scale: 1.00, z: 4 },
-  { tx: 22,  ty: -13, rot:  5,  scale: 0.97, z: 3 },
-  { tx:-16,  ty: -22, rot: -7,  scale: 0.94, z: 2 },
-  { tx: 33,  ty: -33, rot:  9,  scale: 0.91, z: 1 },
-];
-
-// ─── Grid target offsets from container center ────────────────
-const GRID_TARGETS = [
-  { tx: -(G_W / 2 + G_GAP / 2), ty: -(G_H / 2 + G_GAP / 2) }, // top-left
-  { tx:  (G_W / 2 + G_GAP / 2), ty: -(G_H / 2 + G_GAP / 2) }, // top-right
-  { tx: -(G_W / 2 + G_GAP / 2), ty:  (G_H / 2 + G_GAP / 2) }, // bottom-left
-  { tx:  (G_W / 2 + G_GAP / 2), ty:  (G_H / 2 + G_GAP / 2) }, // bottom-right
+  { tx: 0, ty: 0, rot: -2, scale: 1, z: 2 },
+  { tx: 24, ty: -14, rot: 5, scale: 0.96, z: 1 },
 ];
 
 // ─── Scroll config ────────────────────────────────────────────
@@ -67,9 +67,18 @@ function easeInOutQuart(t: number) {
 
 export default function Home() {
   const [prog, setProg] = useState(0);
+  const [viewportW, setViewportW] = useState(1440);
   const rafRef = useRef<number | null>(null);
   const isMobile = useIsMobile();
   const lenis = useLenis();
+  const heroGrid = getHeroGridMetrics(viewportW);
+
+  useEffect(() => {
+    const onResize = () => setViewportW(window.innerWidth);
+    onResize();
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
 
   useEffect(() => {
     const hash = window.location.hash.slice(1);
@@ -101,21 +110,21 @@ export default function Home() {
 
   const copySlideY = lerp(0, -420, prog);
   const spSlideY = lerp(0, 130, prog);
-  const labelOpacity = remap(prog, 0.68, 0.90, 0, 1);
-  const containerDX = lerp(260, 0, prog);
+  const linkOpacity = remap(prog, 0.62, 0.88, 0, 1);
+  const containerDX = lerp(GRID_HALF / 2, 0, prog);
   const containerDY = lerp(-40, 120, prog);
 
-  const renderProjectCards = () =>
+  const renderImageCards = () =>
     PROJECTS.map((project, i) => {
       const s = STACK[i];
-      const g = GRID_TARGETS[i];
+      const g = heroGrid.gridTargets[i];
       const tx = lerp(s.tx, g.tx, prog);
       const ty = lerp(s.ty, g.ty, prog);
       const rot = lerp(s.rot, 0, prog);
       const sc = lerp(s.scale, 1, prog);
-      const sizeProg = prog * prog; // stay smaller early, grow into final grid size
-      const w = lerp(S_W, G_W, sizeProg);
-      const h = lerp(S_H, G_H, sizeProg);
+      const sizeProg = prog * prog;
+      const w = lerp(S_W, heroGrid.gW, sizeProg);
+      const h = lerp(S_H, heroGrid.gH, sizeProg);
       const br = lerp(20, 13, prog);
       const shadowY = lerp(24, 8, prog);
       const shadowBlur = lerp(72, 20, prog);
@@ -123,8 +132,8 @@ export default function Home() {
 
       return (
         <Link
-          key={i}
-          href={project.href ?? "#"}
+          key={project.href}
+          href={project.href}
           className="project-card"
           style={{
             position: "absolute",
@@ -135,7 +144,6 @@ export default function Home() {
             zIndex: s.z,
             transform: `translate(${tx}px, ${ty}px) rotate(${rot}deg) scale(${sc})`,
             boxShadow: `0 ${shadowY}px ${shadowBlur}px rgba(0,0,0,${shadowA})`,
-            cursor: project.href ? "pointer" : "default",
             willChange: "transform, width, height",
             display: "block",
             textDecoration: "none",
@@ -147,36 +155,9 @@ export default function Home() {
             fill
             className="project-card-img"
             style={{ objectFit: "cover" }}
-            sizes="560px"
-            priority={i < 2}
+            sizes={`${heroGrid.gW}px`}
+            priority
           />
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              background: "linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 50%)",
-              opacity: labelOpacity,
-              pointerEvents: "none",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "flex-end",
-              padding: "16px 14px 12px",
-            }}
-          >
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
-              <div>
-                <div style={{ color: "#fff", fontWeight: 500, fontSize: 13, letterSpacing: -0.3 }}>
-                  {project.title}
-                </div>
-                <div style={{ color: "rgba(255,255,255,0.6)", fontSize: 11, marginTop: 2 }}>
-                  {project.sub}
-                </div>
-              </div>
-              <div style={{ color: "rgba(255,255,255,0.8)", fontSize: 11, letterSpacing: 0.3 }}>
-                ↗ View Project
-              </div>
-            </div>
-          </div>
         </Link>
       );
     });
@@ -227,41 +208,25 @@ export default function Home() {
             {renderHeroCopy()}
           </div>
 
-          {/* Static 2×2 card grid */}
+          {/* Product images + link row */}
           <div className="hero-mobile-grid">
-            {PROJECTS.map((project, i) => {
-              const card = (
-                <>
-                  <Image
-                    src={project.img}
-                    alt={project.title}
-                    fill
-                    className="project-card-img"
-                    style={{ objectFit: "cover" }}
-                    sizes="50vw"
-                    priority={i < 2}
-                  />
-                  <div className="hero-mobile-card-label">
-                    <div style={{ fontWeight: 500, fontSize: 12, color: "#fff", letterSpacing: -0.2 }}>
-                      {project.title}
-                    </div>
-                    <div style={{ fontSize: 10.5, color: "rgba(255,255,255,0.6)", marginTop: 2 }}>
-                      {project.sub}
-                    </div>
-                  </div>
-                </>
-              );
+            {PROJECTS.map((project) => (
+              <Link key={project.href} href={project.href} className="hero-mobile-card">
+                <Image
+                  src={project.img}
+                  alt={project.title}
+                  fill
+                  className="project-card-img"
+                  style={{ objectFit: "cover" }}
+                  sizes="50vw"
+                  priority
+                />
+              </Link>
+            ))}
+          </div>
 
-              return project.href ? (
-                <Link key={i} href={project.href} className="hero-mobile-card">
-                  {card}
-                </Link>
-              ) : (
-                <div key={i} className="hero-mobile-card">
-                  {card}
-                </div>
-              );
-            })}
+          <div className="hero-mobile-links">
+            <HeroProductLinks products={PROJECTS} />
           </div>
 
           <div className="social-proof-bar hero-mobile-social">
@@ -303,12 +268,26 @@ export default function Home() {
             <div
               className="hero-card-stage"
               style={{
-                width: GRID_W,
-                height: GRID_H,
+                width: heroGrid.gridW,
+                height: heroGrid.gridImgH,
                 transform: `translate(calc(-50% + ${containerDX}px), calc(-50% + ${containerDY}px))`,
               }}
             >
-              {renderProjectCards()}
+              {renderImageCards()}
+            </div>
+
+            <div
+              className="hero-card-links"
+              style={{
+                left: `calc(50% + ${containerDX}px)`,
+                top: `calc(50% + ${heroGrid.gridImgH / 2 + containerDY + G_GAP}px)`,
+                transform: "translateX(-50%)",
+                width: heroGrid.gridW,
+                opacity: linkOpacity,
+                pointerEvents: linkOpacity > 0.15 ? "auto" : "none",
+              }}
+            >
+              <HeroProductLinks products={PROJECTS} />
             </div>
 
             <div
@@ -327,7 +306,32 @@ export default function Home() {
           </div>
         </div>
       )}
-      <ProductsSection />
+      <ProductShowcaseSection
+        id="products"
+        titleLine1="Kiosk"
+        titleLine2="System"
+        highlights={[
+          "Self-ordering that cuts counter wait time",
+          "Native PetPooja sync on every order",
+          "Razorpay payments built into checkout",
+          "Keep your counter moving without tablet chaos",
+        ]}
+        products={KIOSK_SHOWCASE_PRODUCTS}
+      />
+
+      <ProductShowcaseSection
+        id="hrms-products"
+        titleLine1="Entropia"
+        titleLine2="HRMS"
+        titleLine2Indent="wide"
+        highlights={[
+          "Face-scan attendance with no manual logs",
+          "Live salary formulas on real check-ins",
+          "EPF, ESIC & TDS filed automatically",
+          "Replace PagarBook without enterprise bloat",
+        ]}
+        products={HRMS_SHOWCASE_PRODUCTS}
+      />
 
       <ClientsSection />
 

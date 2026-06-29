@@ -56,7 +56,7 @@ export function PaymentMethodSheet({
             </button>
           </div>
 
-          <p className="kd-demo-note kd-demo-note--center">Demo only — no real payment</p>
+          <p className="kd-demo-note kd-demo-note--center">Demo only. No real payment.</p>
         </div>
       </div>
     </div>

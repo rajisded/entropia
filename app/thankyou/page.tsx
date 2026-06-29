@@ -27,7 +27,7 @@ export default async function ThankYouPage({ searchParams }: ThankYouPageProps) 
           <p className="thankyou-eyebrow">Demo complete</p>
           <h1 className="thankyou-heading">We see you gave it a full spin.</h1>
           <p className="thankyou-lead">
-            Thanks for walking through our kiosk demo — from menu browse to checkout and UPI.
+            Thanks for walking through our kiosk demo, from menu browse to checkout and UPI.
             That&apos;s exactly how your guests would order in your outlet: fast, branded, and
             without waiting on staff.
           </p>
@@ -36,7 +36,7 @@ export default async function ThankYouPage({ searchParams }: ThankYouPageProps) 
             <h2 className="thankyou-card-title">We&apos;d love to have you onboard</h2>
             <p className="thankyou-card-body">
               Entropia Kiosk plugs into PetPooja, supports UPI and card payments, and goes live in
-              days — not months. If you liked what you saw, let&apos;s talk about rolling it out at
+              days, not months. If you liked what you saw, let&apos;s talk about rolling it out at
               your locations.
             </p>
             <ul className="thankyou-list">

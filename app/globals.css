@@ -440,7 +440,7 @@ b {
 .social-proof-inner {
   max-width: 1200px;
   width: 100%;
-  padding: 0 56px;
+  padding: 0 80px;
   display: flex;
   align-items: center;
 }
@@ -557,7 +557,7 @@ b {
 .section-shell {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 100px 56px 110px;
+  padding: 100px 80px 110px;
 }
 
 .two-col {
@@ -635,13 +635,13 @@ b {
 .clients-shell {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 36px 56px;
+  padding: 36px 80px;
 }
 
 .footer-shell {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 80px 56px 0;
+  padding: 80px 80px 0;
 }
 
 .footer-watermark {
@@ -748,8 +748,8 @@ b {
 }
 
 .kiosk-section {
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding-top: 56px;
+  padding-bottom: 56px;
 }
 
 .kiosk-section-header {
@@ -1468,7 +1468,7 @@ b {
   background: rgba(255, 255, 255, 0.08);
 }
 
-/* ─── Hero (mobile) ──────────────────────────────────────── */
+/* ─── Hero (desktop) ─────────────────────────────────────── */
 .hero-copy {
   position: absolute;
   opacity: 1;
@@ -1485,6 +1485,121 @@ b {
   justify-content: center;
   will-change: transform;
   transform-origin: center center;
+}
+
+.hero-card-links {
+  position: absolute;
+  z-index: 10;
+  flex-shrink: 0;
+  transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-product-links {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  width: 100%;
+}
+
+.hero-product-links-pill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: 999px;
+  background: #111;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  transition:
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    width 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, width, opacity;
+}
+
+.hero-product-link {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 6px;
+  min-height: 84px;
+  padding: 20px 28px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: #111;
+  border: 1px solid transparent;
+  transition: color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-product-link-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero-product-link-title {
+  font-size: clamp(18px, 2.1vw, 24px);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 6px;
+  transition:
+    text-decoration-color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-product-link-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.55;
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-product-link-sub {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: rgba(0, 0, 0, 0.45);
+  transition: color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-product-link:hover,
+.hero-product-link:focus-visible,
+.hero-product-link--active {
+  outline: none;
+  color: #fff;
+}
+
+.hero-product-link:hover .hero-product-link-title,
+.hero-product-link:focus-visible .hero-product-link-title,
+.hero-product-link--active .hero-product-link-title {
+  text-decoration-color: rgba(255, 255, 255, 0.35);
+  color: #fff;
+}
+
+.hero-product-link:hover .hero-product-link-icon,
+.hero-product-link:focus-visible .hero-product-link-icon,
+.hero-product-link--active .hero-product-link-icon {
+  opacity: 1;
+  color: #fff;
+  transform: translate(3px, -3px);
+}
+
+.hero-product-link:hover .hero-product-link-sub,
+.hero-product-link:focus-visible .hero-product-link-sub,
+.hero-product-link--active .hero-product-link-sub {
+  color: rgba(255, 255, 255, 0.62);
 }
 
 .floating-cta {
@@ -1527,6 +1642,10 @@ b {
   grid-template-columns: 1fr 1fr;
   gap: 8px;
   padding: 0 16px 0;
+}
+
+.hero-mobile-links {
+  padding: 12px 16px 0;
 }
 
 .hero-mobile-card {
@@ -1632,7 +1751,7 @@ a.hero-mobile-card {
   }
 
   .section-shell {
-    padding: 64px 20px 72px;
+    padding: 64px 80px 72px;
   }
 
   .book-page {
@@ -1699,11 +1818,11 @@ a.hero-mobile-card {
   }
 
   .clients-shell {
-    padding: 28px 20px;
+    padding: 28px 80px;
   }
 
   .footer-shell {
-    padding: 56px 20px 0;
+    padding: 56px 80px 0;
   }
 
   .testimonials-header {
@@ -1712,7 +1831,7 @@ a.hero-mobile-card {
   }
 
   .enterprise-grid {
-    padding: 24px 20px !important;
+    padding: 24px 10px !important;
   }
 
   .section-grid-lines {

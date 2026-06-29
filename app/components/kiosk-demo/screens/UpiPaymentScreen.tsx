@@ -26,7 +26,7 @@ export function UpiPaymentScreen() {
       )}
 
       <p className="kd-upi-hint">
-        Scan with any UPI app. This demo QR opens our thank-you page — no real charge.
+        Scan with any UPI app. This demo QR opens our thank-you page. No real charge.
       </p>
 
       <button type="button" className="kd-btn kd-btn-primary kd-btn-block" onClick={completeUpiPayment}>

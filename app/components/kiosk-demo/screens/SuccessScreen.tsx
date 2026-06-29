@@ -22,7 +22,7 @@ export function SuccessScreen() {
         Your demo order <strong>{lastOrderId ?? 'DEMO-0000'}</strong> is confirmed.
       </p>
       <p className="kd-success-meta">
-        {orderType === 'takeaway' ? 'Pick up at the counter when ready.' : 'Please take a seat — we’ll call your number.'}
+        {orderType === 'takeaway' ? 'Pick up at the counter when ready.' : 'Please take a seat. We’ll call your number.'}
       </p>
       <button type="button" className="kd-btn kd-btn-primary kd-btn-block" onClick={resetDemo}>
         Start over

@@ -34,7 +34,7 @@ function scrollbarWidth(): number {
 }
 
 /**
- * Mini web kiosk — portrait 9:16 frame, dummy menu & checkout (no backend).
+ * Mini web kiosk, portrait 9:16 frame, dummy menu & checkout (no backend).
  */
 export function KioskWebDemo({ className = '' }: KioskWebDemoProps) {
   const [focused, setFocused] = useState(false);

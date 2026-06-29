@@ -1,4 +1,4 @@
-/** Bundled food art copied from kiosk-app — same assets as production kiosk. */
+/** Bundled food art copied from kiosk-app, same assets as production kiosk. */
 const BASE = '/kiosk-demo';
 
 export const KIOSK_DEMO_IMAGES = {

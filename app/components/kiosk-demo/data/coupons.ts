@@ -25,7 +25,7 @@ export const DEMO_COUPONS: DemoCoupon[] = [
   {
     code: 'FREEFRIES',
     label: 'Free fries',
-    description: '₹119 off — add fries to your cart!',
+    description: '₹119 off. Add fries to your cart!',
     discountFlat: 119,
     minOrder: 250,
   },

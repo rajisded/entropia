@@ -8,5 +8,5 @@ export const KIOSK_DEMO_BRAND = {
   border: 'rgba(241, 106, 53, 0.2)',
 } as const;
 
-/** Portrait kiosk frame — matches marketing video aspect (9:16). */
+/** Portrait kiosk frame, matches marketing video aspect (9:16). */
 export const KIOSK_DEMO_ASPECT = '9 / 16';
