@@ -40,10 +40,10 @@ function YoutubeIcon() {
 }
 
 const SOCIAL = [
-  { label: "X", icon: <XIcon />, count: "2,840", href: "#" },
-  { label: "LinkedIn", icon: <LinkedInIcon />, href: "#" },
-  { label: "Instagram", icon: <InstagramIcon />, href: "#" },
-  { label: "YouTube", icon: <YoutubeIcon />, href: "#" },
+  { label: "X", icon: <XIcon />, count: "2,840", href: "https://x.com/entropiacity" },
+  { label: "LinkedIn", icon: <LinkedInIcon />, href: "https://www.linkedin.com/company/entropiacity" },
+  { label: "Instagram", icon: <InstagramIcon />, href: "https://www.instagram.com/entropiacity" },
+  { label: "YouTube", icon: <YoutubeIcon />, href: "https://www.youtube.com/@entropiacity" },
 ];
 
 function FooterWatermark() {
@@ -133,6 +133,8 @@ export function Footer() {
                   key={s.label}
                   href={s.href}
                   aria-label={s.label}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   style={{
                     display: "inline-flex",
                     alignItems: "center",

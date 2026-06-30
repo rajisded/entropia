@@ -104,7 +104,7 @@ export function PricingSection() {
           </h2>
           <p style={{ fontSize: 14.5, lineHeight: 1.65, color: "#777", margin: 0, paddingTop: 8, maxWidth: 340, marginLeft: "auto" }}>
             <strong style={{ color: "#111", fontWeight: 500 }}>No contracts. No hidden fees.</strong>{" "}
-            Transparent per-location and per-employee pricing. Cancel anytime.
+            One-time licenses and custom enterprise plans.
           </p>
         </div>
 

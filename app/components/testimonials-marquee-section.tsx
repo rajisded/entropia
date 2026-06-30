@@ -1,10 +1,11 @@
 "use client";
 
-import Link from "next/link";
+import { useLenis } from "lenis/react";
 import { mainFont } from "../lib/fonts";
 import { useIsMobile } from "../lib/use-media-query";
 
 const HEADER_OFFSET = 80;
+const FOOTER_ANCHOR = "lets-connect";
 
 export type TestimonialItem = {
   readonly quote: string;
@@ -53,11 +54,45 @@ function MarqueeStrip({ text }: { text: string }) {
   );
 }
 
+function GetInTouchButton({
+  href,
+  label,
+  className,
+}: {
+  href: string;
+  label: string;
+  className: string;
+}) {
+  const lenis = useLenis();
+
+  const scrollToTarget = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    const hash = href.includes("#") ? href.split("#")[1] : FOOTER_ANCHOR;
+    const target = document.getElementById(hash);
+    if (!target) return;
+
+    event.preventDefault();
+
+    if (lenis) {
+      lenis.scrollTo(target, { offset: -HEADER_OFFSET });
+    } else {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    window.history.pushState(null, "", `#${hash}`);
+  };
+
+  return (
+    <a href={href} onClick={scrollToTarget} className={className}>
+      {label}
+    </a>
+  );
+}
+
 export function TestimonialsMarqueeSection({
   id = "testimonials",
   marqueeText,
   testimonials,
-  ctaHref = "/#lets-connect",
+  ctaHref = "#lets-connect",
   ctaLabel = "Get in touch",
 }: TestimonialsMarqueeSectionProps) {
   const isMobile = useIsMobile();
@@ -73,12 +108,11 @@ export function TestimonialsMarqueeSection({
         className={`section-grid-lines relative z-30 overflow-x-clip bg-white px-5 pb-16 pt-10 text-black sm:px-8 ${mainFont.className}`}
       >
         <MarqueeStrip text={marqueeText} />
-        <Link
+        <GetInTouchButton
           href={ctaHref}
-          className="relative z-[5] mx-auto mt-8 flex w-fit rounded-full border border-black px-6 py-2.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-black transition-opacity hover:opacity-75"
-        >
-          {ctaLabel}
-        </Link>
+          label={ctaLabel}
+          className="relative z-20 mx-auto mt-8 flex w-fit rounded-full border border-black px-6 py-2.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-black transition-opacity hover:opacity-75"
+        />
 
         <div className="mx-auto mt-10 grid w-full max-w-[1200px] grid-cols-1 gap-8">
           {testimonials.map((item) => (
@@ -96,30 +130,29 @@ export function TestimonialsMarqueeSection({
     >
       <div className="relative" style={{ height: scrollHeight }}>
         <div
-          className="sticky z-0 flex flex-col items-center justify-center overflow-hidden bg-white px-4"
+          className="pointer-events-none sticky z-0 flex flex-col items-center justify-center overflow-hidden bg-white px-4"
           style={{ top: HEADER_OFFSET, height: viewport }}
         >
           <MarqueeStrip text={marqueeText} />
 
-          <Link
+          <GetInTouchButton
             href={ctaHref}
-            className="relative z-[5] mt-10 rounded-full border border-black px-8 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-black transition-opacity hover:opacity-75 sm:mt-12 sm:text-sm"
-          >
-            {ctaLabel}
-          </Link>
+            label={ctaLabel}
+            className="pointer-events-auto relative z-30 mt-10 rounded-full border border-black px-8 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-black transition-opacity hover:opacity-75 sm:mt-12 sm:text-sm"
+          />
         </div>
 
         <div
-          className="relative z-10 px-5 sm:px-6 md:px-10 lg:px-12"
+          className="pointer-events-none relative z-20 px-5 sm:px-6 md:px-10 lg:px-12"
           style={{ marginTop: `calc(-1 * ${viewport})` }}
         >
           <div style={{ height: viewport }} aria-hidden />
 
-          <div className="mx-auto grid w-full max-w-[1200px] grid-cols-1 gap-12 md:grid-cols-2 md:gap-14">
+          <div className="pointer-events-auto relative z-20 mx-auto grid w-full max-w-[1200px] grid-cols-1 gap-12 md:grid-cols-2 md:gap-14">
             {testimonials.map((item, index) => (
               <div
                 key={item.company}
-                className={index % 2 === 1 ? "md:mt-24" : undefined}
+                className={`relative z-20 ${index % 2 === 1 ? "md:mt-24" : ""}`}
               >
                 <TestimonialCard {...item} />
               </div>

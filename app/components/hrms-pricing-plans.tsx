@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { BOOK_DEMO_URL, HRMS_DEMO_URL } from "../lib/links";
+import { BOOK_DEMO_URL } from "../lib/links";
 
-const EMPLOYEE_FEATURES = [
+const ONETIME_FEATURES = [
   "Face scan attendance",
   "Auto attendance marking",
   "Custom salary formulas",
@@ -10,13 +10,13 @@ const EMPLOYEE_FEATURES = [
   "Multi-branch dashboard",
 ];
 
-const WHITELABEL_FEATURES = [
-  "Everything in Employee Plan",
-  "Your brand, your domain",
-  "Lifetime product license",
-  "Full white-label deployment",
-  "Priority onboarding",
-  "Dedicated account support",
+const CUSTOM_FEATURES = [
+  "Everything in one-time license",
+  "Custom rollout across branches",
+  "Dedicated onboarding & training",
+  "Custom integrations on request",
+  "Priority support SLA",
+  "Tailored compliance workflows",
 ];
 
 function PlanCheck({ dark = false }: { dark?: boolean }) {
@@ -33,7 +33,7 @@ export function HrmsPricingPlans({ compact = false }: { compact?: boolean }) {
       <div className="plans-pricing-header">
         <h2 className="plans-pricing-title">Plans and Pricing</h2>
         <p className="plans-pricing-subtitle">
-          Face attendance to payroll in one platform. No hidden fees, no long-term contracts.
+          One-time license or a custom plan for your workforce. No hidden fees.
         </p>
       </div>
 
@@ -41,18 +41,18 @@ export function HrmsPricingPlans({ compact = false }: { compact?: boolean }) {
         <article className="plan-card">
           <div className="plan-card-top">
             <div className="plan-card-title-row">
-              <h3 className="plan-card-name">Employee Plan</h3>
+              <h3 className="plan-card-name">One-time License</h3>
               <span className="plan-popular-badge">🔥 Popular</span>
             </div>
             <div className="plan-card-price-row">
-              <span className="plan-card-price">₹99</span>
+              <span className="plan-card-price">₹34,999</span>
             </div>
-            <p className="plan-card-billing">Per employee / month, billed monthly</p>
-            <p className="plan-card-desc">Face scan, formula payroll, and EPF auto-filing for growing teams.</p>
+            <p className="plan-card-billing">One-time license fee</p>
+            <p className="plan-card-desc">Full HRMS with face attendance and payroll. Pay once, own it.</p>
           </div>
 
           <ul className="plan-feature-list">
-            {EMPLOYEE_FEATURES.map((feat) => (
+            {ONETIME_FEATURES.map((feat) => (
               <li key={feat}>
                 <PlanCheck />
                 <span>{feat}</span>
@@ -60,28 +60,23 @@ export function HrmsPricingPlans({ compact = false }: { compact?: boolean }) {
             ))}
           </ul>
 
-          <a
-            href={HRMS_DEMO_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="plan-cta plan-cta--dark"
-          >
-            Try live demo
-          </a>
+          <Link href={BOOK_DEMO_URL} className="plan-cta plan-cta--dark">
+            Get started
+          </Link>
         </article>
 
         <article className="plan-card plan-card--dark">
           <div className="plan-card-top">
-            <h3 className="plan-card-name">White Label</h3>
+            <h3 className="plan-card-name">Custom</h3>
             <div className="plan-card-price-row">
-              <span className="plan-card-price">₹99,999</span>
+              <span className="plan-card-price">Custom</span>
             </div>
-            <p className="plan-card-billing">One-time license fee</p>
-            <p className="plan-card-desc">Own the full HRMS with face attendance and payroll under your brand.</p>
+            <p className="plan-card-billing">Pricing based on your workforce</p>
+            <p className="plan-card-desc">For growing teams and multi-branch operators that need a tailored HRMS rollout.</p>
           </div>
 
           <ul className="plan-feature-list">
-            {WHITELABEL_FEATURES.map((feat) => (
+            {CUSTOM_FEATURES.map((feat) => (
               <li key={feat}>
                 <PlanCheck dark />
                 <span>{feat}</span>

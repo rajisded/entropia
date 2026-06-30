@@ -46,7 +46,12 @@ function organizationSchema(): JsonLd {
         areaServed: SITE_COUNTRY,
       },
     ],
-    sameAs: [],
+    sameAs: [
+      "https://x.com/entropiacity",
+      "https://www.linkedin.com/company/entropiacity",
+      "https://www.instagram.com/entropiacity",
+      "https://www.youtube.com/@entropiacity",
+    ],
     knowsAbout: [
       "Restaurant kiosk software",
       "PetPooja integration",
@@ -128,13 +133,13 @@ function kioskSoftwareSchema(): JsonLd {
       "Self-ordering kiosk software for restaurants with native PetPooja integration, Razorpay UPI and card payments, custom branding, and real-time order analytics.",
     offers: {
       "@type": "Offer",
-      price: "999",
+      price: "99999",
       priceCurrency: "INR",
       priceSpecification: {
         "@type": "UnitPriceSpecification",
-        price: "999",
+        price: "99999",
         priceCurrency: "INR",
-        unitText: "per outlet per month",
+        unitText: "one-time license",
       },
       availability: "https://schema.org/InStock",
       url: absoluteUrl("/book"),
@@ -168,13 +173,13 @@ function hrmsSoftwareSchema(): JsonLd {
       "HRMS platform with AI face scan attendance, formula-based payroll, and automated EPF, ESIC, and TDS compliance for Indian businesses.",
     offers: {
       "@type": "Offer",
-      price: "99",
+      price: "34999",
       priceCurrency: "INR",
       priceSpecification: {
         "@type": "UnitPriceSpecification",
-        price: "99",
+        price: "34999",
         priceCurrency: "INR",
-        unitText: "per employee per month",
+        unitText: "one-time license",
       },
       availability: "https://schema.org/InStock",
       url: absoluteUrl("/book"),

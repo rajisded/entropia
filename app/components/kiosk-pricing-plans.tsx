@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { BOOK_DEMO_URL } from "../lib/links";
 
-const OUTLET_FEATURES = [
+const ONETIME_FEATURES = [
   "PetPooja POS integration",
   "Unlimited menu items",
   "Real-time order sync",
@@ -10,13 +10,13 @@ const OUTLET_FEATURES = [
   "Multi-terminal support",
 ];
 
-const WHITELABEL_FEATURES = [
-  "Everything in Outlet Plan",
-  "Your brand, your domain",
-  "Lifetime product license",
-  "Full white-label deployment",
-  "Priority onboarding",
-  "Dedicated account support",
+const CUSTOM_FEATURES = [
+  "Everything in one-time license",
+  "Custom rollout across locations",
+  "Dedicated onboarding & training",
+  "Custom integrations on request",
+  "Priority support SLA",
+  "Tailored deployment plan",
 ];
 
 function PlanCheck({ dark = false }: { dark?: boolean }) {
@@ -33,27 +33,26 @@ export function KioskPricingPlans({ compact = false }: { compact?: boolean }) {
       <div className="plans-pricing-header">
         <h2 className="plans-pricing-title">Plans and Pricing</h2>
         <p className="plans-pricing-subtitle">
-          Choose the model that fits your business. No hidden fees, no long-term contracts.
+          One-time license or a custom plan built for your chain. No hidden fees.
         </p>
       </div>
 
       <div className="plans-pricing-grid">
-        {/* Outlet, popular */}
         <article className="plan-card">
           <div className="plan-card-top">
             <div className="plan-card-title-row">
-              <h3 className="plan-card-name">Outlet Plan</h3>
+              <h3 className="plan-card-name">One-time License</h3>
               <span className="plan-popular-badge">🔥 Popular</span>
             </div>
             <div className="plan-card-price-row">
-              <span className="plan-card-price">₹999</span>
+              <span className="plan-card-price">₹99,999</span>
             </div>
-            <p className="plan-card-billing">Per outlet / month, billed monthly</p>
-            <p className="plan-card-desc">Great for restaurants and small chains getting started.</p>
+            <p className="plan-card-billing">One-time license fee</p>
+            <p className="plan-card-desc">Full kiosk product for your restaurant or chain. Pay once, own it.</p>
           </div>
 
           <ul className="plan-feature-list">
-            {OUTLET_FEATURES.map((feat) => (
+            {ONETIME_FEATURES.map((feat) => (
               <li key={feat}>
                 <PlanCheck />
                 <span>{feat}</span>
@@ -66,19 +65,18 @@ export function KioskPricingPlans({ compact = false }: { compact?: boolean }) {
           </Link>
         </article>
 
-        {/* White label, dark */}
         <article className="plan-card plan-card--dark">
           <div className="plan-card-top">
-            <h3 className="plan-card-name">White Label</h3>
+            <h3 className="plan-card-name">Custom</h3>
             <div className="plan-card-price-row">
-              <span className="plan-card-price">₹99,999</span>
+              <span className="plan-card-price">Custom</span>
             </div>
-            <p className="plan-card-billing">One-time license fee</p>
-            <p className="plan-card-desc">Own the full kiosk product under your brand, forever.</p>
+            <p className="plan-card-billing">Pricing based on your rollout</p>
+            <p className="plan-card-desc">For multi-location chains and operators that need a tailored kiosk deployment.</p>
           </div>
 
           <ul className="plan-feature-list">
-            {WHITELABEL_FEATURES.map((feat) => (
+            {CUSTOM_FEATURES.map((feat) => (
               <li key={feat}>
                 <PlanCheck dark />
                 <span>{feat}</span>
