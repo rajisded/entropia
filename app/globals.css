@@ -1379,11 +1379,11 @@ b {
   border-bottom: none;
 }
 
-.hrms-compare-row--thehxd {
+.hrms-compare-row--entropia {
   background: rgba(99, 102, 241, 0.05);
 }
 
-.hrms-compare-row--thehxd td {
+.hrms-compare-row--entropia td {
   border-bottom-color: rgba(99, 102, 241, 0.1);
 }
 
@@ -1502,7 +1502,7 @@ b {
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
 }
 
-.hrms-compare-card--thehxd {
+.hrms-compare-card--entropia {
   border-color: rgba(99, 102, 241, 0.22);
   background: linear-gradient(180deg, rgba(99, 102, 241, 0.06) 0%, #fff 100%);
 }

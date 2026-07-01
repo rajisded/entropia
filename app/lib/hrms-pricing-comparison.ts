@@ -1,7 +1,7 @@
 export const MIN_EMPLOYEES = 10;
 export const MAX_EMPLOYEES = 500;
 export const EMPLOYEE_STEP = 5;
-export const THEHXD_LIFETIME_INR = 34_999;
+export const ENTROPIA_LIFETIME_INR = 34_999;
 
 export type PricingResult = {
   monthly: number;
@@ -15,7 +15,7 @@ export type CompetitorRow = {
   plan: string;
   note?: string;
   faceScan: boolean;
-  isThehxd?: boolean;
+  isEntropia?: boolean;
   compute: (employees: number) => PricingResult;
 };
 
@@ -24,10 +24,10 @@ export function clampEmployees(value: number): number {
   return Math.min(MAX_EMPLOYEES, Math.max(MIN_EMPLOYEES, stepped));
 }
 
-export function thehxdPricing(): PricingResult {
+export function entropiaPricing(): PricingResult {
   return {
-    monthly: THEHXD_LIFETIME_INR / 12,
-    annual: THEHXD_LIFETIME_INR,
+    monthly: ENTROPIA_LIFETIME_INR / 12,
+    annual: ENTROPIA_LIFETIME_INR,
     oneTime: true,
   };
 }
@@ -59,13 +59,13 @@ export function kekaFoundationPricing(employees: number): PricingResult {
 
 export const HRMS_COMPETITORS: CompetitorRow[] = [
   {
-    id: "thehxd",
-    provider: "Thehxd",
+    id: "entropia",
+    provider: "Entropia",
     plan: "Lifetime license",
-    note: "by Entropia · pay once, own forever",
+    note: "Pay once, own forever",
     faceScan: true,
-    isThehxd: true,
-    compute: () => thehxdPricing(),
+    isEntropia: true,
+    compute: () => entropiaPricing(),
   },
   {
     id: "pagarbook-lens",
@@ -114,18 +114,18 @@ export function formatInr(value: number, fractionDigits = 0): string {
 }
 
 export function computeComparison(employees: number) {
-  const baseline = thehxdPricing();
+  const baseline = entropiaPricing();
 
   return HRMS_COMPETITORS.map((row) => {
     const pricing = row.compute(employees);
     const monthlySavings = pricing.monthly - baseline.monthly;
     const annualSavings = pricing.annual - baseline.annual;
-    const oneYearSavings = row.isThehxd
+    const oneYearSavings = row.isEntropia
       ? 0
-      : pricing.annual - THEHXD_LIFETIME_INR;
-    const fiveYearSavings = row.isThehxd
+      : pricing.annual - ENTROPIA_LIFETIME_INR;
+    const fiveYearSavings = row.isEntropia
       ? 0
-      : pricing.annual * 5 - THEHXD_LIFETIME_INR;
+      : pricing.annual * 5 - ENTROPIA_LIFETIME_INR;
 
     return {
       ...row,

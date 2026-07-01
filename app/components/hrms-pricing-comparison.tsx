@@ -44,10 +44,10 @@ function ProviderBlock({ row }: { row: ComparisonRow }) {
       <div className="hrms-compare-provider-top">
         <span className="hrms-compare-provider-name">{row.provider}</span>
         <span className="hrms-compare-plan-tag">{row.plan}</span>
-        {row.isThehxd ? (
+        {row.isEntropia ? (
           <span className="hrms-compare-badge hrms-compare-badge--ours">Ours</span>
         ) : null}
-        {row.faceScan && !row.isThehxd ? (
+        {row.faceScan && !row.isEntropia ? (
           <span className="hrms-compare-badge hrms-compare-badge--face">Face scan</span>
         ) : null}
       </div>
@@ -58,7 +58,7 @@ function ProviderBlock({ row }: { row: ComparisonRow }) {
 
 function CompareMobileCard({ row }: { row: ComparisonRow }) {
   return (
-    <article className={`hrms-compare-card${row.isThehxd ? " hrms-compare-card--thehxd" : ""}`}>
+    <article className={`hrms-compare-card${row.isEntropia ? " hrms-compare-card--entropia" : ""}`}>
       <ProviderBlock row={row} />
 
       <div className="hrms-compare-card-metrics">
@@ -79,7 +79,7 @@ function CompareMobileCard({ row }: { row: ComparisonRow }) {
         <div className="hrms-compare-card-metric">
           <p className="hrms-compare-metric-label">Saved in 1 year</p>
           <div className="hrms-compare-metric-savings">
-            <YearSavingsCell value={row.oneYearSavings} isBaseline={!!row.isThehxd} />
+            <YearSavingsCell value={row.oneYearSavings} isBaseline={!!row.isEntropia} />
           </div>
         </div>
         <div className="hrms-compare-card-metric hrms-compare-card-metric--highlight">
@@ -87,7 +87,7 @@ function CompareMobileCard({ row }: { row: ComparisonRow }) {
           <div className="hrms-compare-metric-savings">
             <YearSavingsCell
               value={row.fiveYearSavings}
-              isBaseline={!!row.isThehxd}
+              isBaseline={!!row.isEntropia}
               highlight
             />
           </div>
@@ -129,7 +129,7 @@ export function HrmsPricingComparison() {
           </h2>
         </div>
         <Link href={BOOK_DEMO_URL} className="hrms-compare-cta">
-          Get Thehxd · ₹34,999
+          Get Entropia · ₹34,999
         </Link>
       </div>
 
@@ -187,7 +187,7 @@ export function HrmsPricingComparison() {
         <p className="hrms-compare-lens-note">
           vs PagarBook Lens (face scan): save{" "}
           <AnimatedInr value={lensRow.fiveYearSavings} />
-          {" "}over 5 years with Thehxd
+          {" "}over 5 years with Entropia
         </p>
       ) : null}
 
@@ -206,7 +206,7 @@ export function HrmsPricingComparison() {
             {rows.map((row) => (
               <tr
                 key={row.id}
-                className={row.isThehxd ? "hrms-compare-row--thehxd" : undefined}
+                className={row.isEntropia ? "hrms-compare-row--entropia" : undefined}
               >
                 <td>
                   <ProviderBlock row={row} />
@@ -232,13 +232,13 @@ export function HrmsPricingComparison() {
                 <td>
                   <YearSavingsCell
                     value={row.oneYearSavings}
-                    isBaseline={!!row.isThehxd}
+                    isBaseline={!!row.isEntropia}
                   />
                 </td>
                 <td>
                   <YearSavingsCell
                     value={row.fiveYearSavings}
-                    isBaseline={!!row.isThehxd}
+                    isBaseline={!!row.isEntropia}
                     highlight
                   />
                 </td>
@@ -255,7 +255,7 @@ export function HrmsPricingComparison() {
       </div>
 
       <p className="hrms-compare-source">
-        Verified June 2026 · Thehxd ₹34,999 one-time · 5-year savings = competitor total − lifetime license
+        Verified June 2026 · Entropia ₹34,999 one-time · 5-year savings = competitor total − lifetime license
       </p>
     </div>
   );
