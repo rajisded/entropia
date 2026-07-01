@@ -1490,6 +1490,72 @@ b {
   text-align: center;
 }
 
+.hrms-compare-cards {
+  display: none;
+}
+
+.hrms-compare-card {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.09);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+.hrms-compare-card--thehxd {
+  border-color: rgba(99, 102, 241, 0.22);
+  background: linear-gradient(180deg, rgba(99, 102, 241, 0.06) 0%, #fff 100%);
+}
+
+.hrms-compare-card-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.hrms-compare-card-metric {
+  background: #fafafa;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.hrms-compare-card-metric--highlight {
+  background: rgba(16, 185, 129, 0.06);
+  border-color: rgba(16, 185, 129, 0.14);
+}
+
+.hrms-compare-metric-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.35px;
+  color: #aaa;
+  margin: 0 0 6px;
+}
+
+.hrms-compare-metric-value {
+  display: block;
+  font-size: 17px;
+  font-weight: var(--font-weight-medium);
+  color: #111;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+
+.hrms-compare-metric-note {
+  font-size: 11px;
+  color: #bbb;
+  margin: 4px 0 0;
+}
+
+.hrms-compare-metric-savings {
+  min-height: 24px;
+  display: flex;
+  align-items: center;
+}
+
 .kiosk-features {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -2315,30 +2381,48 @@ a.hero-mobile-card {
     gap: 10px;
   }
 
+  .hrms-compare-top {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hrms-compare-cta {
+    width: 100%;
+  }
+
   .hrms-compare-toolbar {
     grid-template-columns: 1fr;
-    gap: 10px;
+    gap: 12px;
   }
 
   .hrms-compare-highlight {
     align-items: flex-start;
     text-align: left;
+    padding-top: 4px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
   }
 
   .hrms-compare-table-wrap {
-    overflow-x: auto;
+    display: none;
+  }
+
+  .hrms-compare-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
 
   .hrms-compare {
     max-width: none;
   }
 
-  .hrms-compare-table {
-    min-width: 880px;
-  }
-
   .hrms-compare-savings {
     white-space: normal;
+  }
+
+  .hrms-compare-savings--strong {
+    display: inline-block;
+    width: 100%;
   }
 }
 

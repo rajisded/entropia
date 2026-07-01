@@ -12,6 +12,8 @@ import {
 } from "../lib/hrms-pricing-comparison";
 import { BOOK_DEMO_URL } from "../lib/links";
 
+type ComparisonRow = ReturnType<typeof computeComparison>[number];
+
 function YearSavingsCell({
   value,
   isBaseline,
@@ -33,6 +35,65 @@ function YearSavingsCell({
     <span className={highlight ? "hrms-compare-savings hrms-compare-savings--strong" : "hrms-compare-savings"}>
       <AnimatedInr value={value} duration={0.5} />
     </span>
+  );
+}
+
+function ProviderBlock({ row }: { row: ComparisonRow }) {
+  return (
+    <div className="hrms-compare-provider">
+      <div className="hrms-compare-provider-top">
+        <span className="hrms-compare-provider-name">{row.provider}</span>
+        <span className="hrms-compare-plan-tag">{row.plan}</span>
+        {row.isThehxd ? (
+          <span className="hrms-compare-badge hrms-compare-badge--ours">Ours</span>
+        ) : null}
+        {row.faceScan && !row.isThehxd ? (
+          <span className="hrms-compare-badge hrms-compare-badge--face">Face scan</span>
+        ) : null}
+      </div>
+      {row.note ? <span className="hrms-compare-plan-note">{row.note}</span> : null}
+    </div>
+  );
+}
+
+function CompareMobileCard({ row }: { row: ComparisonRow }) {
+  return (
+    <article className={`hrms-compare-card${row.isThehxd ? " hrms-compare-card--thehxd" : ""}`}>
+      <ProviderBlock row={row} />
+
+      <div className="hrms-compare-card-metrics">
+        <div className="hrms-compare-card-metric">
+          <p className="hrms-compare-metric-label">Monthly</p>
+          <AnimatedInr value={row.pricing.monthly} className="hrms-compare-metric-value" duration={0.5} />
+          <p className="hrms-compare-metric-note">
+            {row.pricing.oneTime ? "effective / mo" : "per month"}
+          </p>
+        </div>
+        <div className="hrms-compare-card-metric">
+          <p className="hrms-compare-metric-label">Annual</p>
+          <AnimatedInr value={row.pricing.annual} className="hrms-compare-metric-value" duration={0.5} />
+          <p className="hrms-compare-metric-note">
+            {row.pricing.oneTime ? "one-time" : "per year"}
+          </p>
+        </div>
+        <div className="hrms-compare-card-metric">
+          <p className="hrms-compare-metric-label">Saved in 1 year</p>
+          <div className="hrms-compare-metric-savings">
+            <YearSavingsCell value={row.oneYearSavings} isBaseline={!!row.isThehxd} />
+          </div>
+        </div>
+        <div className="hrms-compare-card-metric hrms-compare-card-metric--highlight">
+          <p className="hrms-compare-metric-label">Saved in 5 years</p>
+          <div className="hrms-compare-metric-savings">
+            <YearSavingsCell
+              value={row.fiveYearSavings}
+              isBaseline={!!row.isThehxd}
+              highlight
+            />
+          </div>
+        </div>
+      </div>
+    </article>
   );
 }
 
@@ -148,21 +209,7 @@ export function HrmsPricingComparison() {
                 className={row.isThehxd ? "hrms-compare-row--thehxd" : undefined}
               >
                 <td>
-                  <div className="hrms-compare-provider">
-                    <div className="hrms-compare-provider-top">
-                      <span className="hrms-compare-provider-name">{row.provider}</span>
-                      <span className="hrms-compare-plan-tag">{row.plan}</span>
-                      {row.isThehxd ? (
-                        <span className="hrms-compare-badge hrms-compare-badge--ours">Ours</span>
-                      ) : null}
-                      {row.faceScan && !row.isThehxd ? (
-                        <span className="hrms-compare-badge hrms-compare-badge--face">Face scan</span>
-                      ) : null}
-                    </div>
-                    {row.note ? (
-                      <span className="hrms-compare-plan-note">{row.note}</span>
-                    ) : null}
-                  </div>
+                  <ProviderBlock row={row} />
                 </td>
                 <td>
                   <AnimatedInr
@@ -201,6 +248,12 @@ export function HrmsPricingComparison() {
             ))}
           </tbody>
         </table>
+      </div>
+
+      <div className="hrms-compare-cards" aria-label="Pricing comparison cards">
+        {rows.map((row) => (
+          <CompareMobileCard key={row.id} row={row} />
+        ))}
       </div>
 
       <p className="hrms-compare-source">
