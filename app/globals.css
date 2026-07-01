@@ -2181,7 +2181,12 @@ a.hero-mobile-card {
   }
 
   .section-shell {
-    padding: 64px 80px 72px;
+    padding: 48px 18px 56px;
+  }
+
+  .kiosk-page .section-shell {
+    padding-left: 18px;
+    padding-right: 18px;
   }
 
   .book-page {
@@ -2308,6 +2313,11 @@ a.hero-mobile-card {
     padding-top: 88px;
   }
 
+  .hrms-hero-header {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
   .kiosk-hero-grid,
   .kiosk-split,
   .kiosk-split-reverse,
@@ -2373,8 +2383,15 @@ a.hero-mobile-card {
 
   .hrms-compare-section.section-shell,
   .hrms-compare-section.kiosk-section {
-    padding-top: 28px;
-    padding-bottom: 32px;
+    padding: 18px;
+  }
+
+  .hrms-compare-card {
+    padding: 12px;
+  }
+
+  .hrms-compare-toolbar {
+    padding: 12px;
   }
 
   .hrms-compare {

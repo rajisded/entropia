@@ -33,7 +33,7 @@ function YearSavingsCell({
 
   return (
     <span className={highlight ? "hrms-compare-savings hrms-compare-savings--strong" : "hrms-compare-savings"}>
-      <AnimatedInr value={value} duration={0.5} />
+      <AnimatedInr value={value} duration={0.22} />
     </span>
   );
 }
@@ -64,14 +64,14 @@ function CompareMobileCard({ row }: { row: ComparisonRow }) {
       <div className="hrms-compare-card-metrics">
         <div className="hrms-compare-card-metric">
           <p className="hrms-compare-metric-label">Monthly</p>
-          <AnimatedInr value={row.pricing.monthly} className="hrms-compare-metric-value" duration={0.5} />
+          <AnimatedInr value={row.pricing.monthly} className="hrms-compare-metric-value" />
           <p className="hrms-compare-metric-note">
             {row.pricing.oneTime ? "effective / mo" : "per month"}
           </p>
         </div>
         <div className="hrms-compare-card-metric">
           <p className="hrms-compare-metric-label">Annual</p>
-          <AnimatedInr value={row.pricing.annual} className="hrms-compare-metric-value" duration={0.5} />
+          <AnimatedInr value={row.pricing.annual} className="hrms-compare-metric-value" />
           <p className="hrms-compare-metric-note">
             {row.pricing.oneTime ? "one-time" : "per year"}
           </p>
@@ -124,7 +124,7 @@ export function HrmsPricingComparison() {
           <h2 className="hrms-compare-title">
             What competitors charge at{" "}
             <span>
-              <CountUp to={employees} duration={0.45} /> employees
+              <CountUp to={employees} duration={0.18} /> employees
             </span>
           </h2>
         </div>
@@ -177,7 +177,7 @@ export function HrmsPricingComparison() {
         <div className="hrms-compare-highlight">
           <span className="hrms-compare-highlight-label">5-year savings</span>
           <strong>
-            <AnimatedInr value={mostExpensive.fiveYearSavings} duration={0.5} />
+            <AnimatedInr value={mostExpensive.fiveYearSavings} />
           </strong>
           <span className="hrms-compare-highlight-sub">saved in 5 yrs vs {mostExpensive.provider}</span>
         </div>
@@ -186,7 +186,7 @@ export function HrmsPricingComparison() {
       {lensRow && lensRow.oneYearSavings > 0 ? (
         <p className="hrms-compare-lens-note">
           vs PagarBook Lens (face scan): save{" "}
-          <AnimatedInr value={lensRow.fiveYearSavings} duration={0.5} />
+          <AnimatedInr value={lensRow.fiveYearSavings} />
           {" "}over 5 years with Thehxd
         </p>
       ) : null}
@@ -215,7 +215,6 @@ export function HrmsPricingComparison() {
                   <AnimatedInr
                     value={row.pricing.monthly}
                     className="hrms-compare-price"
-                    duration={0.5}
                   />
                   <span className="hrms-compare-price-note">
                     {row.pricing.oneTime ? "eff. / mo" : "/ mo"}
@@ -225,7 +224,6 @@ export function HrmsPricingComparison() {
                   <AnimatedInr
                     value={row.pricing.annual}
                     className="hrms-compare-price"
-                    duration={0.5}
                   />
                   <span className="hrms-compare-price-note">
                     {row.pricing.oneTime ? "one-time" : "/ yr"}

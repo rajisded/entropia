@@ -16,7 +16,7 @@ export interface CountUpProps {
 export function CountUp({
   to,
   from,
-  duration = 0.55,
+  duration = 0.22,
   className = "",
   locale = "en-IN",
   prefix = "",
@@ -25,12 +25,12 @@ export function CountUp({
   const ref = useRef<HTMLSpanElement>(null);
   const motionValue = useMotionValue(from ?? to);
 
-  const damping = 20 + 40 * (1 / duration);
-  const stiffness = 100 * (1 / duration);
-
   const springValue = useSpring(motionValue, {
-    damping,
-    stiffness,
+    stiffness: 320 / duration,
+    damping: 36 + 24 / duration,
+    mass: 0.35,
+    restDelta: 1,
+    restSpeed: 40,
   });
 
   const formatValue = useCallback(
@@ -67,7 +67,7 @@ export function CountUp({
 export function AnimatedInr({
   value,
   className,
-  duration = 0.55,
+  duration = 0.22,
 }: {
   value: number;
   className?: string;
