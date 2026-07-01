@@ -2386,10 +2386,6 @@ a.hero-mobile-card {
     padding: 18px;
   }
 
-  .hrms-compare-card {
-    padding: 12px;
-  }
-
   .hrms-compare-toolbar {
     padding: 12px;
   }
@@ -2420,13 +2416,7 @@ a.hero-mobile-card {
   }
 
   .hrms-compare-table-wrap {
-    display: none;
-  }
-
-  .hrms-compare-cards {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 12px;
+    -webkit-overflow-scrolling: touch;
   }
 
   .hrms-compare {
