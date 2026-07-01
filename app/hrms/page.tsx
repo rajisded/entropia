@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { JsonLd } from "../components/json-ld";
 import { Footer } from "../components/footer";
+import { HrmsPricingComparison } from "../components/hrms-pricing-comparison";
 import { HrmsPricingPlans } from "../components/hrms-pricing-plans";
 import { PageGrid } from "../components/page-grid";
 import { SiteNavbar } from "../components/site-navbar";
@@ -125,7 +126,7 @@ export default function HrmsPage() {
                 <Link href={BOOK_DEMO_URL} className="kiosk-secondary-cta">
                   Book a call
                 </Link>
-                <Link href="/#pricing" className="kiosk-secondary-cta">
+                <Link href="#pricing" className="kiosk-secondary-cta">
                   View pricing
                 </Link>
               </div>
@@ -345,6 +346,10 @@ export default function HrmsPage() {
               />
             </div>
           </div>
+        </section>
+
+        <section id="pricing" className="section-grid-lines kiosk-section section-shell hrms-compare-section">
+          <HrmsPricingComparison />
         </section>
 
         <section className="section-grid-lines kiosk-section section-shell">

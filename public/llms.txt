@@ -36,7 +36,7 @@ restaurant kiosk software India, self ordering kiosk, PetPooja kiosk integration
 ## Entropia HRMS
 
 - Product page: https://entropiacity.com/hrms
-- Live demo: https://hrms.entropia.in/login?from=%2Fdashboard
+- Live demo: https://hrms.entropiacity.com/login?from=%2Fdashboard
 - Pricing: Rs 99 per employee per month (Employee Plan)
 - White-label lifetime license available on request
 - AI face scan attendance with sub-second identity verification
