@@ -78,7 +78,7 @@ export default function HrmsPage() {
       <SiteNavbar />
 
       <main className="kiosk-page">
-        <section className="kiosk-hero">
+        <section id="hero" className="kiosk-hero">
           <div className="hrms-hero-header">
             <h1 className="hrms-hero-brand">Entropia HRMS</h1>
             <h2 className="hrms-hero-tagline">
@@ -126,7 +126,7 @@ export default function HrmsPage() {
                 <Link href={BOOK_DEMO_URL} className="kiosk-secondary-cta">
                   Book a call
                 </Link>
-                <Link href="#pricing" className="kiosk-secondary-cta">
+                <Link href="#comparison" className="kiosk-secondary-cta">
                   View pricing
                 </Link>
               </div>
@@ -146,7 +146,7 @@ export default function HrmsPage() {
           </div>
         </section>
 
-        <section className="section-grid-lines kiosk-section section-shell">
+        <section id="how-it-works" className="section-grid-lines kiosk-section section-shell">
           <div className="kiosk-section-header" style={{ textAlign: "center", maxWidth: 560, margin: "0 auto 48px" }}>
             <p className="kiosk-eyebrow" style={{ color: "#6366f1" }}>How it works</p>
             <h2 className="kiosk-section-title">
@@ -167,7 +167,7 @@ export default function HrmsPage() {
           </div>
         </section>
 
-        <section className="section-grid-lines kiosk-section section-shell">
+        <section id="screens" className="section-grid-lines kiosk-section section-shell">
           <div className="kiosk-section-header">
             <p className="kiosk-eyebrow" style={{ color: "#6366f1" }}>Product screens</p>
             <h2 className="kiosk-section-title">
@@ -194,7 +194,7 @@ export default function HrmsPage() {
           </div>
         </section>
 
-        <section className="section-grid-lines kiosk-section section-shell">
+        <section id="face-scan" className="section-grid-lines kiosk-section section-shell">
           <div className="kiosk-split hrms-split">
             <div>
               <p className="kiosk-eyebrow" style={{ color: "#6366f1" }}>Face scan attendance</p>
@@ -223,7 +223,7 @@ export default function HrmsPage() {
           </div>
         </section>
 
-        <section className="section-grid-lines kiosk-section section-shell">
+        <section id="payroll" className="section-grid-lines kiosk-section section-shell">
           <div className="kiosk-split kiosk-split-reverse hrms-split">
             <div>
               <p className="kiosk-eyebrow" style={{ color: "#6366f1" }}>Formula engine + payroll</p>
@@ -252,7 +252,7 @@ export default function HrmsPage() {
           </div>
         </section>
 
-        <section className="section-grid-lines kiosk-section section-shell">
+        <section id="bottom-line" className="section-grid-lines kiosk-section section-shell">
           <div className="hrms-highlight-band">
             <div>
               <p className="kiosk-eyebrow" style={{ color: "rgba(99,102,241,0.8)", marginBottom: 12 }}>The bottom line</p>
@@ -286,7 +286,7 @@ export default function HrmsPage() {
           </div>
         </section>
 
-        <section className="section-grid-lines kiosk-section section-shell">
+        <section id="capabilities" className="section-grid-lines kiosk-section section-shell">
           <div className="kiosk-section-header">
             <p className="kiosk-eyebrow" style={{ color: "#6366f1" }}>Capabilities</p>
             <h2 className="kiosk-section-title">
@@ -312,7 +312,7 @@ export default function HrmsPage() {
           </div>
         </section>
 
-        <section className="section-grid-lines kiosk-section section-shell">
+        <section id="customer-story" className="section-grid-lines kiosk-section section-shell">
           <div className="kiosk-testimonial-grid hrms-testimonial-grid">
             <div>
               <p className="kiosk-eyebrow" style={{ color: "#6366f1" }}>Customer story</p>
@@ -348,11 +348,11 @@ export default function HrmsPage() {
           </div>
         </section>
 
-        <section id="pricing" className="section-grid-lines kiosk-section section-shell hrms-compare-section">
+        <section id="comparison" className="section-grid-lines kiosk-section section-shell hrms-compare-section">
           <HrmsPricingComparison />
         </section>
 
-        <section className="section-grid-lines kiosk-section section-shell">
+        <section id="plans" className="section-grid-lines kiosk-section section-shell">
           <HrmsPricingPlans />
         </section>
       </main>
